@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <!--Default Accordion-->
+        <!--===================================================-->
+        <div class="panel-group accordion" id="accordion">
+            <div class="panel panel-bordered panel-primary">
+
+                <!--Accordion title-->
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-parent="#accordion" data-toggle="collapse" href="#collapseOne">Ajouter Saison</a>
+                    </h4>
+                </div>
+
+                <!--Accordion content-->
+                <div class="panel-collapse collapse in" id="collapseOne">
+                    <div class="panel-body">
+                      <app-add-saison></app-add-saison>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-bordered panel-primary">
+
+                <!--Accordion title-->
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Définir Saison </a>
+                    </h4>
+                </div>
+
+                <!--Accordion content-->
+                <div class="panel-collapse collapse" id="collapseTwo">
+                    <div class="panel-body">
+                       <app-affecter-date-saison></app-affecter-date-saison>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-bordered panel-primary">
+
+                <!--Accordion title-->
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-parent="#accordion" data-toggle="collapse" href="#collapseThree">Collapsible Group Item #3</a>
+                    </h4>
+                </div>
+
+                <!--Accordion content-->
+                <div class="panel-collapse collapse" id="collapseThree">
+                    <div class="panel-body">
+                      <app-ajouter-tarif></app-ajouter-tarif>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--===================================================-->
+        <!--End Default Accordion-->
+
+    </div>
+    
+        <!--===================================================-->
+        <!--End Info Accordion -->
+  
+</div>
