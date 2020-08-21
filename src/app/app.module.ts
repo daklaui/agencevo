@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule }   from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,6 +17,7 @@ import { AffecterDateSaisonComponent } from './affecter-date-saison/affecter-dat
 import { AjouterTarifComponent } from './ajouter-tarif/ajouter-tarif.component';
 import { AjouterTarifFormComponent } from './ajouter-tarif-form/ajouter-tarif-form.component';
 import { ConfigurationAPKComponent } from './configuration-apk/configuration-apk.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import { ConfigurationAPKComponent } from './configuration-apk/configuration-apk
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,  StarRatingModule.forRoot()
+    AppRoutingModule,  StarRatingModule.forRoot(),FormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

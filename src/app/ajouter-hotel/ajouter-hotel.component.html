@@ -13,26 +13,28 @@
             <div class="panel-body">
     
                 <h3>Ajouter Hôtel</h3>
-                	<hr class="new-section-sm bord-no">
-<div class="row">
+   
+                <hr class="new-section-sm bord-no">
+                <form  (ngSubmit)="onSubmit(f)" #f="ngForm" >
+                <div class="row">
 
 <div class="col-lg-8">
     <div class="col-md-6">
         <div class="form-group">
             <strong class="text-main"> Nom de l'hôtel </strong>
-          <input type="text" class="form-control" id="Nomhotel" placeholder="Entrer le nom de l'hôtel">
+          <input type="text" class="form-control" ngModel #Nom_Hotel="ngModel" name="Nom_Hotel" placeholder="Entrer le nom de l'hôtel">
         </div>
         <div class="form-group">
             <strong class="text-main"> Devise </strong>
         
-         <select class="form-control">
-           <option>TND</option>
+         <select class="form-control" ngModel #Devise="ngModel" name="Devise" >
+           <option value="TND">TND</option>
          </select>
         </div>
         <div class="form-group">
             <strong class="text-main"> Chaine d'hôtel </strong>
         
-         <select class="form-control">
+         <select class="form-control" ngModel #Chaine_H="ngModel" name="Chaine_H">
            <option>hôtel</option>
          </select>
         </div>
@@ -40,7 +42,7 @@
         <div class="form-group">
             <strong class="text-main"> Heure d'entrée </strong>
           
-                        <input type="time" class="form-control">
+                        <input type="time" class="form-control" ngModel #H_Arr="ngModel" name="H_Arr">
                       </div>
       </div>
 
@@ -52,27 +54,27 @@
         <div class="form-group">
             <strong class="text-main"> Type d'hôtel </strong>
           
-         <select class="form-control">
+         <select class="form-control" ngModel #Type_H="ngModel" name="Type_H">
            <option>hôtel</option>
          </select>
         </div>
         <div class="form-group">
             <strong class="text-main"> Catégorie </strong>
         
-          <star-rating class="form-control" [starType]="'svg'" [rating]="0" id="Catégorie"></star-rating>
-        
+          <star-rating class="form-control"  (ratingChange)="onRatingChange($event)" [starType]="'svg'" [rating]="0" ></star-rating>
+         
         </div>
         <div class="form-group">
             <strong class="text-main"> Langue </strong>
       
-         <select class="form-control">
-           <option>FR</option>
+         <select class="form-control" ngModel #Langue="ngModel" name="Langue">
+           <option value="FR">FR</option>
          </select>
         </div>
         <div class="form-group">
             <strong class="text-main"> Heure de départ </strong>
          
-                        <input type="time" class="form-control">
+                        <input type="time" class="form-control" ngModel #H_Depart="ngModel" name="H_Depart">
                       </div>
       
       </div>
@@ -83,21 +85,21 @@
             <strong class="text-main"> Distance centre ville </strong>
         
       
-            <input type="number" class="form-control" id="" placeholder="">
+            <input type="number" class="form-control" id="" placeholder="" ngModel #Distance_Centre_V="ngModel" name="Distance_Centre_V">
            
         </div>
         <div class="col-md-4 form-group ">
             <strong class="text-main"> Distance aeroport </strong>
         
       
-            <input type="number" class="form-control" id="" placeholder="">
+            <input type="number" class="form-control" id="" placeholder="" ngModel #Distance_A="ngModel" name="Distance_A">
            
         </div>
         <div class="col-md-4 form-group ">
             <strong class="text-main"> longitude latitude </strong>
         
       
-            <input type="text" class="form-control" id="" placeholder="">
+            <input type="text" class="form-control" id="" placeholder="" ngModel #Longitude_Laitetude="ngModel" name="Longitude_Laitetude">
            
         </div>
       </div>
@@ -107,7 +109,7 @@
             <strong class="text-main"> Description </strong>
         
       
-                <textarea class="form-control" rows="5" placeholder="Enter ..."></textarea>
+                <textarea class="form-control" rows="5" placeholder="Enter ..." ngModel #Presentation="ngModel" name="Presentation"></textarea>
            
         </div>
       </div>
@@ -117,41 +119,41 @@
     <div class="form-group">
         <strong class="text-main"> Email </strong>
        
-        <input type="email" class="form-control" id="Email" placeholder="Email">
+        <input type="email" class="form-control"  placeholder="Email" ngModel #Email="ngModel" name="Email">
       </div> 
           <div class="form-group">
             <strong class="text-main"> Adresse </strong>
           
-            <input type="text" class="form-control" id="Adresse" placeholder="Adresse">
+            <input type="text" class="form-control"  placeholder="Adresse" ngModel #Adresse="ngModel" name="Adresse">
           </div>
           <div class="form-group">
             <strong class="text-main"> Site internet </strong>
            
-            <input type="text" class="form-control" id="stInternet" placeholder="Site internet">
+            <input type="text" class="form-control"  placeholder="Site internet" ngModel #Site_Web="ngModel" name="Site_Web">
           </div>
           <div class="form-group">
             <strong class="text-main">Pays</strong>
          
-           <select class="form-control">
+           <select class="form-control" ngModel #Pays="ngModel" name="Pays">
              <option>Tunisie</option>
            </select>
           </div>
           <div class="form-group">
             <strong class="text-main">Code postal</strong>
           
-           <select class="form-control">
-             <option>Beni khaled | 8021</option>
+           <select class="form-control" ngModel #Code_Postal="ngModel" name="Code_Postal">
+             <option value="8021">Beni khaled | 8021</option>
            </select>
           </div>
           <div class="form-group">
             <strong class="text-main">Téléphone</strong>
            
-            <input type="number" class="form-control" id="Téléphone" placeholder="Téléphone">
+            <input type="number" class="form-control"  placeholder="Téléphone" ngModel #Telephone="ngModel" name="Telephone">
           </div>
           <div class="form-group">
-            <strong class="text-main">Fax</strong>
+            <strong class="text-main">Fixe</strong>
            
-            <input type="number" class="form-control" id="Fax" placeholder="Fax">
+            <input type="number" class="form-control"  placeholder="Fixe" ngModel #Fixe="ngModel" name="Fixe">
           </div>
 </div>
 
@@ -161,11 +163,11 @@
 
 
 <div class="col-lg-4"></div>
-<div class="col-lg-4"><button type="button" class="btn btn-primary btn-block">Enregistrer</button> </div>
+<div class="col-lg-4"><button type="submit" class="btn btn-primary btn-block">Enregistrer</button> </div>
 <div class="col-lg-4"></div>
       
 </div>
-               
+        </form>       
             </div>
         </div>
         <!---------------------------------->
