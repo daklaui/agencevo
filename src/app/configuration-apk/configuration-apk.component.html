@@ -13,26 +13,27 @@
             <div class="panel-body">
     
                 <h3>Parametrage de l'application</h3>
-                	<hr class="new-section-sm bord-no">
+                    <hr class="new-section-sm bord-no">
+                    <form  (ngSubmit)="onSubmit(f)" #f="ngForm" >
 <div class="row">
 
 <div class="col-lg-12">
-
+  
         <div class="col-md-3 form-group">
             <strong class="text-main"> Titre </strong>
-          <input type="text" class="form-control" id="Titre" placeholder="">
+          <input type="text" class="form-control" ngModel #LIB_LIST_VAL="ngModel" name="LIB_LIST_VAL"  placeholder="">
         </div>
         <div class="col-md-3 form-group">
             <strong class="text-main"> Description </strong>
         
-            <textarea class="form-control" rows="2" placeholder="Enter ..."></textarea>
+            <textarea class="form-control" rows="2" ngModel #COM_LIST_VAL="ngModel" name="COM_LIST_VAL" placeholder="Enter ..."></textarea>
         </div>
         <div class="col-md-3 form-group">
             <strong class="text-main"> Categorie </strong>
         
-         <select class="form-control">
+         <select class="form-control"  ngModel #TYP_LIST_VAL="ngModel" name="TYP_LIST_VAL">
            <option value="Chaine_Hotel">Chaine_Hotel</option>
-           <option value="Pays">Pays</option>
+           <option value="Type_Hotel">Type_Hotel</option>
            <option value="Type_Chambre">Type_Chambre</option>
            <option value="Vue_Chambre">Vue_Chambre</option>
            <option value="Type_Vente">Type_Vente</option>
@@ -46,7 +47,7 @@
      
         <div class="col-md-3 form-group">
             <strong class="text-main"> Abréviation </strong>
-          <input type="text" class="form-control" id="Abréviation" placeholder="">
+          <input type="text" class="form-control" ngModel #ABR_LIST_VAL="ngModel" name="ABR_LIST_VAL" placeholder="">
         </div>
  
 
@@ -67,11 +68,11 @@
 
 
 <div class="col-lg-4"></div>
-<div class="col-lg-4"><button type="button" class="btn btn-primary btn-block">Enregistrer</button> </div>
+<div class="col-lg-4"><button type="submit" class="btn btn-primary btn-block">Enregistrer</button> </div>
 <div class="col-lg-4"></div>
       
 </div>
-               
+</form>      
             </div>
         </div>
         <!---------------------------------->
@@ -98,12 +99,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Tunisie</td>
-                <td><div class="label label-table label-success">Pays</div></td>
-                <td>TN</td>
-                <td><button type="button" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></button></td>
-                <td><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></button></td>
+            <tr  *ngFor="let valeur of Tr_Liste_Val">
+                <td> {{valeur.LIB_LIST_VAL}}</td>
+                <td><div class="label label-table label-success"> {{valeur.TYP_LIST_VAL}}</div></td>
+                <td>{{valeur.ABR_LIST_VAL}}</td>
+                <td><button type="button" class="btn btn-default btn-sm" (click)="updateValeur(valeur.ID_LIST_VAL)"><i class="fa fa-edit"></i></button></td>
+                <td><button type="button" class="btn btn-danger btn-sm" (click)="deleteValeur(valeur.ID_LIST_VAL)"><i class="fa fa-remove"></i></button></td>
             </tr>
            
             </tbody>

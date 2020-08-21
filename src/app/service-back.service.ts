@@ -10,9 +10,64 @@ export class ServiceBackService {
   }
   
  
-  async GetListeCP():Promise<any>
+   GetListeCP()
   {
-   console.log("test");
-    return await this.http.get("https://127.0.0.1:44371/GetListeCP").toPromise();
+    return  this.http.get("http://localhost:54375/GetListeCP").toPromise();
+  }
+  GetListeChaineHotels()
+  {
+    return  this.http.get("http://localhost:54375/GetChaineHotels").toPromise();
+  }
+  GetListeTypeHotels()
+  {
+    return  this.http.get("http://localhost:54375/GetTypeHotel").toPromise();
+  }
+   Ajouter_Config(config:any)
+  {
+    return  this.http.post("http://localhost:54375/Configuration",config).toPromise();
+  }
+  Ajouter_Hotel(hotel:any)
+  {
+    return  this.http.post("http://localhost:54375/Ajouter_Hotel",hotel).toPromise();
+  }
+   Get_Config()
+  {
+    return  this.http.get("http://localhost:54375/Configuration_Get").toPromise();
+  }
+  Get_Config_With_Id(id:Number)
+  {
+    return  this.http.get("http://localhost:54375/Configuration_Get/"+id).toPromise();
+  }
+  Update_Config(config:any)
+  {
+    return  this.http.put("http://localhost:54375/Configuration_Update",config).toPromise();
+  }
+  Update_Hotel(hotel:any)
+  {
+    return  this.http.put("http://localhost:54375/Update_Hotel",hotel).toPromise();
+  }
+  Delete_Config(id:Number)
+  {
+    return  this.http.delete("http://localhost:54375/Configuration_Delete/"+id).toPromise();
+  }
+  GetListeOffPays()
+  {
+    return  this.http.get("https://restcountries.eu/rest/v2/all").toPromise();
+  }
+  GetDevise(pay:String)
+  {
+    return  this.http.get("https://restcountries.eu/rest/v2/name/"+pay).toPromise();
+  }
+  GetHotelWithId(id:Number)
+  {
+    return  this.http.get("http://localhost:54375/GetHotel/"+id).toPromise();
+  }
+  GetEquipement()
+  {
+    return  this.http.get("http://localhost:54375/GetEquipement").toPromise();
+  }
+  uploadeImage(file:FormData)
+  {
+    return  this.http.post("http://localhost:54375/UploadePhoto",file).toPromise();
   }
 }

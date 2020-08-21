@@ -18,36 +18,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><a href="#fakelink" class="btn-link">Order #53451</a></td>
+                            <tr *ngFor="let equipment of listeEquipement">
+                                <td>{{equipment.LIB_LIST_VAL}}</td>
                                 <td>    <star-rating class="form-control" [starType]="'svg'" [rating]="0" id="Catégorie"></star-rating></td>
                                 
                             </tr>
-                            <tr>
-                                <td><a href="#fakelink" class="btn-link">Order #53452</a></td>
-                                <td>    <star-rating class="form-control" [starType]="'svg'" [rating]="0" id="Catégorie"></star-rating></td>
-                              
-                            </tr>
-                            <tr>
-                                <td><a href="#fakelink" class="btn-link">Order #53453</a></td>
-                                <td>    <star-rating class="form-control" [starType]="'svg'" [rating]="0" id="Catégorie"></star-rating></td>
-                            
-                            </tr>
-                            <tr>
-                                <td><a href="#fakelink" class="btn-link">Order #53454</a></td>
-                                <td>    <star-rating class="form-control" [starType]="'svg'" [rating]="0" id="Catégorie"></star-rating></td>
-                                
-                            </tr>
-                            <tr>
-                                <td><a href="#fakelink" class="btn-link">Order #53455</a></td>
-                                <td>    <star-rating class="form-control" [starType]="'svg'" [rating]="0" id="Catégorie"></star-rating></td>
-                               
-                            </tr>
-                            <tr>
-                                <td><a href="#fakelink" class="btn-link">Order #53456</a></td>
-                                <td>    <star-rating class="form-control" [starType]="'svg'" [rating]="0" id="Catégorie"></star-rating></td>
-                              
-                            </tr>
+                           
                         </tbody>
                     </table>
                 </div>

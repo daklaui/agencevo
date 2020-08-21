@@ -26,44 +26,46 @@
               
             ],
             "styles": [
-              "node_modules/TemplateN/css/bootstrap.min.css",
-              "node_modules/TemplateN/css/nifty.min.css",
-              "node_modules/TemplateN/css/demo/nifty-demo-icons.min.css",
-              "node_modules/TemplateN/plugins/pace/pace.min.css",
-              "node_modules/TemplateN/css/demo/nifty-demo.min.css",
-           
-              
-              "node_modules/TemplateN/plugins/unitegallery/css/unitegallery.min.css",
-              "node_modules/TemplateN/plugins/unitegallery/themes/default/ug-theme-default.css",
-              "node_modules/TemplateN/plugins/dropzone/dropzone.min.css",
-              "node_modules/TemplateN/plugins/datatables/media/css/dataTables.bootstrap.css",
-              "node_modules/TemplateN/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css",
-              "node_modules/TemplateN/plugins/bootstrap-table/bootstrap-table.min.css",
-              "node_modules/TemplateN/plugins/font-awesome/css/font-awesome.min.css",
-              "node_modules/TemplateN/plugins/x-editable/css/bootstrap-editable.css",
-              "src/styles.css"
+              "TemplateN/css/bootstrap.min.css",
+              "TemplateN/css/nifty.min.css",
+              "TemplateN/css/demo/nifty-demo-icons.min.css",
+              "TemplateN/plugins/pace/pace.min.css",
+              "TemplateN/css/demo/nifty-demo.min.css",
+
+              "TemplateN/plugins/unitegallery/css/unitegallery.min.css",
+              "TemplateN/plugins/unitegallery/themes/default/ug-theme-default.css",
+              "TemplateN/plugins/dropzone/dropzone.min.css",
+              "TemplateN/plugins/datatables/media/css/dataTables.bootstrap.css",
+              "TemplateN/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css",
+              "TemplateN/plugins/bootstrap-table/bootstrap-table.min.css",
+              "TemplateN/plugins/font-awesome/css/font-awesome.min.css",
+              "TemplateN/plugins/x-editable/css/bootstrap-editable.css",
+              "src/styles.css",
+              "node_modules/sweetalert2/dist/sweetalert2.css"
             ],
             "scripts": [
-              "node_modules/TemplateN/js/jquery.min.js",
-              "node_modules/TemplateN/js/bootstrap.min.js",
-              "node_modules/TemplateN/js/nifty.min.js",
-              "node_modules/TemplateN/plugins/unitegallery/js/unitegallery.min.js",
-              "node_modules/TemplateN/plugins/unitegallery/themes/default/ug-theme-default.js",
-              "node_modules/TemplateN/js/Myfile.js",
-              "node_modules/TemplateN/plugins/flot-charts/jquery.flot.min.js",
-              "node_modules/TemplateN/plugins/flot-charts/jquery.flot.resize.min.js",
-              "node_modules/TemplateN/plugins/flot-charts/jquery.flot.tooltip.min.js",
-              "node_modules/TemplateN/plugins/sparkline/jquery.sparkline.min.js",
-              "node_modules/TemplateN/js/demo/dashboard.js",
-              "node_modules/TemplateN/plugins/pace/pace.min.js",
-              "node_modules/TemplateN/plugins/dropzone/dropzone.min.js",
-              "node_modules/TemplateN/plugins/datatables/media/js/jquery.dataTables.js",
-              "node_modules/TemplateN/plugins/datatables/media/js/dataTables.bootstrap.js",
-              "node_modules/TemplateN/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js",
-              "node_modules/TemplateN/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js",
-              "node_modules/TemplateN/plugins/x-editable/js/bootstrap-editable.min.js",
-              "node_modules/TemplateN/plugins/bootstrap-table/bootstrap-table.min.js",
-              "node_modules/TemplateN/plugins/bootstrap-table/extensions/editable/bootstrap-table-editable.js"
+              "TemplateN/js/jquery.min.js",
+              "node_modules/sweetalert2/dist/sweetalert2.js",
+              "TemplateN/js/bootstrap.min.js",
+              "TemplateN/js/nifty.min.js",
+              "TemplateN/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js",
+              "TemplateN/plugins/unitegallery/js/unitegallery.min.js",
+              "TemplateN/plugins/unitegallery/themes/default/ug-theme-default.js",
+              "TemplateN/js/Myfile.js",
+              "TemplateN/plugins/flot-charts/jquery.flot.min.js",
+              "TemplateN/plugins/flot-charts/jquery.flot.resize.min.js",
+              "TemplateN/plugins/flot-charts/jquery.flot.tooltip.min.js",
+              "TemplateN/plugins/sparkline/jquery.sparkline.min.js",
+              "TemplateN/js/demo/dashboard.js",
+              "TemplateN/plugins/datatables/media/js/jquery.dataTables.js",
+              "TemplateN/plugins/datatables/media/js/dataTables.bootstrap.js",
+              "TemplateN/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js",
+           
+              "TemplateN/plugins/x-editable/js/bootstrap-editable.min.js",
+              "TemplateN/plugins/bootstrap-table/bootstrap-table.min.js",
+              "TemplateN/plugins/bootstrap-table/extensions/editable/bootstrap-table-editable.js"
+             
+
             
 
            

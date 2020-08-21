@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ServiceBackService } from '../service-back.service';
 
 @Component({
   selector: 'app-equipements',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./equipements.component.css']
 })
 export class EquipementsComponent implements OnInit {
-
-  constructor() { }
+listeEquipement:any=[];
+@Input() id: number ;
+  constructor(private  serviceBack:ServiceBackService) { }
 
   ngOnInit() {
+    this.serviceBack.GetEquipement().then((data)=>{
+      this.listeEquipement=data;
+      console.log("Promise resolved with: equipement " + JSON.stringify(data));
+    }).catch((error)=>{
+      console.log("Promise rejected with equipement " + JSON.stringify(error));
+    });
+    
   }
 
 }

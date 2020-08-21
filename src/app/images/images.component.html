@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-12">
         <div class="panel">
             <div class="panel-heading">
                 <h3 class="panel-title">Default theme</h3>
@@ -124,67 +124,27 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="panel">
-            <div class="panel-heading">
-                <h3 class="panel-title">Bootstrap theme</h3>
+
+
+
+</div>
+
+
+
+<div class="col-lg-12">
+  
+
+    <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+        <ngx-dropzone-label>
+            <div>
+                <h2>Ajouter image</h2>
             </div>
-            <div class="panel-body">
-        
-                <!--Dropzonejs using Bootstrap theme-->
-                <!--===================================================-->
-                <p>This is a bootstrap theme of Dropzone.js with a completely different user experience.</p>
-        
-                <div class="bord-top pad-ver">
-                    <!-- The fileinput-button span is used to style the file input field as button -->
-                    <span class="btn btn-success fileinput-button dz-clickable">
-                        <i class="fa fa-plus"></i>
-                        <span>Add files...</span>
-                    </span>
-        
-                    <div class="btn-group pull-right">
-                        <button id="dz-upload-btn" class="btn btn-primary" type="submit" disabled>
-                            <i class="fa fa-upload-cloud"></i> Upload
-                        </button>
-                        <button id="dz-remove-btn" class="btn btn-danger cancel" type="reset" disabled>
-                            <i class="demo-psi-trash"></i>
-                        </button>
-                    </div>
-                </div>
-        
-        
-                <div id="dz-previews">
-                    <div id="dz-template" class="pad-top bord-top">
-                        <div class="media">
-                            <div class="media-body">
-                                 <!--This is used as the file preview template-->
-                                <div class="media-block">
-                                    <div class="media-left">
-                                        <img class="dz-img" data-dz-thumbnail>
-                                    </div>
-                                    <div class="media-body">
-                                        <p class="text-main text-bold mar-no text-overflow" data-dz-name></p>
-                                        <span class="dz-error text-danger text-sm" data-dz-errormessage></span>
-                                        <p class="text-sm" data-dz-size></p>
-                                        <div id="dz-total-progress" style="opacity:0">
-                                             <div class="progress progress-xs active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                                                <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media-right">
-                                <button data-dz-remove class="btn btn-xs btn-danger dz-cancel"><i class="demo-psi-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--===================================================-->
-                <!--End Dropzonejs using Bootstrap theme-->
-        
-        
-            </div>
-        </div>
+        </ngx-dropzone-label>
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+        </ngx-dropzone-image-preview>
     </div>
 </div>
+
+
+    

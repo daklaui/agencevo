@@ -18,6 +18,7 @@ import { AjouterTarifComponent } from './ajouter-tarif/ajouter-tarif.component';
 import { AjouterTarifFormComponent } from './ajouter-tarif-form/ajouter-tarif-form.component';
 import { ConfigurationAPKComponent } from './configuration-apk/configuration-apk.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,  StarRatingModule.forRoot(),FormsModule,HttpClientModule
+    AppRoutingModule,  StarRatingModule.forRoot(),FormsModule,HttpClientModule,NgxDropzoneModule
   ],
   providers: [],
   bootstrap: [AppComponent]

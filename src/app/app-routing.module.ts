@@ -7,7 +7,7 @@ import { ConfigurationAPKComponent } from './configuration-apk/configuration-apk
 
 const routes: Routes = [
   { path: 'Ajouter_Hotel', component:AjouterHotelComponent },
-  { path: 'Hotel', component:ParametrageHotelComponent },
+  { path: 'Hotel/:id', component:ParametrageHotelComponent },
   { path: 'configuration-apk', component:ConfigurationAPKComponent },
 ];
 

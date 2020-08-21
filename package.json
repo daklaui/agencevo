@@ -21,7 +21,9 @@
     "@angular/router": "~8.2.9",
     "angular-star-rating": "^4.0.0-beta.3",
     "css-star-rating": "^1.2.4",
+    "ngx-dropzone": "^2.2.2",
     "rxjs": "~6.4.0",
+    "sweetalert2": "^9.17.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
