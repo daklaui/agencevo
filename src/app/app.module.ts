@@ -19,6 +19,11 @@ import { AjouterTarifFormComponent } from './ajouter-tarif-form/ajouter-tarif-fo
 import { ConfigurationAPKComponent } from './configuration-apk/configuration-apk.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { FormAjouterHotelComponent } from './form-ajouter-hotel/form-ajouter-hotel.component';
+import { PresentationComponent } from './presentation/presentation.component';
+import { AjouterTitrePresentationComponent } from './ajouter-titre-presentation/ajouter-titre-presentation.component';
+import { ChambresComponent } from './chambres/chambres.component';
+import { AddChildModalComponent } from './add-child-modal/add-child-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +39,12 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     AffecterDateSaisonComponent,
     AjouterTarifComponent,
     AjouterTarifFormComponent,
-    ConfigurationAPKComponent
+    ConfigurationAPKComponent,
+    FormAjouterHotelComponent,
+    PresentationComponent,
+    AjouterTitrePresentationComponent,
+    ChambresComponent,
+    AddChildModalComponent
   ],
   imports: [
     BrowserModule,

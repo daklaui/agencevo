@@ -1,0 +1,33 @@
+
+    <!--No Label Form-->
+    <!--===================================================-->
+    <form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm" *ngIf="Pre==undefined">
+        <div class="panel-body">
+            <div class="row">
+                <div class="mar-btm">
+                    <input type="text" class="form-control" placeholder="Titre"  ngModel #Titre="ngModel" name="Titre">
+                </div>
+            </div>
+            <textarea placeholder="Text" rows="13" class="form-control"  ngModel #TextTitre="ngModel" name="TextTitre"></textarea>
+        </div>
+        <div class="panel-footer text-right">
+            <button class="btn btn-default" type="submit">Enregistrer</button>
+        </div>
+    </form>
+
+    <form class="form-horizontal"*ngIf="Pre!=undefined">
+        <div class="panel-body">
+            <div class="row">
+                <div class="mar-btm">
+                    <input type="text" class="form-control" placeholder="Titre" #Titre  [value]="Pre.ob.Titre">
+                    <input type="hidden" #Id  [value]="Pre.id">
+                </div>
+            </div>
+            <textarea placeholder="Text" rows="13" class="form-control" #Text  >{{Pre.ob.Text}}</textarea>
+        </div>
+        <div class="panel-footer text-right">
+            <button class="btn btn-default" type="button" (click)="UpdateOb(Id.value,Titre.value,Text.value)">Modifier</button>
+        </div>
+    </form>
+    <!--===================================================-->
+    <!--End No Label Form-->

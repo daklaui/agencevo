@@ -31,7 +31,14 @@
               "TemplateN/css/demo/nifty-demo-icons.min.css",
               "TemplateN/plugins/pace/pace.min.css",
               "TemplateN/css/demo/nifty-demo.min.css",
-
+              "TemplateN/plugins/switchery/switchery.min.css",
+              "TemplateN/plugins/bootstrap-select/bootstrap-select.min.css",
+              "TemplateN/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.css",
+           
+              "TemplateN/plugins/noUiSlider/nouislider.min.css",
+              "TemplateN/plugins/select2/css/select2.min.css",
+              "TemplateN/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css",
+              "TemplateN/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css",
               "TemplateN/plugins/unitegallery/css/unitegallery.min.css",
               "TemplateN/plugins/unitegallery/themes/default/ug-theme-default.css",
               "TemplateN/plugins/dropzone/dropzone.min.css",
@@ -63,7 +70,15 @@
            
               "TemplateN/plugins/x-editable/js/bootstrap-editable.min.js",
               "TemplateN/plugins/bootstrap-table/bootstrap-table.min.js",
-              "TemplateN/plugins/bootstrap-table/extensions/editable/bootstrap-table-editable.js"
+              "TemplateN/plugins/switchery/switchery.min.js",
+              "TemplateN/plugins/bootstrap-select/bootstrap-select.min.js",
+              "TemplateN/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js",
+            
+              "TemplateN/plugins/noUiSlider/nouislider.min.js",
+              "TemplateN/plugins/select2/js/select2.min.js",
+              "TemplateN/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js",
+              "TemplateN/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"
+
              
 
             

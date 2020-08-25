@@ -1,0 +1,90 @@
+
+<!--Partie modal-->
+
+
+<div id="demo-lg-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+                <h4 class="modal-title" id="myLargeModalLabel" *ngIf="IsAdd">Ajouter Titre</h4>
+                <h4 class="modal-title" id="myLargeModalLabel" *ngIf="IsUpdate">Modifier Titre</h4>
+            </div>
+            <div class="modal-body">
+              <app-ajouter-titre-presentation (onNameSelected)="onOutput($event)" *ngIf="IsAdd"></app-ajouter-titre-presentation>
+              <app-add-child-modal (onNameSelected)="OnAddChild($event)" *ngIf="IsAddChild" [Object]="ob"></app-add-child-modal>
+              <app-ajouter-titre-presentation (onNameSelected)="onOutput($event)" [Pre]="ob" *ngIf="IsUpdate"></app-ajouter-titre-presentation>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--End Partie -->
+<!--Partie modal-->
+
+
+
+<!--End Partie -->
+<div class="row">
+    <div class="col-lg-12 pad-btm bord-btm ">
+       
+        <div class="pull-right">
+            <button type="button" class="btn  btn-success" (click)="Pop_Add_Title()">Ajouter Titre</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-12 pad-btm bord-btm ">
+       
+        <div class="tab-base tab-stacked-left">
+					
+            <!--Nav tabs-->
+            <ul class="nav nav-tabs">
+                <li *ngFor="let x of  this.liste ; let i = index">
+                    <a data-toggle="tab" href="#demo-stk-lft-tab-{{i+1}}">{{x.Titre}}</a>
+                </li>
+            </ul>
+        
+            <!--Tabs Content-->
+            <div class="tab-content">
+                <div *ngFor="let x of  this.liste; let i = index" id="demo-stk-lft-tab-{{i+1}}" class="tab-pane fade  in">
+                    <div class="pull-right">
+                        <button type="button" (click)="Update(i)" class="btn btn-danger">Edit</button>
+                        <button type="button" (click)="Add_TitreH2(i)" class="btn btn-primary">Ajouter</button>
+                        <button type="button" (click)="Remove(i)" class="btn btn-default">Remove</button>
+                    </div>
+                    <p class="text-main text-semibold">{{x.Text}}</p>
+                    <hr>
+<!--P-->
+<div class="tab-base tab-stacked-left">
+					
+    <!--Nav tabs-->
+    <ul class="nav nav-tabs">
+        <li *ngFor="let v of  this.liste[i].Sous_Titres ; let j = index">
+            <a data-toggle="tab" href="#demo-stk-lft-tab_Sous-{{j+1}}">{{v.Titre}}</a>
+        </li>
+    </ul>
+
+    <!--Tabs Content-->
+    <div class="tab-content">
+        <div *ngFor="let v of  this.liste[i].Sous_Titres; let j = index" id="demo-stk-lft-tab_Sous-{{j+1}}" class="tab-pane fade  in">
+            <div class="pull-right">
+                <button type="button" (click)="Remove1(i,j)" class="btn btn-default">Remove</button>
+            </div>
+            <p class="text-main text-semibold">{{v.Text}}</p>
+
+        </div>
+    </div>
+</div>
+<!--END-->
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

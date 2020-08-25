@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { RatingChangeEvent } from 'angular-star-rating';
 import { ServiceBackService } from '../service-back.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+declare var $: any;
 @Component({
   selector: 'app-ajouter-hotel',
   templateUrl: './ajouter-hotel.component.html',
@@ -10,16 +11,12 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
   providers:[ServiceBackService]
 })
 export class AjouterHotelComponent implements OnInit {
-  onRatingChangeResult: RatingChangeEvent;
-  ListeOfCodesPostals :any=[];
-  ListeOfPays:any=[];
-  listeOfDevise:any=[];
-  listeOfChanieHotels:any=[];
-  listeOfTypeHotels:any=[];
+  
   constructor(private  serviceBack:ServiceBackService ) { }
  
   ngOnInit() {
-    this.serviceBack.GetListeCP().then((data)=>{
+    this.WizzardForm();
+    /*this.serviceBack.GetListeCP().then((data)=>{
       this.ListeOfCodesPostals=data;
       console.log("Promise resolved with: " + JSON.stringify(data));
     }).catch((error)=>{
@@ -42,15 +39,15 @@ export class AjouterHotelComponent implements OnInit {
       console.log("Promise resolved with Pays: " + JSON.stringify(data));
     }).catch((error)=>{
       console.log("Promise rejected with Pays" + JSON.stringify(error));
-    });
+    });*/
     
   }
-  onRatingChange = ($event: RatingChangeEvent) => {
+ /* onRatingChange = ($event: RatingChangeEvent) => {
     
     console.log();
     console.log('onRatingUpdated $event: ', $event.rating);
     this.onRatingChangeResult = $event;
-  }
+  }*/
 
 
   opensweetalert()
@@ -61,7 +58,7 @@ export class AjouterHotelComponent implements OnInit {
       });
     }
 
-
+/*
   onSubmit(form: NgForm ) {
     form.value["Categorie"]=this.onRatingChangeResult.rating;
     this.serviceBack.Ajouter_Hotel(form.value).then((data)=>{
@@ -92,4 +89,43 @@ export class AjouterHotelComponent implements OnInit {
     });
     alert(CountryName);
   }
+
+*/
+ WizzardForm()
+ {
+//
+$('#demo-main-wz').bootstrapWizard({
+  tabClass		: 'wz-steps',
+  nextSelector	: '.next',
+  previousSelector	: '.previous',
+  onTabClick: function(tab, navigation, index) {
+      return false;
+  },
+  onInit : function(){
+      $('#demo-main-wz').find('.finish').hide().prop('disabled', true);
+  },
+  onTabShow: function(tab, navigation, index) {
+      var $total = navigation.find('li').length;
+      var $current = index+1;
+      var $percent = ($current/$total) * 100;
+      var wdt = 100/$total;
+      var lft = wdt*index;
+
+      $('#demo-main-wz').find('.progress-bar').css({width:wdt+'%',left:lft+"%", 'position':'relative', 'transition':'all .5s'});
+
+
+      // If it's the last tab then hide the last button and show the finish instead
+      if($current >= $total) {
+          $('#demo-main-wz').find('.next').hide();
+          $('#demo-main-wz').find('.finish').show();
+          $('#demo-main-wz').find('.finish').prop('disabled', false);
+      } else {
+          $('#demo-main-wz').find('.next').show();
+          $('#demo-main-wz').find('.finish').hide().prop('disabled', true);
+      }
+  }
+});
+ }
+
+
 }

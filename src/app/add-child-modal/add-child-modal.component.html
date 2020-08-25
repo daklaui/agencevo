@@ -1,0 +1,13 @@
+<form class="form-horizontal" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="panel-body">
+        <div class="row">
+            <div class="mar-btm">
+                <input type="text" class="form-control" placeholder="Titre"  ngModel #Titre="ngModel" name="Titre">
+            </div>
+        </div>
+        <textarea placeholder="Text" rows="13" class="form-control"  ngModel #TextTitre="ngModel" name="TextTitre"></textarea>
+    </div>
+    <div class="panel-footer text-right">
+        <button class="btn btn-default" type="submit">Enregistrer</button>
+    </div>
+</form>

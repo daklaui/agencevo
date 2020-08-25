@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~8.2.9",
     "@angular/router": "~8.2.9",
     "angular-star-rating": "^4.0.0-beta.3",
+    "chosen-js": "^1.8.7",
     "css-star-rating": "^1.2.4",
     "ngx-dropzone": "^2.2.2",
     "rxjs": "~6.4.0",
