@@ -24,6 +24,11 @@ import { PresentationComponent } from './presentation/presentation.component';
 import { AjouterTitrePresentationComponent } from './ajouter-titre-presentation/ajouter-titre-presentation.component';
 import { ChambresComponent } from './chambres/chambres.component';
 import { AddChildModalComponent } from './add-child-modal/add-child-modal.component';
+import { LoginComponent } from './login/login.component';
+import { OccupationComponent } from './occupation/occupation.component';
+import { SRChambreComponent } from './s-r-chambre/s-r-chambre.component';
+import { ModalAjouterOccupationComponent } from './modal-ajouter-occupation/modal-ajouter-occupation.component';
+import { ModalSRChambreComponent } from './modal-s-r-chambre/modal-s-r-chambre.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +49,12 @@ import { AddChildModalComponent } from './add-child-modal/add-child-modal.compon
     PresentationComponent,
     AjouterTitrePresentationComponent,
     ChambresComponent,
-    AddChildModalComponent
+    AddChildModalComponent,
+    LoginComponent,
+    OccupationComponent,
+    SRChambreComponent,
+    ModalAjouterOccupationComponent,
+    ModalSRChambreComponent
   ],
   imports: [
     BrowserModule,

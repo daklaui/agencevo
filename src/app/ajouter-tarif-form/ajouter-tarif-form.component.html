@@ -1,171 +1,219 @@
-<div class="panel">
 
-        <!-- Bubble Numbers Form Wizard -->
-        <!--===================================================-->
-        <div id="demo-step-wz">
-            <div class="wz-heading wz-w-label">
+        <div class="panel">
+            <!-- Classic Form Wizard -->
+            <!--===================================================-->
+            <div id="demo-cls-wz">
+                <!--Nav-->
+                <ul class="wz-nav-off wz-icon-inline">
+                    <li class="col-xs-3 bg-mint li">
+                        <a data-toggle="tab" href="#demo-cls-tab1">
+                            <span class="icon-wrap icon-wrap-xs"><i class="demo-pli-information icon-lg"></i></span> Pension de base
+                        </a>
+                    </li>
+                    <li class="col-xs-3 bg-mint li">
+                        <a data-toggle="tab" href="#demo-cls-tab2">
+                            <span class="icon-wrap icon-wrap-xs"><i class="demo-pli-male icon-lg"></i></span> Suppléments sur les pensions 
+                        </a>
+                    </li>
+                    <li class="col-xs-3 bg-mint li">
+                        <a data-toggle="tab" href="#demo-cls-tab3">
+                            <span class="icon-wrap icon-wrap-xs"><i class="demo-pli-male icon-lg"></i></span>Suppléments / Réduction sur l occupation 
+                        </a>
+                    </li>
+                    <li class="col-xs-3 bg-mint li">
+                        <a data-toggle="tab" href="#demo-cls-tab4">
+                            <span class="icon-wrap icon-wrap-xs"><i class="demo-pli-male icon-lg"></i></span> Suppléments / Réduction par chambre
+                        </a>
+                    </li>
+                    
+                </ul>
 
                 <!--Progress bar-->
-                <div class="progress progress-xs">
-                    <div style="width: 15%;" class="progress-bar progress-bar-dark"></div>
+                <div class="progress progress-xs progress-striped active">
+                    <div class="progress-bar-dark"></div>
                 </div>
 
-                <!--Nav-->
-                <ul class="wz-steps wz-icon-bw wz-nav-off text-lg">
-                    <li class="col-xs-6">
-                        <a data-toggle="tab" href="#demo-step-tab1">
-                            <span class="icon-wrap icon-wrap-xs icon-circle bg-dark mar-ver">
-                                <span class="wz-icon icon-txt text-bold">1</span>
-                                <i class="wz-icon-done demo-psi-like"></i>
-                            </span>
-                            <small class="wz-desc box-block text-semibold"></small>
-                        </a>
-                    </li>
-                    <li class="col-xs-6">
-                        <a data-toggle="tab" href="#demo-step-tab2">
-                            <span class="icon-wrap icon-wrap-xs icon-circle bg-dark mar-ver">
-                                <span class="wz-icon icon-txt text-bold">2</span>
-                                <i class="wz-icon-done demo-psi-like"></i>
-                            </span>
-                            <small class="wz-desc box-block text-semibold">Suppléments sur les pensions</small>
-                        </a>
-                    </li>
-                </ul>
-            </div>
 
-            <!--Form-->
-            <form class="form-horizontal">
-                <div class="panel-body">
-                    <div class="tab-content">
+                <!--Form-->
+                <form >
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            
+                            <!--First tab-->
+                            <div id="demo-cls-tab1" class="tab-pane">
 
-                        <!--First tab-->
-                        <div id="demo-step-tab1" class="tab-pane">
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Groupe de tarif</label>
-                                <div class="col-lg-7">
-                                    <input type="text" class="form-control" name="username" placeholder="Username">
+
+                                <div class="col-lg-2"></div>
+                                <div class="col-lg-8">
+
+
+                                    <div class="form-group col-lg-6">
+                                        <strong class="text-main"> Pension de base </strong>
+                            
+                                        <select class="form-control"></select>
+                                    </div>
+                                   
+    
+                                    <div class="form-group col-lg-6">
+                                       
+                                        <strong class="text-main"> Groupe de tarif</strong>
+                            
+                                        <select class="form-control"></select>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                        
+                                        <strong class="text-main"> Saison</strong>
+                            
+                                        <select class="form-control"></select>
+                                    </div>
+                                   
+                                    <div class="form-group col-lg-6">
+                                      
+                                        <strong class="text-main"> Type chambre</strong>
+                            
+                                        <select class="form-control"></select>
+                                    </div>
+                                    
+                                    <div class="form-group col-lg-6">
+    
+                                        <strong class="text-main"> Type de vente</strong>
+                            
+                                        <select class="form-control"></select>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+    
+                                        <strong class="text-main">Min Séjour</strong>
+                            
+                                        <input type="number" class="form-control"  placeholder="">
+                                    </div>
+
+                                    
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Saison</label>
-                                <div class="col-lg-7">
-                                    <input type="email" class="form-control" name="email" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Type de chambre</label>
-                                <div class="col-lg-7">
-                                    <input type="email" class="form-control" name="email" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Pension de base</label>
-                                <div class="col-lg-7">
-                                    <input type="email" class="form-control" name="email" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Type de vente</label>
-                                <div class="col-lg-7">
-                                    <input type="email" class="form-control" name="email" placeholder="Email">
-                                </div>
-                            </div>
-                           <div class="col-md-12">
-                               <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Prix d'achat</label>
-                                    <div class="col-lg-7">
-                                        <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control">
+                                <div class="col-lg-2"></div>
+
+                               
+                                <div class="col-lg-12">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-2">  <strong> Tarif : </strong> </label>
+                                            <div class="col-lg-7">
+                                                <input type="number" class="form-control"  placeholder="prix vente">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="col-lg-1 control-label"></label>
+                                            <div class="col-lg-7">
+                                                <input type="number" class="form-control"  placeholder="prix achat">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                               </div>
-                               <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Prix de vente</label>
-                                    <div class="col-lg-7">
-                                        <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control">
+                               
+                            </div>
+
+                            <!--Second tab-->
+                            <div id="demo-cls-tab2" class="tab-pane fade">
+                                
+
+                                <div class="col-sm-12">
+                                    <div class="panel">
+                                       
+                            
+                                        <!--Bordered Table-->
+                                        <!--===================================================-->
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">Type de pension</th>
+                                                            <th>Prix d'achat</th>
+                                                            <th>Prix vente</th>
+                                                            <th>%</th>
+                                                            <th>Min séjour</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center">1</td>
+                                                            <td><a href="#" class="btn-link">Scott S. Calabrese</a></td>
+                                                            <td><span class="label label-purple">Bussines</span></td>
+                                                            <td><span class="label label-purple">Bussines</span></td>
+                                                            <td><span class="label label-purple">Bussines</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">1</td>
+                                                            <td><a href="#" class="btn-link">Scott S. Calabrese</a></td>
+                                                            <td><span class="label label-purple">Bussines</span></td>
+                                                            <td><span class="label label-purple">Bussines</span></td>
+                                                            <td><span class="label label-purple">Bussines</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">1</td>
+                                                            <td><a href="#" class="btn-link">Scott S. Calabrese</a></td>
+                                                            <td><span class="label label-purple">Bussines</span></td>
+                                                            <td><span class="label label-purple">Bussines</span></td>
+                                                            <td><span class="label label-purple">Bussines</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">1</td>
+                                                            <td><a href="#" class="btn-link">Scott S. Calabrese</a></td>
+                                                            <td><span class="label label-purple">Bussines</span></td>
+                                                            <td><span class="label label-purple">Bussines</span></td>
+                                                            <td><span class="label label-purple">Bussines</span></td>
+                                                        </tr>
+                                                       
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--===================================================-->
+                                        <!--End Bordered Table-->
+                            
                                     </div>
                                 </div>
-                               </div>
-                           </div>
+
+
+                            </div>
+                            <div id="demo-cls-tab3" class="tab-pane fade">
+                                
+
+                                <div class="col-sm-12">
+                                    <div class="panel">
+                                       
+                                       <app-occupation></app-occupation>
+                            
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div id="demo-cls-tab4" class="tab-pane fade">
+                                <div class="col-sm-12">
+                                    <div class="panel">
+                                       <app-s-r-chambre></app-s-r-chambre>
+                                    </div>
+                                </div>
+                            </div>
+
+                          
                         </div>
-
-                    
-                        <!--Third tab-->
-                        <div id="demo-step-tab2" class="tab-pane">
-
-                                    <table class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                    <thead>
-                                        <tr>
-                                            <th> </th>
-                                            <th>Prix d'achat</th>
-                                            <th>Prix de vente</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Logement simple</td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Logement simple</td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Logement simple</td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Logement simple</td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Logement simple</td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Logement s</td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Logement simple</td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Logement simple</td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                            <td> <input type="text" placeholder="Prix d'achat" name="firstName" class="form-control"></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                         
-
-                      
-                </div>
-          
-
-                                </div>
-                </div>
-
-                <!--Footer button-->
-                <div class="panel-footer text-right">
-                    <div class="box-inline">
-                        <button type="button" class="previous btn btn-info">Previous</button>
-                        <button type="button" class="next btn btn-info">Next</button>
-                        <button type="button" class="finish btn btn-info" disabled>Finish</button>
                     </div>
-                </div>
-            </form>
-        </div>
-        <!--===================================================-->
-        <!-- End Bubble Numbers Form Wizard -->
 
-    </div>
+
+                    <!--Footer button-->
+                    <div class="panel-footer text-right">
+                        <div class="box-inline">
+                            <button type="button" class="previousB btn btn-mint">Previous</button>
+                            <button type="button" class="nextB btn btn-mint">Next</button>
+                            <button type="button" class="finishB btn btn-mint" disabled>Finish</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--===================================================-->
+            <!-- End Classic Form Wizard -->
+
+        </div>

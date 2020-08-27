@@ -13,6 +13,6 @@ export class AjouterTarifComponent implements OnInit {
   ngOnInit() {
   }
   fonctionModal(){
-    $('.modal').modal();
+    $('#Tarif').modal();
   }
 }

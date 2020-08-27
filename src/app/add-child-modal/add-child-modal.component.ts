@@ -20,7 +20,6 @@ export class AddChildModalComponent implements OnInit {
     let b={
       "Titre":form.value["Titre"],
       "Text":form.value["TextTitre"]
-   
     }
     x.ob.Sous_Titres.push(b);
 

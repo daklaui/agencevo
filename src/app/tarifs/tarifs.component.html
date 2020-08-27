@@ -1,58 +1,46 @@
 <div class="row">
     <div class="col-md-12">
 
-        <!--Default Accordion-->
-        <!--===================================================-->
-        <div class="panel-group accordion" id="accordion">
-            <div class="panel panel-bordered panel-primary">
 
-                <!--Accordion title-->
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-parent="#accordion" data-toggle="collapse" href="#collapseOne">Ajouter Saison</a>
-                    </h4>
-                </div>
 
-                <!--Accordion content-->
-                <div class="panel-collapse collapse in" id="collapseOne">
-                    <div class="panel-body">
-                      <app-add-saison></app-add-saison>
-                    </div>
+        <div class="panel panel-primary">
+					
+            <!--Panel heading-->
+            <div class="panel-heading">
+                <div class="panel-control pull-left">
+
+                    <!--Nav tabs-->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#demo-tabs-box-1">Ajouter Saison</a></li>
+                        <li><a data-toggle="tab" href="#demo-tabs-box-2">Définir Saison</a></li>
+                        <li><a data-toggle="tab" href="#demo-tabs-box-3">Tarif</a></li>
+                    </ul>
+
                 </div>
+               
             </div>
-            <div class="panel panel-bordered panel-primary">
 
-                <!--Accordion title-->
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Définir Saison </a>
-                    </h4>
-                </div>
+            <!--Panel body-->
+            <div class="panel-body">
 
-                <!--Accordion content-->
-                <div class="panel-collapse collapse" id="collapseTwo">
-                    <div class="panel-body">
-                       <app-affecter-date-saison></app-affecter-date-saison>
+                <!--Tabs content-->
+                <div class="tab-content">
+                    <div id="demo-tabs-box-1" class="tab-pane fade in active">
+                        <app-add-saison></app-add-saison>
                     </div>
-                </div>
-            </div>
-            <div class="panel panel-bordered panel-primary">
-
-                <!--Accordion title-->
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-parent="#accordion" data-toggle="collapse" href="#collapseThree">Collapsible Group Item #3</a>
-                    </h4>
-                </div>
-
-                <!--Accordion content-->
-                <div class="panel-collapse collapse" id="collapseThree">
-                    <div class="panel-body">
-                      <app-ajouter-tarif></app-ajouter-tarif>
+                    <div id="demo-tabs-box-2" class="tab-pane fade">
+                        <app-affecter-date-saison></app-affecter-date-saison>
+                    </div>
+                    <div id="demo-tabs-box-3" class="tab-pane fade">
+                        <app-ajouter-tarif></app-ajouter-tarif>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+
         <!--===================================================-->
         <!--End Default Accordion-->
 

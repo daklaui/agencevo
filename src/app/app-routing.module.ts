@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AjouterHotelComponent } from './ajouter-hotel/ajouter-hotel.component';
 import { ParametrageHotelComponent } from './parametrage-hotel/parametrage-hotel.component';
 import { ConfigurationAPKComponent } from './configuration-apk/configuration-apk.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
