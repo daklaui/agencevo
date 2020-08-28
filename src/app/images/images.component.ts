@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceBackService } from '../service-back.service';
-
+declare var $ :any;
 @Component({
   selector: 'app-images',
   templateUrl: './images.component.html',
@@ -11,7 +11,9 @@ export class ImagesComponent implements OnInit {
   constructor(private  serviceBack:ServiceBackService) { }
 
   ngOnInit() {
+    $("#demo-gallery").unitegallery();
   }
+  
   onSelect(event) {
     console.log(event);
     this.files.push(...event.addedFiles);

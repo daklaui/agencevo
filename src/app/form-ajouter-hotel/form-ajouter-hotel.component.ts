@@ -27,6 +27,7 @@ export class FormAjouterHotelComponent implements OnInit {
     });
     this.serviceBack.GetListeOffPays().then((data)=>{
       this.ListeOfPays=data;
+      $('.selectpicker').selectpicker('refresh');
       console.log("Promise resolved with Pays: " + JSON.stringify(data));
     }).catch((error)=>{
       console.log("Promise rejected with Pays" + JSON.stringify(error));
@@ -52,5 +53,7 @@ export class FormAjouterHotelComponent implements OnInit {
     this.onRatingChangeResult = $event;
   }
 
-
+  refreshSelect() {
+    $('.selectpicker').selectpicker('refresh');
+ }
 }

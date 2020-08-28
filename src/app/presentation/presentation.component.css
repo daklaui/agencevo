@@ -1,0 +1,11 @@
+.nav-tabs>li.active>a
+{
+    color: white;
+    background-color: #4d627b;
+}
+.nav-tabs>li>a:hover
+{
+    color:#25476a;
+    background-color: white;
+    cursor: pointer;
+}

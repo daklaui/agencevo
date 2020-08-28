@@ -33,58 +33,53 @@
         </div>
     </div>
 </div>
-<br>
+
+
+
 <div class="row">
-    <div class="col-lg-12 pad-btm bord-btm ">
-       
-        <div class="tab-base tab-stacked-left">
-					
-            <!--Nav tabs-->
-            <ul class="nav nav-tabs">
-                <li *ngFor="let x of  this.liste ; let i = index">
-                    <a data-toggle="tab" href="#demo-stk-lft-tab-{{i+1}}">{{x.Titre}}</a>
-                </li>
-            </ul>
-        
-            <!--Tabs Content-->
-            <div class="tab-content">
-                <div *ngFor="let x of  this.liste; let i = index" id="demo-stk-lft-tab-{{i+1}}" class="tab-pane fade  in">
-                    <div class="pull-right">
-                        <button type="button" (click)="Update(i)" class="btn btn-danger">Edit</button>
-                        <button type="button" (click)="Add_TitreH2(i)" class="btn btn-primary">Ajouter</button>
-                        <button type="button" (click)="Remove(i)" class="btn btn-default">Remove</button>
-                    </div>
-                    <p class="text-main text-semibold">{{x.Text}}</p>
-                    <hr>
-<!--P-->
-<div class="tab-base tab-stacked-left">
-					
-    <!--Nav tabs-->
-    <ul class="nav nav-tabs">
-        <li *ngFor="let v of  this.liste[i].Sous_Titres ; let j = index">
-            <a data-toggle="tab" href="#demo-stk-lft-tab_Sous-{{j+1}}">{{v.Titre}}</a>
-        </li>
-    </ul>
+    <div class="col-sm-3">
+        <span class="nav-tabs-dropdown btn btn-block btn-primary">Présentation (H1)</span>
+        <ul id="nav-tabs-wrapper" class="nav nav-tabs nav-pills nav-stacked well">
+          <li *ngFor="let x of  this.liste ; let i = index" class="text-mint"><a href="#vtab{{i+1}}" data-toggle="tab">{{x.Titre}}</a></li>
+      
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <div class="tab-content">
+            <div  *ngFor="let x of  this.liste; let i = index" role="tabpanel"  class="tab-pane fade in" id="vtab{{i+1}}">
+                <div class="pull-right">
+                    <button type="button" (click)="Update(i)" class="btn btn-danger">Edit</button>
+                    <button type="button" (click)="Add_TitreH2(i)" class="btn btn-primary">Ajouter</button>
+                    <button type="button" (click)="Remove(i)" class="btn btn-default">Remove</button>
+                </div>
+                <p class="text-main text-semibold">{{x.Text}}</p>
 
-    <!--Tabs Content-->
-    <div class="tab-content">
-        <div *ngFor="let v of  this.liste[i].Sous_Titres; let j = index" id="demo-stk-lft-tab_Sous-{{j+1}}" class="tab-pane fade  in">
-            <div class="pull-right">
-                <button type="button" (click)="Remove1(i,j)" class="btn btn-default">Remove</button>
+
+                <hr>
+
+                
+<div class="row">
+    <div class="col-sm-3">
+        <span  class="nav-tabs-dropdown btn btn-block btn-primary">Présentation (H2)</span>
+        <ul id="nav-tabs-wrapper" class="nav nav-tabs nav-pills nav-stacked well">
+          <li  *ngFor="let v of  this.liste[i].Sous_Titres; let j = index" ><a href="#vtabj{{j+1}}" data-toggle="tab">{{v.Titre}}</a></li>
+      
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <div class="tab-content">
+            <div   *ngFor="let v of  this.liste[i].Sous_Titres; let j = index"  role="tabpanel"  class="tab-pane fade in" id="vtabj{{j+1}}">
+                <div class="pull-right">
+                    <button type="button" (click)="Remove1(i,j)" class="btn btn-default">Remove</button>
+                </div>
+                <p class="text-main text-semibold">{{v.Text}}</p>
             </div>
-            <p class="text-main text-semibold">{{v.Text}}</p>
-
+            
         </div>
     </div>
 </div>
-<!--END-->
-
-
-
-
-
-                </div>
             </div>
+            
         </div>
     </div>
 </div>

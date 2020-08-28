@@ -1,12 +1,5 @@
 $(document).on('nifty.ready', function () {
  
-    $("#demo-gallery").unitegallery();
-    
-  
-
-
-
-
 $.fn.DataTable.ext.pager.numbers_length = 5;
 $('#demo-dt-basic').dataTable( {
     "responsive": true,
