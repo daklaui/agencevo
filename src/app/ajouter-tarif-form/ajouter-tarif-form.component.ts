@@ -13,8 +13,8 @@ export class AjouterTarifFormComponent implements OnInit {
 
     $('#demo-cls-wz').bootstrapWizard({
       tabClass		: 'wz-classic',
-      nextSelector	: '.nextB',
-      previousSelector	: '.previousB',
+      nextSelector	: '.next',
+      previousSelector	: '.previous',
       onTabClick: function(tab, navigation, index) {
           return false;
       },
@@ -31,13 +31,13 @@ export class AjouterTarifFormComponent implements OnInit {
 
           // If it's the last tab then hide the last button and show the finish instead
           if($current1 >= $total1) {
-              $('#demo-cls-wz').find('.nextB').hide();
-              $('#demo-cls-wz').find('.finishB').show();
-              $('#demo-cls-wz').find('.finishB').prop('disabled', false);
+              $('#demo-cls-wz').find('.next').hide();
+              $('#demo-cls-wz').find('.finish').show();
+              $('#demo-cls-wz').find('.finish').prop('disabled', false);
             
           } else {
-              $('#demo-cls-wz').find('.nextB').show();
-              $('#demo-cls-wz').find('.finishB').hide().prop('disabled', true);
+              $('#demo-cls-wz').find('.next').show();
+              $('#demo-cls-wz').find('.finish').hide().prop('disabled', true);
           }
       }
   });

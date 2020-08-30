@@ -20,7 +20,13 @@
                         <a data-toggle="tab" href="#demo-lft-tab-1">Informations Général</a>
                     </li>
                     <li>
+                        <a data-toggle="tab" href="#demo-lft-tab-5">Présentation</a>
+                    </li>
+                    <li>
                         <a data-toggle="tab" href="#demo-lft-tab-2">Equipements</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#demo-lft-tab-6">Chambres</a>
                     </li>
                     <li>
                         <a data-toggle="tab" href="#demo-lft-tab-3">Photos</a>
@@ -28,6 +34,9 @@
                     <li>
                         <a data-toggle="tab" href="#demo-lft-tab-4">Tarifs</a>
                     </li>
+                 
+                   
+
 
                 </ul>
     
@@ -39,7 +48,7 @@
                     </div>
                     <div id="demo-lft-tab-2" class="tab-pane fade">
                         <p class="text-main text-semibold">Equipements</p>
-                    <app-equipements [id]="id"></app-equipements>
+                    <app-update-equipements [id]="id"></app-update-equipements>
                     </div>
                     <div id="demo-lft-tab-3" class="tab-pane fade">
                         <p class="text-main text-semibold">Photos</p>
@@ -48,6 +57,15 @@
                     <div id="demo-lft-tab-4" class="tab-pane fade">
                         <p class="text-main text-semibold">Tarifs</p>
                      <app-tarifs></app-tarifs>
+                    </div>
+                   
+                    <div id="demo-lft-tab-5" class="tab-pane fade">
+                        <p class="text-main text-semibold">Présentation</p>
+                     <app-update-presentation></app-update-presentation>
+                    </div>
+                    <div id="demo-lft-tab-6" class="tab-pane fade">
+                        <p class="text-main text-semibold">Chambres</p>
+                     <app-update-chambres></app-update-chambres>
                     </div>
                 </div>
             </div>
