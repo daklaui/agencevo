@@ -83,4 +83,8 @@ else
   {
     this.liste[id].Sous_Titres.splice(id2, 1);
   }
+  onFinich()
+  {
+    return this.liste;
+  }
 }

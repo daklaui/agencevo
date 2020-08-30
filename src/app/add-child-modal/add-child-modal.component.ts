@@ -1,6 +1,6 @@
 import { Component, OnInit, Input,EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
+declare var $: any;
 
 @Component({
   selector: 'app-add-child-modal',
@@ -25,6 +25,6 @@ export class AddChildModalComponent implements OnInit {
 
     console.log(x);
     this.onNameSelected.emit(x);
-  
+    $('#demo-lg-modal').modal('toggle'); 
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output ,EventEmitter, Input} from '@angular/core';
 import { NgForm } from '@angular/forms';
-
+declare var $: any;
 
 @Component({
   selector: 'app-ajouter-titre-presentation',
@@ -14,7 +14,6 @@ export class AjouterTitrePresentationComponent implements OnInit {
   constructor() {   }
 
   ngOnInit() {
-  alert(this.Pre);
     if(this.Pre!=undefined)
     {
 console.log(this.Pre);
@@ -22,6 +21,7 @@ console.log(this.Pre);
   }
   onSubmit(form: NgForm ) {
     let x={
+      "Id_Hotel":0,
       "Titre":form.value["Titre"],
       "Text":form.value["TextTitre"],
       "Sous_Titres":[]
@@ -29,6 +29,7 @@ console.log(this.Pre);
 
    // console.log(this.ListeOfPre);
     this.onNameSelected.emit(x);
+    $('#demo-lg-modal').modal('toggle'); 
   }
   UpdateOb(v:number,x:string,y:string)
   {
@@ -40,5 +41,6 @@ console.log(this.Pre);
     }
     console.log(b);
     this.onNameSelected.emit(b);
+    $('#demo-lg-modal').modal('toggle'); 
   }
 }

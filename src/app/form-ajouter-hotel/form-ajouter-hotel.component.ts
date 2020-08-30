@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RatingChangeEvent } from 'angular-star-rating';
 import { ServiceBackService } from '../service-back.service';
+import { NgForm } from '@angular/forms';
 declare var $ :any;
 @Component({
   selector: 'app-form-ajouter-hotel',
@@ -14,6 +15,7 @@ export class FormAjouterHotelComponent implements OnInit {
   listeOfDevise:any=[];
   listeOfChanieHotels:any=[];
   listeOfTypeHotels:any=[];
+  anyob:any={};
  
   constructor(private  serviceBack:ServiceBackService ) { }
  
@@ -56,4 +58,30 @@ export class FormAjouterHotelComponent implements OnInit {
   refreshSelect() {
     $('.selectpicker').selectpicker('refresh');
  }
+
+ 
+ onOptionsSelected(CountryName:String)
+ {
+   
+   this.serviceBack.GetDevise(CountryName).then((data)=>{
+     this.listeOfDevise=data[0].currencies;
+     
+     console.log("Promise resolved with: " + JSON.stringify(data[0].currencies));
+   }).catch((error)=>{
+     console.log("Promise rejected with " + JSON.stringify(error));
+   });
+ }
+
+
+ onSubmit(form: NgForm ) {
+  form.value["Categorie"]=this.onRatingChangeResult.rating;
+  this.anyob=form.value;
+  //console.log(form.value);
+  }
+
+  onGetHotelValue()
+  {
+    $("#onSub").trigger("click");
+    return this.anyob;
+  }
 }

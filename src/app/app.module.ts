@@ -29,6 +29,7 @@ import { OccupationComponent } from './occupation/occupation.component';
 import { SRChambreComponent } from './s-r-chambre/s-r-chambre.component';
 import { ModalAjouterOccupationComponent } from './modal-ajouter-occupation/modal-ajouter-occupation.component';
 import { ModalSRChambreComponent } from './modal-s-r-chambre/modal-s-r-chambre.component';
+import { ListeHotelsComponent } from './liste-hotels/liste-hotels.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import { ModalSRChambreComponent } from './modal-s-r-chambre/modal-s-r-chambre.c
     OccupationComponent,
     SRChambreComponent,
     ModalAjouterOccupationComponent,
-    ModalSRChambreComponent
+    ModalSRChambreComponent,
+    ListeHotelsComponent
   ],
   imports: [
     BrowserModule,
