@@ -22,6 +22,10 @@ export class ServiceBackService {
   {
     return  this.http.get("http://localhost:54375/GetTypeHotel").toPromise();
   }
+   GetListeHotels()
+  {
+    return   this.http.get("http://localhost:54375/GetAllHotels").toPromise();
+  }
    Ajouter_Config(config:any)
   {
     return  this.http.post("http://localhost:54375/Configuration",config).toPromise();
@@ -94,4 +98,20 @@ export class ServiceBackService {
   {
     return  this.http.post("http://localhost:54375/UploadePhoto",file).toPromise();
   }
+
+
+  //Update
+  GetChambres(id:number)
+  {
+    return  this.http.get("http://localhost:54375/GetChambres/"+id).toPromise();
+  }
+  GetEquipementParHotel(id:number)
+  {
+    return  this.http.get("http://localhost:54375/GetEquipementParHotel/"+id).toPromise();
+  }
+  GetPresentation(id:number)
+  {
+    return  this.http.get("http://localhost:54375/GetPresentation/"+id).toPromise();
+  }
+
 }

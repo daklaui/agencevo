@@ -34,7 +34,6 @@
               "TemplateN/plugins/switchery/switchery.min.css",
               "TemplateN/plugins/bootstrap-select/bootstrap-select.min.css",
               "TemplateN/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.css",
-           
               "TemplateN/plugins/noUiSlider/nouislider.min.css",
               "TemplateN/plugins/select2/css/select2.min.css",
               "TemplateN/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css",
@@ -78,7 +77,8 @@
               "TemplateN/plugins/noUiSlider/nouislider.min.js",
               "TemplateN/plugins/select2/js/select2.min.js",
               "TemplateN/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js",
-              "TemplateN/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"
+              "TemplateN/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js",
+
 
              
 

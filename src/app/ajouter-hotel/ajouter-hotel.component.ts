@@ -136,31 +136,42 @@ $('#demo-main-wz').bootstrapWizard({
  }
 test()
 {
+    var equip=[];
+    var presentation=[];
+    var Chambres=[];
+    equip=this.child.eventCheck();
+    presentation=this.presentation.onFinich();
+    Chambres=this.Chambres.GetChambreslist();
+   
   this.serviceBack.Ajouter_Hotel(this.hotel.onGetHotelValue()).then(data=>{
     let x : any =data;
-    for(let prese of this.presentation.onFinich())
-    {
-      prese.Id_Hotel=x.Id; 
-    }
-    for(let equip of this.child.eventCheck())
-    {
-      equip.ID_Hotel=x.Id; 
-    }
-    for(let chambre of this.Chambres.GetChambreslist())
-    {
-      chambre.ID_Hotel=x.Id; 
-    }
+   
+    presentation.forEach((value,index)=>{
+      value.ID_Hotel=x.Id; 
+      presentation[index]=value;
+  
+  });
+  Chambres.forEach((value,index)=>{
+      value.ID_Hotel=x.Id; 
+      Chambres[index]=value;
+  
+  });
+    equip.forEach((value,index)=>{
+      value.ID_Hotel=x.Id; 
+      equip[index]=value;
+  
+  });
+   
     // Ajoute de presentation
     
-    this.serviceBack.Ajouter_Pre(this.presentation.onFinich()).then(data=>{
+    this.serviceBack.Ajouter_Pre(presentation).then(data=>{
     });
-    this.serviceBack.Ajouter_Equipement(this.child.eventCheck()).then(data=>{
+    this.serviceBack.Ajouter_Equipement(equip).then(data=>{
     });
-    this.serviceBack.Ajouter_Chambre(this.Chambres.GetChambreslist()).then(data=>{
+    this.serviceBack.Ajouter_Chambre(Chambres).then(data=>{
     });
     //
   });
-//console.log(this.presentation.onFinich());
 
 }
 

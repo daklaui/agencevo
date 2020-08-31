@@ -34,6 +34,7 @@ import { UpdateHotelComponent } from './update-hotel/update-hotel.component';
 import { UpdatePresentationComponent } from './update-presentation/update-presentation.component';
 import { UpdateEquipementsComponent } from './update-equipements/update-equipements.component';
 import { UpdateChambresComponent } from './update-chambres/update-chambres.component';
+import { NgSwitcheryModule } from "angular-switchery-ios";
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +69,7 @@ import { UpdateChambresComponent } from './update-chambres/update-chambres.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,  StarRatingModule.forRoot(),FormsModule,HttpClientModule,NgxDropzoneModule
+    AppRoutingModule,  StarRatingModule.forRoot(),FormsModule,HttpClientModule,NgxDropzoneModule,NgSwitcheryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

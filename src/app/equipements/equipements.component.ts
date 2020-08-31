@@ -32,12 +32,12 @@ ListeRating=[];
   
     $('input:checkbox:checked', tableControl).each(function() {
        let ob={
-         "ID_Hotel":0,
-         "ID_Equipement":$(this).closest('tr').find("td:eq(4) input").val(),
+         "ID_Hotel":null,
+         "ID_Equipement_Tr_ListVal":$(this).closest('tr').find("td:eq(4) input").val(),
          "Note": $(this).closest('tr').find("td:eq(3) input").val()
        }
         result.push(ob);
-        console.log(result);
+       // console.log(result);
       
 });
 return result;

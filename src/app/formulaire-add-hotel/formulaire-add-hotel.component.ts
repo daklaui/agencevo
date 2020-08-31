@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { ParametrageHotelComponent } from '../parametrage-hotel/parametrage-hotel.component';
 import { ServiceBackService } from '../service-back.service';
 import { RatingChangeEvent } from 'angular-star-rating';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+declare var $ :any;
 @Component({
   selector: 'app-formulaire-add-hotel',
   templateUrl: './formulaire-add-hotel.component.html',
@@ -18,6 +19,7 @@ export class FormulaireAddHotelComponent implements OnInit {
   listeOfChanieHotels:any=[];
   listeOfTypeHotels:any=[];
   constructor(private  serviceBack:ServiceBackService) { }
+  
   Hotel:any=new Object;
   ngOnInit() {
     this.serviceBack.GetHotelWithId(this.id).then((data)=>{
@@ -83,7 +85,7 @@ export class FormulaireAddHotelComponent implements OnInit {
     }).catch((error)=>{
       console.log("Promise rejected with Pays" + JSON.stringify(error));
     });
-  console.log(form.value);
+ 
   }
 
 
@@ -97,6 +99,16 @@ export class FormulaireAddHotelComponent implements OnInit {
     }).catch((error)=>{
       console.log("Promise rejected with " + JSON.stringify(error));
     });
-    alert(CountryName);
+  
   }
+
+  refreshSelect() {
+    $('select[name=Pays]').val(this.Hotel.Pays);
+    this.onOptionsSelected(this.Hotel.Pays);
+    $('select[name=Code_Postal]').val(this.Hotel.Code_Postal);
+
+
+    $('.selectpicker').selectpicker('refresh');
+ }
+
 }

@@ -10,12 +10,14 @@ export class PresentationComponent implements OnInit {
   IsUpdate:boolean=false;
   IsAddChild:boolean=false;
   ob:any;
+  valactive:number;
+  SousValActive:number;
  liste: any=[];
  One_Pre:any;
   constructor() { }
 
   ngOnInit() {
-    
+    this.SousValActive=null;
   }
 
 
@@ -51,40 +53,62 @@ else
  console.log("test moataz child"+this.liste[x.id].Sous_Titres);
   }
 
-  Update(id:number)
+  Update()
   {
     this.IsAdd=false;
     this.IsUpdate=true;
     this.IsAddChild=false;
     this.ob={
-      "id":id,
-      "ob":this.liste[id]
+      "id":this.valactive,
+      "ob":this.liste[this.valactive]
     };
 
     $('#demo-lg-modal').modal('show'); 
   }
 
-  Add_TitreH2(id:number)
+  Add_TitreH2()
   {
     this.IsAdd=false;
     this.IsUpdate=false;
     this.IsAddChild=true;
     this.ob={
-      "id":id,
-      "ob":this.liste[id]
+      "id":this.valactive,
+      "ob":this.liste[this.valactive]
     };
     $('#demo-lg-modal').modal('show'); 
   }
-  Remove(id:number)
+  Remove()
   {
-    this.liste.splice(id, 1);
+    if( this.SousValActive==null)
+    {
+      this.liste.splice(this.valactive, 1);
+    }
+    else{
+      this.liste[this.valactive].Sous_Titres.splice(this.SousValActive, 1);
+    }
+ 
   }
-  Remove1(id:number,id2:number)
-  {
-    this.liste[id].Sous_Titres.splice(id2, 1);
-  }
+  
   onFinich()
   {
     return this.liste;
+  }
+
+
+  Opentext(i)
+  {
+    this.valactive=i;
+    this.SousValActive=null;
+    $("#editBtn").prop("disabled",false);
+    $("#titreH2Btn").prop("disabled",false);
+    $("#demo-nestable-logs").val(this.liste[i].Text);
+  }
+  OpenSoustext(i,j)
+  {
+    this.valactive=i;
+    this.SousValActive=j;
+    $("#editBtn").prop("disabled",true);
+    $("#titreH2Btn").prop("disabled",true);
+    $("#demo-nestable-logs").val(this.liste[i].Sous_Titres[j].Text);
   }
 }

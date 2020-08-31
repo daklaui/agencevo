@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ServiceBackService } from '../service-back.service';
 
 @Component({
   selector: 'app-update-equipements',
@@ -7,9 +8,23 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UpdateEquipementsComponent implements OnInit {
   @Input() id: number ;
-  constructor() { }
+  ListeEquipements:any=[];
+  truthyValue=true;
+  constructor(private  serviceBack:ServiceBackService) { }
 
   ngOnInit() {
+    this.serviceBack.GetEquipementParHotel(this.id).then((data)=>{
+      this.ListeEquipements=data;
+      console.log(this.ListeEquipements);
+    });
+
+   
+
+  }
+
+  abc(etat)
+  {
+    alert(etat);
   }
 
 }

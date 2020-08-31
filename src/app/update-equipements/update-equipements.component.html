@@ -8,7 +8,6 @@
                     <table class="table table-striped" id="Equi">
                         <thead>
                             <tr>
-                                <th>#</th>
                                 <th>Service</th>
                                 <th>Note</th>
                                 <th>Action</th>
@@ -16,12 +15,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let equipment of listeEquipement;let i=index">
-                                <td>   <input id="demo-checkbox-addons"  type="checkbox" ></td>
+                            <tr *ngFor="let equipment of ListeEquipements;let i=index">
                                 <td>{{equipment.LIB_LIST_VAL}}</td>
-                                <td>    <star-rating class="form-control" (ratingChange)="onRatingChange($event,i)" [starType]="'svg'" [rating]="0"></star-rating></td>
-                                <td> <input type="hidden" [value]="ListeRating[i]"></td>
-                                <td> <input type="hidden" [value]="equipment.ID_LIST_VAL"></td>
+                                <td>    <star-rating class="form-control" (ratingChange)="onRatingChange($event,i)" [starType]="'svg'" [rating]="equipment.Note"></star-rating></td>
+                                <td>    <ng-switchery  [(ngModel)]="equipment.Etat"  (change)="abc(equipment.Etat)" ></ng-switchery>
+
+                                </td>
+                             
+                                <td> <input type="hidden" [value]="0"></td>
                                 
                             </tr>
                            

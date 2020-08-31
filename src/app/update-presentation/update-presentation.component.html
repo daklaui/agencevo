@@ -1,44 +1,76 @@
-<div class="panel">
-    <div class="panel-heading">
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-md-6">
-                <div id="demo-nestable" class="dd">
-                    <ol class="dd-list">
-                        <li class="dd-item" data-id="Item 1">
-                            <div class="dd-handle dd-bg dd-anim">Item 1</div>
-                        </li>
-                        <li class="dd-item" data-id="Item 2">
-                            <div class="dd-handle dd-bg dd-anim">Item 2</div>
-                            <ol class="dd-list">
-                                <li class="dd-item" data-id="Item 3"><div class="dd-handle dd-bg dd-anim">Item 3</div></li>
-                                <li class="dd-item" data-id="Item 4"><div class="dd-handle dd-bg dd-anim">Item 4</div></li>
-                            </ol>
-                        </li>
-                        <li class="dd-item" data-id="Item 5"><div class="dd-handle dd-bg dd-anim">Item 5</div></li>
-                        <li class="dd-item" data-id="Item 6">
-                            <div class="dd-handle dd-bg dd-anim">Item 6</div>
-                            <ol class="dd-list">
 
-                                <li class="dd-item" data-id="Item 7">
-                                    <div class="dd-handle dd-bg dd-anim">Item 7</div>
-                                    <ol class="dd-list">
-                                        <li class="dd-item" data-id="Item 8"><div class="dd-handle dd-bg dd-anim">Item 8</div></li>
-                                        <li class="dd-item" data-id="Item 9"><div class="dd-handle dd-bg dd-anim">Item 9</div></li>
-                                    </ol>
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="dd-item" data-id="Item 10"><div class="dd-handle dd-bg dd-anim">Item 10</div></li>
-                    </ol>
-                </div>
+<!--Partie modal-->
+
+
+<div id="demo-lg-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+                <h4 class="modal-title" id="myLargeModalLabel" *ngIf="IsAdd">Ajouter Titre</h4>
+                <h4 class="modal-title" id="myLargeModalLabel" *ngIf="IsUpdate">Modifier Titre</h4>
             </div>
-            <div class="col-md-6">
-                
-                <p class="text-main text-bold">Logs</p>
-                <textarea id="demo-nestable-logs" class="form-control" rows="7" readonly></textarea>
+            <div class="modal-body">
+              <app-ajouter-titre-presentation (onNameSelected)="onOutput($event)" *ngIf="IsAdd"></app-ajouter-titre-presentation>
+              <app-add-child-modal (onNameSelected)="OnAddChild($event)" *ngIf="IsAddChild" [Object]="ob"></app-add-child-modal>
+              <app-ajouter-titre-presentation (onNameSelected)="onOutput($event)" [Pre]="ob" *ngIf="IsUpdate"></app-ajouter-titre-presentation>
             </div>
         </div>
     </div>
 </div>
+
+<!--End Partie -->
+<!--Partie modal-->
+
+
+
+<!--End Partie -->
+<div class="row">
+    <div class="col-lg-12 pad-btm bord-btm ">
+       
+        <div class="pull-right">
+            <button type="button" class="btn  btn-success" (click)="Pop_Add_Title()">Ajouter Titre</button>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-sm-3">
+        <span class="nav-tabs-dropdown btn btn-block btn-primary">Présentation </span>
+        <div id="demo-nestable" class="dd">
+            <ol class="dd-list">
+                <li *ngFor="let x of  this.liste ; let i = index" class="dd-item" data-id="{{x.Titre}}" >
+                    <div class="dd-handle dd-bg dd-anim" (click)="Opentext(i)">{{x.Titre}}</div>
+
+                    <ol class="dd-list" *ngIf="this.liste[i].Sous_Titres.length>0"> 
+                        <li *ngFor="let v of  this.liste[i].Sous_Titres; let j = index" class="dd-item" data-id="{{v.Titre}}" ><div class="dd-handle dd-bg dd-anim" (click)="OpenSoustext(i,j)">{{v.Titre}}</div></li>
+                      
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="col-sm-9">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="pull-right">
+                        <button type="button" (click)="Update()" id="editBtn" class="btn btn-danger" [disabled]="this.liste.length==0">Edit</button>
+                        <button type="button" (click)="Add_TitreH2()" id="titreH2Btn" class="btn btn-primary" [disabled]="this.liste.length==0">Ajouter</button>
+                        <button type="button" (click)="Remove()"id="RemoveBtn" class="btn btn-default" [disabled]="this.liste.length==0">Remove</button>
+                    </div>
+                </div>
+            </div>
+        <textarea id="demo-nestable-logs" class="form-control" rows="7" readonly></textarea>
+       
+
+
+
+
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,65 @@
+
+
+
+<div id="page-head">
+                    
+    <!--Page Title-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Form Wizard</h1>
+    </div>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End page title-->
+
+
+    <!--Breadcrumb-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <ol class="breadcrumb">
+    <li><a href="#"><i class="demo-pli-home"></i></a></li>
+    <li><a href="#">Forms</a></li>
+    <li class="active">Form Wizard</li>
+    </ol>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End breadcrumb-->
+
+</div>
+
+
+<!--Page content-->
+<!--===================================================-->
+<div id="page-content">
+    <div class="panel">
+        <div class="panel-heading">
+
+        </div>
+        <div class="panel-body">
+            <table id="demo-dt-selection" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Nom de l'hotel</th>
+                        <th class="min-tablet">Catégorie</th>
+                        <th class="min-tablet">Pays</th>
+                        <th class="min-desktop">ville</th>
+                        <th class="min-desktop">#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of ListeHotels;let i=index">
+                        <td>{{i}}</td>
+                        <td>{{x.Nom_Hotel}}</td>
+                        <td><star-rating class="form-control" [starType]="'svg'" [rating]="x.Categorie"></star-rating></td>
+                        <td>{{x.Pays}}</td>
+                        <td>{{x.Code_Postal}}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm btn-icon"><i class="demo-psi-pen-5 icon-lg"></i></button>
+
+                        </td>
+                    </tr>
+              
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    </div>

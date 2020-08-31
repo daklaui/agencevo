@@ -38,48 +38,39 @@
 
 <div class="row">
     <div class="col-sm-3">
-        <span class="nav-tabs-dropdown btn btn-block btn-primary">Présentation (H1)</span>
-        <ul id="nav-tabs-wrapper" class="nav nav-tabs nav-pills nav-stacked well">
-          <li *ngFor="let x of  this.liste ; let i = index" class="text-mint"><a href="#vtab{{i+1}}" data-toggle="tab">{{x.Titre}}</a></li>
-      
-        </ul>
-    </div>
-    <div class="col-sm-9">
-        <div class="tab-content">
-            <div  *ngFor="let x of  this.liste; let i = index" role="tabpanel"  class="tab-pane fade in" id="vtab{{i+1}}">
-                <div class="pull-right">
-                    <button type="button" (click)="Update(i)" class="btn btn-danger">Edit</button>
-                    <button type="button" (click)="Add_TitreH2(i)" class="btn btn-primary">Ajouter</button>
-                    <button type="button" (click)="Remove(i)" class="btn btn-default">Remove</button>
-                </div>
-                <p class="text-main text-semibold">{{x.Text}}</p>
+        <span class="nav-tabs-dropdown btn btn-block btn-primary">Présentation </span>
+        <div id="demo-nestable" class="dd">
+            <ol class="dd-list">
+                <li *ngFor="let x of  this.liste ; let i = index" class="dd-item" data-id="{{x.Titre}}" >
+                    <div class="dd-handle dd-bg dd-anim" (click)="Opentext(i)">{{x.Titre}}</div>
 
-
-                <hr>
-
-                
-<div class="row">
-    <div class="col-sm-3">
-        <span  class="nav-tabs-dropdown btn btn-block btn-primary">Présentation (H2)</span>
-        <ul id="nav-tabs-wrapper" class="nav nav-tabs nav-pills nav-stacked well">
-          <li  *ngFor="let v of  this.liste[i].Sous_Titres; let j = index" ><a href="#vtabj{{j+1}}" data-toggle="tab">{{v.Titre}}</a></li>
-      
-        </ul>
-    </div>
-    <div class="col-sm-9">
-        <div class="tab-content">
-            <div   *ngFor="let v of  this.liste[i].Sous_Titres; let j = index"  role="tabpanel"  class="tab-pane fade in" id="vtabj{{j+1}}">
-                <div class="pull-right">
-                    <button type="button" (click)="Remove1(i,j)" class="btn btn-default">Remove</button>
-                </div>
-                <p class="text-main text-semibold">{{v.Text}}</p>
-            </div>
-            
+                    <ol class="dd-list" *ngIf="this.liste[i].Sous_Titres.length>0"> 
+                        <li *ngFor="let v of  this.liste[i].Sous_Titres; let j = index" class="dd-item" data-id="{{v.Titre}}" ><div class="dd-handle dd-bg dd-anim" (click)="OpenSoustext(i,j)">{{v.Titre}}</div></li>
+                      
+                    </ol>
+                </li>
+            </ol>
         </div>
     </div>
-</div>
+    <div class="col-sm-9">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="pull-right">
+                        <button type="button" (click)="Update()" id="editBtn" class="btn btn-danger" [disabled]="this.liste.length==0">Edit</button>
+                        <button type="button" (click)="Add_TitreH2()" id="titreH2Btn" class="btn btn-primary" [disabled]="this.liste.length==0">Ajouter</button>
+                        <button type="button" (click)="Remove()"id="RemoveBtn" class="btn btn-default" [disabled]="this.liste.length==0">Remove</button>
+                    </div>
+                </div>
             </div>
-            
-        </div>
+        <textarea id="demo-nestable-logs" class="form-control" rows="7" readonly></textarea>
+       
+
+
+
+
     </div>
 </div>
+
+
+
+
