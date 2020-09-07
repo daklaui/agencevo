@@ -7,7 +7,7 @@
     <!--Page Title-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <div id="page-title">
-        <h1 class="page-header text-overflow">Form Wizard</h1>
+        <h1 class="page-header text-overflow">Gestion des hôtels </h1>
     </div>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <!--End page title-->
@@ -16,9 +16,9 @@
     <!--Breadcrumb-->
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <ol class="breadcrumb">
-    <li><a href="#"><i class="demo-pli-home"></i></a></li>
-    <li><a href="#">Forms</a></li>
-    <li class="active">Form Wizard</li>
+    <li><a  [routerLink]="[]"><i class="demo-pli-home"></i></a></li>
+    <li><a  [routerLink]="[]">Gestion des hôtels</a></li>
+    <li class="active">Ajouter hôtel</li>
     </ol>
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <!--End breadcrumb-->
@@ -108,10 +108,10 @@
     
     
                         <!--Footer buttons-->
-                        <div class="pull-right pad-rgt mar-btm">
-                            <button type="button" class="previous btn btn-primary">Previous</button>
-                            <button type="button" class="next btn btn-primary">Next</button>
-                            <button type="button" class="finish btn btn-success" disabled (click)="test()">Finish</button>
+                        <div class="pull-right pad-rgt mar-btm  demo-nifty-btn">
+                            <button type="button" class="previous btn btn-primary">Précédent</button>
+                            <button type="button" class="next btn btn-primary">Suivant</button>
+                            <button type="button" class="finish btn btn-success" disabled (click)="test()">Valider</button>
                         </div>
     
                     </form>

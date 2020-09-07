@@ -55,10 +55,10 @@
     <div class="col-sm-9">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="pull-right">
-                        <button type="button" (click)="Update()" id="editBtn" class="btn btn-danger" [disabled]="this.liste.length==0">Edit</button>
-                        <button type="button" (click)="Add_TitreH2()" id="titreH2Btn" class="btn btn-primary" [disabled]="this.liste.length==0">Ajouter</button>
-                        <button type="button" (click)="Remove()"id="RemoveBtn" class="btn btn-default" [disabled]="this.liste.length==0">Remove</button>
+                    <div class="pull-right demo-nifty-btn">
+                        <button type="button" (click)="Update()" id="editBtn" class="btn btn-danger" [disabled]="this.liste.length==0"><i class="fa fa-edit"></i></button>
+                        <button type="button" (click)="Add_TitreH2()" id="titreH2Btn" class="btn btn-primary" [disabled]="this.liste.length==0"><i class="fa fa-plus-square"></i></button>
+                        <button type="button" (click)="Remove()"id="RemoveBtn" class="btn btn-default" [disabled]="this.liste.length==0"><i class="fa fa-remove"></i></button>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,6 @@
 
     </div>
 </div>
-
 
 
 

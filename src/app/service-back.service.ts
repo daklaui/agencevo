@@ -114,4 +114,65 @@ export class ServiceBackService {
     return  this.http.get("http://localhost:54375/GetPresentation/"+id).toPromise();
   }
 
+  GetAllSession()
+  {
+    return  this.http.get("http://localhost:54375/GetAllSession").toPromise();
+  }
+
+  AddSession(session:any)
+  {
+    return  this.http.post("http://localhost:54375/Ajouter_Session",session).toPromise();
+  }
+  GetAllDetSaison(id:any)
+  {
+    return  this.http.get("http://localhost:54375/GetAllDetSessionSession/"+id).toPromise();
+  }
+  GetPension()
+  {
+    return  this.http.get("http://localhost:54375/GetPension").toPromise();
+  }
+  GetGroupe_Tarif()
+  {
+    return  this.http.get("http://localhost:54375/GetGroupe_Tarif").toPromise();
+  }
+  GettypeChambre(x:any)
+  {
+    return  this.http.get("http://localhost:54375/GettypeChambre/"+x).toPromise();
+  }
+  GetSaisonHotel(x:any)
+  {
+    return  this.http.get("http://localhost:54375/GetSaisonHotel/"+x).toPromise();
+  }
+  GetGetLesPhoto(x:any)
+  {
+    return  this.http.get("http://localhost:54375/GetLesPhoto/"+x).toPromise();
+  }
+  getListeChambresTarif(x:any)
+  {
+    return  this.http.post("http://localhost:54375/getListeChambresTarif",x).toPromise();
+  }
+
+  AddDeSaison(session:any)
+  {
+    return  this.http.post("http://localhost:54375/Ajouter_Det_Session",session).toPromise();
+  }
+  AddTarif(tarif:any)
+  {
+    return  this.http.post("http://localhost:54375/Ajouter_tarif",tarif).toPromise();
+  }
+  AddChambre(chambre:any)
+  {
+    return  this.http.post("http://localhost:54375/Ajouter_Chambre_Mod",chambre).toPromise();
+  }
+  AddPhoto(photo:any)
+  {
+    return  this.http.post("http://localhost:54375/Ajouter_Photo",photo).toPromise();
+  }
+
+  RemoveChambre(id:any)
+  {
+    return  this.http.delete("http://localhost:54375/Remove_Chambre_Mod/"+id).toPromise();
+  }
+
+
 }

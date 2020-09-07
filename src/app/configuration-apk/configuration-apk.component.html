@@ -1,5 +1,22 @@
 <div id="page-head">
-                    
+            <!--Page Title-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Parametrage</h1>
+    </div>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End page title-->
+
+
+    <!--Breadcrumb-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <ol class="breadcrumb">
+    <li><a href="#"><i class="demo-pli-home"></i></a></li>
+    <li   class="active"><a [routerLink]="[]">Parametrage</a></li>
+  
+    </ol>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End breadcrumb-->         
 </div>
 
 
@@ -91,20 +108,20 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Titre</th>
+                <th class="col-md-2">Titre</th>
                 <th class="min-width">Catégorie</th>
                 <th class="min-width">Abréviation</th>
-                <th colspan="2" class="min-width"> #</th>
+                <th colspan="2" class="col-md-1"> #</th>
                 
             </tr>
         </thead>
         <tbody>
             <tr  *ngFor="let valeur of Tr_Liste_Val">
-                <td> {{valeur.LIB_LIST_VAL}}</td>
-                <td><div class="label label-table label-success"> {{valeur.TYP_LIST_VAL}}</div></td>
-                <td>{{valeur.ABR_LIST_VAL}}</td>
-                <td><button type="button" class="btn btn-default btn-sm" (click)="updateValeur(valeur.ID_LIST_VAL)"><i class="fa fa-edit"></i></button></td>
-                <td><button type="button" class="btn btn-danger btn-sm" (click)="deleteValeur(valeur.ID_LIST_VAL)"><i class="fa fa-remove"></i></button></td>
+                <td >{{valeur.LIB_LIST_VAL}}</td>
+                <td class="col-md-2"><div class="label label-table label-success"> {{valeur.TYP_LIST_VAL}}</div></td>
+                <td class="col-md-3">{{valeur.ABR_LIST_VAL}}</td>
+                <td class="min-width"><button type="button" class="btn btn-default btn-sm" (click)="updateValeur(valeur.ID_LIST_VAL)"><i class="fa fa-edit"></i></button></td>
+                <td class="min-width"><button type="button" class="btn btn-danger btn-sm" (click)="deleteValeur(valeur.ID_LIST_VAL)"><i class="fa fa-remove"></i></button></td>
             </tr>
            
             </tbody>

@@ -6,13 +6,25 @@ declare var $ :any;
   styleUrls: ['./occupation.component.css']
 })
 export class OccupationComponent implements OnInit {
-
+  LsteDesSuppRed:any=[];
   constructor() { }
 
   ngOnInit() {
+
+    
   }
   addOccupation()
  {
   $('#Occupation').modal();
+ }
+
+ 
+ onOutput(x:any)
+ {
+
+ this.LsteDesSuppRed.push(x);
+ console.log("test moataz"+this.LsteDesSuppRed);
+
+  
  }
 }

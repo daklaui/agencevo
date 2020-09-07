@@ -6,7 +6,7 @@ declare var $ :any;
   styleUrls: ['./s-r-chambre.component.css']
 })
 export class SRChambreComponent implements OnInit {
-
+  LsteDesChamb:any=[];
   constructor() { }
 
   ngOnInit() {
@@ -15,4 +15,13 @@ export class SRChambreComponent implements OnInit {
   {
     $('#ChambreSR').modal();
   }
+  
+ onOutput(x:any)
+ {
+
+ this.LsteDesChamb.push(x);
+ console.log("test moataz"+x);
+
+  
+ }
 }

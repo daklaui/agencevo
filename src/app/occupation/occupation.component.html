@@ -7,7 +7,7 @@
               
             </div>
             <div class="modal-body">
-              <app-modal-ajouter-occupation></app-modal-ajouter-occupation>
+              <app-modal-ajouter-occupation (onNameSelected)="onOutput($event)" ></app-modal-ajouter-occupation>
             </div>
             <div class="modal-footer">
              
@@ -23,10 +23,10 @@
 </div>
 <hr class="new-section-sm bord-no"/>
 <div class="table-responsive">
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th class="text-center">Occupatoin</th>
+                <th class="text-center">Occupation</th>
                 <th class="text-center">Achat</th>
                 <th class="text-center">Vente</th>
                 <th class="text-center">Condition</th>
@@ -35,31 +35,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><a class="btn-link" href="#"> Order #53431</a></td>
-                <td>Steve N. Horton</td>
-                <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 22, 2014</span></td>
-                <td>$45.00</td>
-                <td>
-                    <div class="label label-table label-success">Paid</div>
-                </td>
-              
-            </tr>
-            <tr>
-                <td><a class="btn-link" href="#"> Order #53431</a></td>
-                <td>Steve N. Horton</td>
-                <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 22, 2014</span></td>
-                <td>$45.00</td>
-                <td>
-                    <div class="label label-table label-success">Paid</div>
-                </td>
-              
-            </tr>
-            <tr>
-                <td><a class="btn-link" href="#"> Order #53431</a></td>
-                <td>Steve N. Horton</td>
-                <td><span class="text-muted"><i class="demo-pli-clock"></i> Oct 22, 2014</span></td>
-                <td>$45.00</td>
+            <tr *ngFor="let x of LsteDesSuppRed">
+                <td>{{x.Nb_Adulte}} adulte(s) + {{x.Nb_Enfant}} enfants(s)</td>
+                <td>{{x.Prix_Achat}} <p *ngIf="x.Type_Paiement=='MntFixe'">TND</p><p *ngIf="x.Type_Paiement=='%'">%</p></td>
+                <td>{{x.Prix_Vente}} <p *ngIf="x.Type_Paiement=='MntFixe'">TND</p><p *ngIf="x.Type_Paiement=='%'">%</p></td>
+                <td><p *ngIf="x.Applicable_Pour=='AllPersone'">toute {{x.Applicable_Sur}}</p> <p *ngIf="x.Applicable_Pour=='Persone'">sur  {{x.Applicable_Sur}} n° {{x.N_Personne}}  </p> [{{x.Age_Min}} - {{x.Age_Max}}]</td>
                 <td>
                     <div class="label label-table label-success">Paid</div>
                 </td>

@@ -3,10 +3,26 @@
 
 <div id="page-head">
                     
+    <!--Page Title-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="page-title">
+        <h1 class="page-header text-overflow">Gestion des hôtels </h1>
+    </div>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End page title-->
+
+
+    <!--Breadcrumb-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <ol class="breadcrumb">
+    <li><a  [routerLink]="[]"><i class="demo-pli-home"></i></a></li>
+    <li><a  [routerLink]="[]">Gestion des hôtels</a></li>
+    <li class="active">Modifier hôtel</li>
+    </ol>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End breadcrumb-->
+
 </div>
-<hr class="new-section-sm bord-no">
-<hr class="new-section-sm bord-no">
-<hr class="new-section-sm bord-no">
 
 <div id="page-content">
                     
@@ -15,7 +31,7 @@
             <div class="tab-base">
 					
                 <!--Nav Tabs-->
-                <ul class="nav nav-tabs ">
+                <ul class="nav nav-tabs">
                     <li class="active">
                         <a data-toggle="tab" href="#demo-lft-tab-1">Informations Général</a>
                     </li>
@@ -52,11 +68,11 @@
                     </div>
                     <div id="demo-lft-tab-3" class="tab-pane fade">
                         <p class="text-main text-semibold">Photos</p>
-                     <app-images></app-images>
+                     <app-images [id]="id"></app-images>
                     </div>
                     <div id="demo-lft-tab-4" class="tab-pane fade">
                         <p class="text-main text-semibold">Tarifs</p>
-                     <app-tarifs></app-tarifs>
+                     <app-tarifs [id]="id"></app-tarifs>
                     </div>
                    
                     <div id="demo-lft-tab-5" class="tab-pane fade">

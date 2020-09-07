@@ -35,6 +35,9 @@ import { UpdatePresentationComponent } from './update-presentation/update-presen
 import { UpdateEquipementsComponent } from './update-equipements/update-equipements.component';
 import { UpdateChambresComponent } from './update-chambres/update-chambres.component';
 import { NgSwitcheryModule } from "angular-switchery-ios";
+import { ReactiveFormsModule } from '@angular/forms';
+import { SimulateurComponent } from './simulateur/simulateur.component';  
+import { DataTablesModule } from 'angular-datatables';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,11 +68,12 @@ import { NgSwitcheryModule } from "angular-switchery-ios";
     UpdateHotelComponent,
     UpdatePresentationComponent,
     UpdateEquipementsComponent,
-    UpdateChambresComponent
+    UpdateChambresComponent,
+    SimulateurComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,  StarRatingModule.forRoot(),FormsModule,HttpClientModule,NgxDropzoneModule,NgSwitcheryModule
+    AppRoutingModule,  StarRatingModule.forRoot(),FormsModule,HttpClientModule,NgxDropzoneModule,NgSwitcheryModule,  ReactiveFormsModule  ,DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, AfterViewChecked, DoCheck } from '@angular/core';
 import { ParametrageHotelComponent } from '../parametrage-hotel/parametrage-hotel.component';
 import { ServiceBackService } from '../service-back.service';
 import { RatingChangeEvent } from 'angular-star-rating';
@@ -10,7 +10,7 @@ declare var $ :any;
   templateUrl: './formulaire-add-hotel.component.html',
   styleUrls: ['./formulaire-add-hotel.component.css']
 })
-export class FormulaireAddHotelComponent implements OnInit {
+export class FormulaireAddHotelComponent implements OnInit{
   @Input() id: number ;
   onRatingChangeResult: RatingChangeEvent;
   ListeOfCodesPostals :any=[];
@@ -22,38 +22,32 @@ export class FormulaireAddHotelComponent implements OnInit {
   
   Hotel:any=new Object;
   ngOnInit() {
-    this.serviceBack.GetHotelWithId(this.id).then((data)=>{
-      this.Hotel=data;
-      console.log("Promise resolved with: " + JSON.stringify(data));
-    }).catch((error)=>{
-      console.log("Promise rejected with " + JSON.stringify(error));
-    });
-    this.serviceBack.GetListeCP().then((data)=>{
-      this.ListeOfCodesPostals=data;
-      console.log("Promise resolved with: " + JSON.stringify(data));
-    }).catch((error)=>{
-      console.log("Promise rejected with " + JSON.stringify(error));
-    });
-    this.serviceBack.GetListeOffPays().then((data)=>{
-      this.ListeOfPays=data;
-      console.log("Promise resolved with Pays: " + JSON.stringify(data));
-    }).catch((error)=>{
-      console.log("Promise rejected with Pays" + JSON.stringify(error));
-    });
-    this.serviceBack.GetListeChaineHotels().then((data)=>{
-      this.listeOfChanieHotels=data;
-      console.log("Promise resolved with Pays: " + JSON.stringify(data));
-    }).catch((error)=>{
-      console.log("Promise rejected with Pays" + JSON.stringify(error));
-    });
-    this.serviceBack.GetListeTypeHotels().then((data)=>{
-      this.listeOfTypeHotels=data;
-      console.log("Promise resolved with Pays: " + JSON.stringify(data));
-    }).catch((error)=>{
-      console.log("Promise rejected with Pays" + JSON.stringify(error));
-    });
+    
+    this.AllAsync();
+   // this.onOptionsSelected(this.Hotel.Pays);
+   // $('select[name=Code_Postal]').val();
+
 
   }
+
+async AllAsync()
+{
+  this.Hotel=await this.serviceBack.GetHotelWithId(this.id);
+  this.ListeOfCodesPostals = await this.serviceBack.GetListeCP();
+  this.ListeOfPays=await this.serviceBack.GetListeOffPays();
+  this.listeOfChanieHotels=await  this.serviceBack.GetListeChaineHotels();
+  this.listeOfTypeHotels= await this.serviceBack.GetListeTypeHotels();
+  $('select[name=Pays]').val(this.Hotel.Pays);
+  $('select[name=Code_Postal]').val(this.Hotel.Code_Postal);
+  this.onOptionsSelected(this.Hotel.Pays);
+    $('.selectpicker').selectpicker('refresh');
+    $('.selectpicker').selectpicker({
+      dropupAuto: false
+  });
+}
+
+  
+
   onRatingChange = ($event: RatingChangeEvent) => {
     
     console.log();
@@ -73,7 +67,8 @@ export class FormulaireAddHotelComponent implements OnInit {
   onSubmit(form: NgForm ) {
     form.value["Categorie"]=this.onRatingChangeResult.rating;
     form.value["Id_Hotel"]=this.id;
-    this.serviceBack.Update_Hotel(form.value).then((data)=>{
+    this.opensweetalert();
+    /*this.serviceBack.Update_Hotel(form.value).then((data)=>{
     let x : any =data;
       if(JSON.stringify(x).search("Valide"))
       {
@@ -84,7 +79,8 @@ export class FormulaireAddHotelComponent implements OnInit {
       console.log("Promise resolved with Pays: " + JSON.stringify(data));
     }).catch((error)=>{
       console.log("Promise rejected with Pays" + JSON.stringify(error));
-    });
+    });*/
+    console.log(form.value);
  
   }
 
@@ -102,13 +98,5 @@ export class FormulaireAddHotelComponent implements OnInit {
   
   }
 
-  refreshSelect() {
-    $('select[name=Pays]').val(this.Hotel.Pays);
-    this.onOptionsSelected(this.Hotel.Pays);
-    $('select[name=Code_Postal]').val(this.Hotel.Code_Postal);
-
-
-    $('.selectpicker').selectpicker('refresh');
- }
 
 }

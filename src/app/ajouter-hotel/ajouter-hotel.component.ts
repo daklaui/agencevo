@@ -159,17 +159,24 @@ test()
     equip.forEach((value,index)=>{
       value.ID_Hotel=x.Id; 
       equip[index]=value;
-  
+
+      this.serviceBack.Ajouter_Pre(presentation).then(data=>{
+        this.serviceBack.Ajouter_Equipement(equip).then(data=>{
+          this.serviceBack.Ajouter_Chambre(Chambres).then(data=>{
+            this.opensweetalert();
+          });
+        });
+       
+    
+      });
+    
   });
    
     // Ajoute de presentation
     
-    this.serviceBack.Ajouter_Pre(presentation).then(data=>{
-    });
-    this.serviceBack.Ajouter_Equipement(equip).then(data=>{
-    });
-    this.serviceBack.Ajouter_Chambre(Chambres).then(data=>{
-    });
+    
+
+ 
     //
   });
 

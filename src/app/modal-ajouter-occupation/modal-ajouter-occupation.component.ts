@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
+declare var $: any;
 
 @Component({
   selector: 'app-modal-ajouter-occupation',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalAjouterOccupationComponent implements OnInit {
 
+   @Output() onNameSelected=new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
+  onSubmit(form: NgForm) {
 
+    this.onNameSelected.emit(form.value);
+    $('#Occupation').modal('toggle'); 
+  }
 }

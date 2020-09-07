@@ -13,10 +13,9 @@
                     <input type="hidden" value="" name="ID_Hotel">
                     <div class="table-responsive">
                         <table class="table table-striped">
-                            <tbody>
+                            <tbody> 
                                 <tr>
-                                    <th class="text-center">Nom</th>
-                                    <td>    <input type="text" class="form-control"  ngModel #Type_Chambre="ngModel" name="Type_Chambre"></td>
+                                    
                                     <th class="text-center">Categorie</th>
                                     <td> <select class="form-control"  ngModel #Categorie="ngModel" name="Categorie">
                                         <option  [value]="cat.LIB_LIST_VAL" *ngFor="let cat of ListeCategorie"  >{{cat.LIB_LIST_VAL}}</option>
@@ -26,17 +25,7 @@
 
                                         <option  [value]="vue.LIB_LIST_VAL" *ngFor="let vue of ListeVue"  >{{vue.LIB_LIST_VAL}}</option>
                                     </select></td>
-                                </tr>
-                                <tr>
-                                    <th class="text-center">Description</th>
-                                    <td colspan="5"><textarea class="form-control" ngModel #Description="ngModel" name="Description"></textarea></td>
-                                  
-                                </tr>
-                    
-                                <tr>
-                                    <th class="text-center">Capacité Min</th>
-                                    <td><input type="number" class="form-control"  placeholder="" ngModel #Capacite_Min="ngModel" name="Capacite_Min"></td>
-                                    <th class="text-center">Capacité Max</th>
+                                    <th class="text-center">Capacité</th>
                                     <td><input type="number" class="form-control"  placeholder="" ngModel #Capacite_Max="ngModel" name="Capacite_Max"></td>
                     
                                     <th class="text-center">Type de vente</th>
@@ -45,6 +34,12 @@
                                         <option  [value]="Typev.LIB_LIST_VAL" *ngFor="let Typev of ListeType_Vente"  >{{Typev.LIB_LIST_VAL}}</option>
                                     </select></td>
                                 </tr>
+                                <tr>
+                                    <th class="text-center">Description</th>
+                                    <td colspan="5"><textarea class="form-control" ngModel #Description="ngModel" name="Description"></textarea></td>
+                                  
+                                </tr>
+                    
                                
                             </tbody>
                         </table>

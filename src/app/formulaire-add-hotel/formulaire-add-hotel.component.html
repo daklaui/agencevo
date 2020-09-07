@@ -5,13 +5,10 @@
                   <!---------------------------------->
               
                   <div class="row">
-              
-           
-          
                               <div class="form-group col-lg-4">
                                   <strong class="text-main"> Nom de l'hôtel </strong>
                                   <input type="hidden" class="form-control" ngModel #Id_Hotel="ngModel" name="Id_Hotel"[value]="Hotel.Id_Hotel">
-                                <input type="text" class="form-control" ngModel #Nom_Hotel="ngModel" name="Nom_Hotel" placeholder="Entrer le nom de l'hôtel"  [value]="Hotel.Nom_Hotel">
+                                <input type="text" class="form-control" ngModel #Nom_Hotel="ngModel" name="Nom_Hotel" placeholder="Entrer le nom de l'hôtel"  value="{{Hotel.Nom_Hotel}}">
                               </div>
           
           
@@ -31,10 +28,10 @@
                             </div>
                              
                             <div class="form-group col-lg-4">
-                                  <strong class="text-main">{{Hotel.Pays}}</strong>
+                                  <strong class="text-main">Pays</strong>
                                
-                                 <select class="selectpicker form-control" data-live-search="true" ngModel #Pays="ngModel" name="Pays" (change)='onOptionsSelected(Pays.value)'>
-                                  <option  [value]="paye.name" *ngFor="let paye of ListeOfPays"  >{{paye.name}}</option>
+                                 <select class="selectpicker form-control" data-live-search="true"  ngModel #Pays="ngModel" name="Pays" (change)='onOptionsSelected(Pays.value)'>
+                                  <option  [value]="paye.name" *ngFor="let paye of ListeOfPays "  >{{paye.name}}</option>
                                  </select>
                                 
                               </div>
@@ -79,10 +76,10 @@
                           <div class="form-group col-lg-4">
                             <strong class="text-main">Code postal</strong>
                           
-                           <select class="selectpicker form-control col-lg-4"  data-live-search="true" ngModel #Code_Postal="ngModel" name="Code_Postal">
+                           <select class="selectpicker show-tick form-control col-lg-4"  data-live-search="true" ngModel #Code_Postal="ngModel" name="Code_Postal">
                                
                 
-                             <option  [value]="cp.CP" *ngFor="let cp of ListeOfCodesPostals"   >{{cp.Ville}} | {{cp.CP}}</option>
+                             <option  [value]="cp.CP" *ngFor="let cp of ListeOfCodesPostals "  [selected]="cp.CP==Hotel.Code_Postal" >{{cp.Ville}} | {{cp.CP}}</option>
                            </select>
                           </div>
                            
@@ -143,5 +140,4 @@
            
                   
           </form>   
-          
-          {{refreshSelect()}}
+        

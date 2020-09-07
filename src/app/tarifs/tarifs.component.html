@@ -3,7 +3,7 @@
 
 
 
-        <div class="panel panel-primary">
+        <div class="panel">
 					
             <!--Panel heading-->
             <div class="panel-heading">
@@ -14,6 +14,7 @@
                         <li class="active"><a data-toggle="tab" href="#demo-tabs-box-1">Ajouter Saison</a></li>
                         <li><a data-toggle="tab" href="#demo-tabs-box-2">Définir Saison</a></li>
                         <li><a data-toggle="tab" href="#demo-tabs-box-3">Tarif</a></li>
+                        <li><a data-toggle="tab" href="#demo-tabs-box-4">Simulateur</a></li>
                     </ul>
 
                 </div>
@@ -29,10 +30,13 @@
                         <app-add-saison></app-add-saison>
                     </div>
                     <div id="demo-tabs-box-2" class="tab-pane fade">
-                        <app-affecter-date-saison></app-affecter-date-saison>
+                        <app-affecter-date-saison [id]="id"></app-affecter-date-saison>
                     </div>
                     <div id="demo-tabs-box-3" class="tab-pane fade">
-                        <app-ajouter-tarif></app-ajouter-tarif>
+                        <app-ajouter-tarif [id]="id"></app-ajouter-tarif>
+                    </div>
+                    <div id="demo-tabs-box-4" class="tab-pane fade">
+                        <app-simulateur [id]="id"></app-simulateur>
                     </div>
                 </div>
             </div>

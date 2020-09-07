@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 declare var jquery:any;
 declare var $ :any;
 @Component({
@@ -7,7 +7,7 @@ declare var $ :any;
   styleUrls: ['./ajouter-tarif.component.css']
 })
 export class AjouterTarifComponent implements OnInit {
-
+  @Input() id:number;
   constructor() { }
 
   ngOnInit() {

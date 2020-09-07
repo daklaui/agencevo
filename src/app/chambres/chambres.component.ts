@@ -36,6 +36,16 @@ ListeType_Vente:any=[];
   }
   onSubmit(form:NgForm)
   {
+    
+    switch( form.value["Capacite_Max"])
+    {
+     case 1 : form.value["Type_Chambre"]="Individuel";
+     case 2 : form.value["Type_Chambre"]="Double";
+     case 3 : form.value["Type_Chambre"]="Triple";
+     case 4 : form.value["Type_Chambre"]="Quadruple";
+    }
+   
+  
     this.ListeDesChambres.push(form.value);
     $('#modalChambres').modal('toggle'); 
    

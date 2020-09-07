@@ -1,23 +1,26 @@
 
-
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" >
 <div class="table-responsive">
     <table class="table table-striped">
         <tbody>
             <tr class="bg-default">
                 <th class="text-center">Achat</th>
-                <td>    <input type="number" class="form-control"  placeholder=""></td>
+                <td>    <input type="number" class="form-control"    ngModel  name="Prix_Achat"  placeholder=""></td>
                 <th class="text-center">Vente</th>
-                <td>     <input type="number" class="form-control"  placeholder=""></td>
-                <td>        <select class="form-control"></select></td>
+                <td>     <input type="number" class="form-control"    ngModel  name="Prix_Vente" placeholder=""></td>
+                <td>        <select class="form-control"  ngModel  name="Type_Paiement" >
+                    <option value="%">%</option>
+                    <option value="MntFixe">montant fixe</option>
+                </select></td>
             </tr>
 
      
             <tr class="bg-default">
             
                 <th >Si l'occupation est de : </th>
-                <td>    <input type="number" class="form-control"></td>
+                <td>    <input type="number"   ngModel name="Nb_Adulte" class="form-control"></td>
                 <th class="text-center">Adulte(s) +</th>
-                <td>     <input type="number" class="form-control"></td>
+                <td>     <input type="number"   ngModel  name="Nb_Enfant" class="form-control" ></td>
                 <th class="text-center">enfant(s)</th>
             </tr>
            
@@ -26,19 +29,22 @@
             <tr class="bg-default">
             
                 <th>Applicable sur les  </th>
-                <td>     <select class="form-control"></select></td>
+                <td>     <select class="form-control"   ngModel  name="Applicable_Sur">
+                    <option value="Adulte">Adulte</option>
+                    <option value="enfant">enfant</option>
+                </select></td>
                 <th >Age entre </th>
-                <td>     <input type="number" class="form-control"></td>
+                <td>     <input type="number"   ngModel name="Age_Min" class="form-control"></td>
                 <th class="text-center" >et</th>
-                <td >     <input type="number" class="form-control"></td>
+                <td >     <input type="number"   ngModel  name="Age_Max" class="form-control"></td>
             </tr>
             <tr class="bg-default">
             
                 <th >Applicable pour  </th>
-                <td>      <input type="radio" > toute personne</td>
+                <td>      <input type="radio"  ngModel  name="Applicable_Pour" value="AllPersone" > toute personne</td>
   
-                <td>     <input type="radio" > ou bien sur la  personne N° </td>
-                <td>     <input type="number" class="form-control"></td>
+                <td>     <input type="radio" ngModel  name="Applicable_Pour" value="Persone" > ou bien sur la  personne N° </td>
+                <td>     <input type="number"   ngModel name="N_Personne" class="form-control"></td>
             </tr>
         </tbody>
     </table>
@@ -46,5 +52,7 @@
 
 
 <div class="col-lg-12">
-    <button type="button" class="btn btn-primary pull-right">Ajouter</button>
+    <button type="submit" class="btn btn-primary pull-right">Ajouter</button>
 </div>
+
+</form>
