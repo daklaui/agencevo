@@ -8,10 +8,15 @@ declare var $: any;
 })
 export class ListeHotelsComponent implements OnInit {
 ListeHotels:any=[];
+dtOptions: DataTables.Settings = {};
   constructor(private  serviceBack:ServiceBackService) { }
 
 
   ngOnInit() {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5
+    };
     this.getTable();
     /*this.serviceBack.GetListeHotels().then((data)=>{
       this.ListeHotels=data;

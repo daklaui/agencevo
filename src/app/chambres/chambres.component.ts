@@ -33,26 +33,64 @@ ListeType_Vente:any=[];
     }).catch((error)=>{
       console.log("Promise rejected with " + JSON.stringify(error));
     });
+
+
+
   }
   onSubmit(form:NgForm)
   {
-    
-    switch( form.value["Capacite_Max"])
-    {
-     case 1 : form.value["Type_Chambre"]="Individuel";
-     case 2 : form.value["Type_Chambre"]="Double";
-     case 3 : form.value["Type_Chambre"]="Triple";
-     case 4 : form.value["Type_Chambre"]="Quadruple";
-    }
-   
-  
+
+ console.log(form.value);
+  this.ListeDesChambres.push(form.value);
+  $('#modalChambres').modal('toggle'); 
+ 
+
+}
+
+onSubmit1(form:NgForm)
+  {
+
+    this.ListeDesChambres.splice(form.value["Id_Chambre"], 1);
     this.ListeDesChambres.push(form.value);
-    $('#modalChambres').modal('toggle'); 
-   
+    $('#modalChambresUpdate').modal('toggle'); 
   }
+
+
+
+
 
   GetChambreslist()
   {
     return this.ListeDesChambres;
+  }
+
+  
+  Update(i)
+  {
+    $("#Type_Chambre").val(this.ListeDesChambres[i].Type_Chambre);
+    $("#Categorie").val(this.ListeDesChambres[i].Categorie);
+    $("#Vue").val(this.ListeDesChambres[i].Vue);
+    $("#Description").val(this.ListeDesChambres[i].Description);
+    $("#Capacite_Min").val(this.ListeDesChambres[i].Capacite_Min);
+    $("#Capacite_Max").val(this.ListeDesChambres[i].Capacite_Max);
+    $("#Type_Vente").val(this.ListeDesChambres[i].Type_Vente);
+    $("#Id_Chambre").val(i);
+    $('#modalChambresUpdate').modal('toggle'); 
+   
+  }
+
+
+  clone(i)
+  {
+ 
+    this.ListeDesChambres.push(this.ListeDesChambres[i]);
+    this.GetChambreslist();
+  }
+
+  remove(i)
+  {
+  
+    this.ListeDesChambres.splice(i, 1);
+    this.GetChambreslist();
   }
 }

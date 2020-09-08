@@ -7,6 +7,7 @@ import { EquipementsComponent } from '../equipements/equipements.component';
 import { PresentationComponent } from '../presentation/presentation.component';
 import { ChambresComponent } from '../chambres/chambres.component';
 import { FormAjouterHotelComponent } from '../form-ajouter-hotel/form-ajouter-hotel.component';
+import { Router } from '@angular/router';
 declare var $: any;
 @Component({
   selector: 'app-ajouter-hotel',
@@ -20,7 +21,7 @@ export class AjouterHotelComponent implements OnInit {
   @ViewChild(PresentationComponent, {static: false}) presentation: PresentationComponent ; 
   @ViewChild(ChambresComponent, {static: false}) Chambres: ChambresComponent ; 
   @ViewChild(FormAjouterHotelComponent, {static: false}) hotel: FormAjouterHotelComponent ; 
-  constructor(private  serviceBack:ServiceBackService ) { }
+  constructor(private  serviceBack:ServiceBackService ,  private router: Router ) { }
  
   ngOnInit() {
     this.WizzardForm();
@@ -160,15 +161,19 @@ test()
       value.ID_Hotel=x.Id; 
       equip[index]=value;
 
+     
+    
+      });
+
       this.serviceBack.Ajouter_Pre(presentation).then(data=>{
         this.serviceBack.Ajouter_Equipement(equip).then(data=>{
           this.serviceBack.Ajouter_Chambre(Chambres).then(data=>{
             this.opensweetalert();
+
+            this.router.navigate(['/Hotel',x.Id]);
           });
         });
        
-    
-      });
     
   });
    

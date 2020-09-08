@@ -35,13 +35,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of LsteDesSuppRed">
+            <tr *ngFor="let x of LsteDesSuppRed ; let i = index">
                 <td>{{x.Nb_Adulte}} adulte(s) + {{x.Nb_Enfant}} enfants(s)</td>
                 <td>{{x.Prix_Achat}} <p *ngIf="x.Type_Paiement=='MntFixe'">TND</p><p *ngIf="x.Type_Paiement=='%'">%</p></td>
                 <td>{{x.Prix_Vente}} <p *ngIf="x.Type_Paiement=='MntFixe'">TND</p><p *ngIf="x.Type_Paiement=='%'">%</p></td>
                 <td><p *ngIf="x.Applicable_Pour=='AllPersone'">toute {{x.Applicable_Sur}}</p> <p *ngIf="x.Applicable_Pour=='Persone'">sur  {{x.Applicable_Sur}} n° {{x.N_Personne}}  </p> [{{x.Age_Min}} - {{x.Age_Max}}]</td>
                 <td>
-                    <div class="label label-table label-success">Paid</div>
+                    <div class=" demo-nifty-btn">
+                        <button type="button" class="btn btn-default" ><i class="fa fa-edit"></i></button>
+                       
+                        <button type="button"  class="btn btn-danger" (click)="Remove(i)"><i class="fa fa-remove"></i></button>
+                    </div>
                 </td>
               
             </tr>

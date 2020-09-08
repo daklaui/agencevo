@@ -20,7 +20,6 @@ for(let x=0;x<$("#nbEnfant").val();x++)
 {
   $("#LesSelects").append(function() {
     return $("<select class='form-group col-lg-3 form-control ' name='age"+x+"'>")
-        .append("<option value='1'>1</option>")
         .append("<option value='2'>2</option>")
         .append("<option value='3'>3</option>")
         .append("<option value='4'>4</option>")

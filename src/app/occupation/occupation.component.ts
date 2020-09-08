@@ -27,4 +27,11 @@ export class OccupationComponent implements OnInit {
 
   
  }
+
+ Remove(i)
+ {
+   
+  this.LsteDesSuppRed.splice(i, 1);
+  
+ }
 }

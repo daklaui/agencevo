@@ -3,7 +3,7 @@ import { ServiceBackService } from '../service-back.service';
 import { OccupationComponent } from '../occupation/occupation.component';
 import { SRChambreComponent } from '../s-r-chambre/s-r-chambre.component';
 import { NgForm } from '@angular/forms';
-
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 declare var $: any;
 @Component({
   selector: 'app-ajouter-tarif-form',
@@ -27,7 +27,14 @@ tarif:any={};
     this.WizarFn();
     this.AllListes();
   }
-  
+  opensweetalert()
+  {
+    Swal.fire({
+        text: 'enregistrement a été effectué avec succès.',
+        icon: 'success'
+      });
+    }
+
 WizarFn()
 {
   $('#demo-cls-wz').bootstrapWizard({
@@ -108,7 +115,7 @@ Ajouter_Tarif()
 
  this.serviceBack.AddTarif(x).then(data=>{
 let x = data as any;
-  alert(x.Id);
+this.opensweetalert();
  });
 
 }
