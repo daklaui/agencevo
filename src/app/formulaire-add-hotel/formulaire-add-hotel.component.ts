@@ -35,15 +35,12 @@ async AllAsync()
   this.Hotel=await this.serviceBack.GetHotelWithId(this.id);
   this.ListeOfCodesPostals = await this.serviceBack.GetListeCP();
   this.ListeOfPays=await this.serviceBack.GetListeOffPays();
-  this.listeOfChanieHotels=await  this.serviceBack.GetListeChaineHotels();
+  //this.listeOfChanieHotels=await  this.serviceBack.GetListeChaineHotels();
   this.listeOfTypeHotels= await this.serviceBack.GetListeTypeHotels();
   $('select[name=Pays]').val(this.Hotel.Pays);
   $('select[name=Code_Postal]').val(this.Hotel.Code_Postal);
   this.onOptionsSelected(this.Hotel.Pays);
     $('.selectpicker').selectpicker('refresh');
-    $('.selectpicker').selectpicker({
-      dropupAuto: false
-  });
 }
 
   

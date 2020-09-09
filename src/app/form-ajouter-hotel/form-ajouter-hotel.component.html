@@ -34,7 +34,7 @@
                         <strong class="text-main">Pays</strong>
                      
                        <select class="selectpicker form-control" data-live-search="true" ngModel #Pays="ngModel" name="Pays" (change)='onOptionsSelected(Pays.value)'>
-                        <option  [value]="paye.name" *ngFor="let paye of ListeOfPays"    >{{paye.name}}</option>
+                        <option  [value]="paye.name" *ngFor="let paye of ListeOfPays ;let i= index"    >{{paye.name}}</option>
                        </select>
                       
                     </div>
@@ -140,5 +140,3 @@
   </div>
 <button class="btn btn-danger" style="display: none;" type="submit" id="onSub"></button>
 </form>   
-
-{{refreshSelect()}}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { RatingChangeEvent } from 'angular-star-rating';
 import { ServiceBackService } from '../service-back.service';
 import { NgForm } from '@angular/forms';
@@ -18,48 +18,35 @@ export class FormAjouterHotelComponent implements OnInit {
   anyob:any={};
  
   constructor(private  serviceBack:ServiceBackService ) { }
- 
+
   ngOnInit() {
+
+    this.AllAsync();
+ 
    
-    this.serviceBack.GetListeCP().then((data)=>{
-      this.ListeOfCodesPostals=data;
-      console.log("Promise resolved with: " + JSON.stringify(data));
-    }).catch((error)=>{
-      console.log("Promise rejected with " + JSON.stringify(error));
-    });
-    this.serviceBack.GetListeOffPays().then((data)=>{
-      this.ListeOfPays=data;
-      $('.selectpicker').selectpicker('refresh');
-      console.log("Promise resolved with Pays: " + JSON.stringify(data));
-    }).catch((error)=>{
-      console.log("Promise rejected with Pays" + JSON.stringify(error));
-    });
-    this.serviceBack.GetListeChaineHotels().then((data)=>{
-      this.listeOfChanieHotels=data;
-      console.log("Promise resolved with Pays: " + JSON.stringify(data));
-    }).catch((error)=>{
-      console.log("Promise rejected with Pays" + JSON.stringify(error));
-    });
-    this.serviceBack.GetListeTypeHotels().then((data)=>{
-      this.listeOfTypeHotels=data;
-      console.log("Promise resolved with Pays: " + JSON.stringify(data));
-    }).catch((error)=>{
-      console.log("Promise rejected with Pays" + JSON.stringify(error));
-    });
-    $('.selectpicker').selectpicker();
   }
   onRatingChange = ($event: RatingChangeEvent) => {
     
     console.log();
     console.log('onRatingUpdated $event: ', $event.rating);
     this.onRatingChangeResult = $event;
+
   }
 
-  refreshSelect() {
-    $('.selectpicker').selectpicker('refresh');
- }
 
+
+ async AllAsync()
+ {
+   
+   this.ListeOfCodesPostals = await this.serviceBack.GetListeCP();
+   this.ListeOfPays=await this.serviceBack.GetListeOffPays();
+  // this.listeOfChanieHotels=await  this.serviceBack.GetListeChaineHotels();
+   this.listeOfTypeHotels= await this.serviceBack.GetListeTypeHotels();
+   $('.selectpicker').selectpicker('refresh');
+ }
  
+
+
  onOptionsSelected(CountryName:String)
  {
    
