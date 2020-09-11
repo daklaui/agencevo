@@ -15,14 +15,69 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let equipment of listeEquipement;let i=index">
+                            <tr>
                                 <td>   <input id="demo-checkbox-addons"  type="checkbox" ></td>
-                                <td>{{equipment.LIB_LIST_VAL}}</td>
-                                <td>    <star-rating class="form-control" (ratingChange)="onRatingChange($event,i)" [starType]="'svg'" [rating]="0"></star-rating></td>
-                                <td> <input type="hidden" [value]="ListeRating[i]"></td>
-                                <td> <input type="hidden" [value]="equipment.ID_LIST_VAL"></td>
-                                
+                                <td><i class="fa fa-wifi"></i> Wifi </td>
+                                <td>    <star-rating class="form-control" (ratingChange)="onRatingChange($event,0)" [starType]="'svg'" [rating]="0"></star-rating></td> 
+                                <td> <input type="hidden" value="Wifi"> </td>
+                                <td> <input type="hidden" value="{{ this.ListeRating[0]}}">  </td>
                             </tr>
+                            <tr>
+                                <td>   <input id="demo-checkbox-addons"  type="checkbox" ></td>
+                                <td><i class="fa fa-paw"></i> Pet Friendly </td>
+                                <td>    <star-rating class="form-control" (ratingChange)="onRatingChange($event,1)" [starType]="'svg'" [rating]="0"></star-rating></td> 
+                                <td> <input type="hidden" value="Pet Friendly"> </td>
+                                <td> <input type="hidden" value="{{this.ListeRating[1]}}">  </td>
+                            </tr>
+
+                            <tr>
+                                <td>   <input id="demo-checkbox-addons"  type="checkbox" ></td>
+                                <td><i class="fa fa-cutlery"></i> Restaurant </td>
+                                <td>    <star-rating class="form-control" (ratingChange)="onRatingChange($event,2)" [starType]="'svg'" [rating]="0"></star-rating></td> 
+                                <td> <input type="hidden" value="Restaurant"> </td>
+                                <td> <input type="hidden" value="{{ this.ListeRating[2]}}">  </td>
+                            </tr>
+
+                            <tr>
+                                <td>   <input id="demo-checkbox-addons"  type="checkbox" ></td>
+                                <td><i class="fa fa-coffee"></i> Breakfast </td>
+                                <td>    <star-rating class="form-control" (ratingChange)="onRatingChange($event,3)" [starType]="'svg'" [rating]="0"></star-rating></td> 
+                                <td> <input type="hidden" value="Breakfast"> </td>
+                                <td> <input type="hidden" value="{{ this.ListeRating[3]}}">  </td>
+                            </tr>
+
+                            <tr>
+                                <td>   <input id="demo-checkbox-addons"  type="checkbox" ></td>
+                                <td> <i class="fa fa-beer"></i> Bar </td>
+                                <td>    <star-rating class="form-control" (ratingChange)="onRatingChange($event,4)" [starType]="'svg'" [rating]="0"></star-rating></td> 
+                                <td> <input type="hidden" value="Breakfast"> </td>
+                                <td> <input type="hidden" value="{{ this.ListeRating[4]}}">  </td>
+                            </tr>
+
+                            <tr>
+                                <td>   <input id="demo-checkbox-addons"  type="checkbox" ></td>
+                                <td> <i class="fa fa-bed"></i> Room Service </td>
+                                <td>    <star-rating class="form-control" (ratingChange)="onRatingChange($event,5)" [starType]="'svg'" [rating]="0"></star-rating></td> 
+                                <td> <input type="hidden" value="Room Service"> </td>
+                                <td> <input type="hidden" value="{{ this.ListeRating[5]}}">  </td>
+                            </tr>
+
+                            <tr>
+                                <td>   <input id="demo-checkbox-addons"  type="checkbox" ></td>
+                                <td> <i class="fas fa-parking"></i> Parking </td>
+                                <td>    <star-rating class="form-control" (ratingChange)="onRatingChange($event,6)" [starType]="'svg'" [rating]="0"></star-rating></td> 
+                                <td> <input type="hidden" value="Room Service"> </td>
+                                <td> <input type="hidden" value="{{ this.ListeRating[6]}}">  </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>   <input id="demo-checkbox-addons"  type="checkbox" ></td>
+                                <td> <i class="fas fa-parking"></i> Parking </td>
+                                <td>    <star-rating class="form-control" (ratingChange)="onRatingChange($event,6)" [starType]="'svg'" [rating]="0"></star-rating></td> 
+                                <td> <input type="hidden" value="Room Service"> </td>
+                                <td> <input type="hidden" value="{{ this.ListeRating[6]}}">  </td>
+                            </tr>
+                           
                            
                         </tbody>
                     </table>

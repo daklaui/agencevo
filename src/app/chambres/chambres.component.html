@@ -16,14 +16,14 @@
                             <tbody> 
                                 <tr>
                                     <th class="text-center">Type de chambre</th>
-                                    <td><input type="text" class="form-control"  placeholder="" ngModel #Type_Chambre="ngModel" name="Type_Chambre"></td>
+                                    <td><input type="text" class="form-control"  placeholder="" ngModel name="Type_Chambre"></td>
                                     <th class="text-center">Categorie</th>
-                                    <td> <select class="form-control"  ngModel #Categorie="ngModel" name="Categorie">
+                                    <td> <select class="form-control"  ngModel name="Categorie">
                                         <option  [value]="cat.LIB_LIST_VAL" *ngFor="let cat of ListeCategorie"  >{{cat.LIB_LIST_VAL}}</option>
                                     </select></td>
                                     <th class="text-center">Vue</th>
-                                    <td> <select class="form-control" ngModel #Vue="ngModel" name="Vue">
-
+                                    <td> <select class="form-control" ngModel  name="Vue">
+                                            
                                         <option  [value]="vue.LIB_LIST_VAL" *ngFor="let vue of ListeVue"  >{{vue.LIB_LIST_VAL}}</option>
                                     </select></td>
                                     
@@ -31,16 +31,16 @@
                                 </tr>
                                 <tr>
                                     <th class="text-center">Description</th>
-                                    <td colspan="5"><textarea class="form-control" ngModel #Description="ngModel" name="Description"></textarea></td>
+                                    <td colspan="5"><textarea class="form-control" ngModel  name="Description"></textarea></td>
                                   
                                 </tr>
                                 <tr>
                                     <th class="text-center">Capacité Min</th>
-                                    <td><input type="number" class="form-control"  placeholder="" ngModel #Capacite_Min="ngModel" name="Capacite_Min"></td>
+                                    <td><input type="number" class="form-control"  placeholder="" ngModel  name="Capacite_Min"></td>
                                     <th class="text-center">Capacité Max</th>
-                                    <td><input type="number" class="form-control"  placeholder="" ngModel #Capacite_Max="ngModel" name="Capacite_Max"></td>
+                                    <td><input type="number" class="form-control"  placeholder="" ngModel  name="Capacite_Max"></td>
                                     <th class="text-center">Type de vente</th>
-                                    <td><select class="form-control" ngModel #Type_Vente="ngModel" name="Type_Vente">
+                                    <td><select class="form-control" ngModel  name="Type_Vente">
 
                                         <option  [value]="Typev.LIB_LIST_VAL" *ngFor="let Typev of ListeType_Vente"  >{{Typev.LIB_LIST_VAL}}</option>
                                     </select></td>
@@ -129,11 +129,10 @@
 </div>
 
 
-<hr>
 <div class="panel-body">
     <div class="pad-btm form-inline">
         <div class="row">
-            <div class="col-sm-6 table-toolbar-left">
+            <div class="col-sm-12 table-toolbar-right">
                 <button id="demo-btn-addrow" class="btn btn-primary"  data-toggle="modal"  data-target="#modalChambres"><i class="demo-pli-add"></i> Ajouter</button> 
             </div>
             

@@ -38,6 +38,7 @@ export class ServiceBackService {
   {
     return  this.http.post(environment.apiUrl+"Ajouter_Presentation",pre).toPromise();
   }
+
   Ajouter_Equipement(equi:any)
   {
     return  this.http.post(environment.apiUrl+"Ajouter_Equipement",equi).toPromise();
@@ -61,6 +62,10 @@ export class ServiceBackService {
   Update_Hotel(hotel:any)
   {
     return  this.http.put(environment.apiUrl+"Update_Hotel",hotel).toPromise();
+  }
+  Update_Presentation(presentation:any)
+  {
+    return  this.http.put(environment.apiUrl+"Update_Presentation",presentation).toPromise();
   }
   Delete_Config(id:Number)
   {
@@ -143,6 +148,10 @@ export class ServiceBackService {
   {
     return  this.http.get(environment.apiUrl+"GetSaisonHotel/"+x).toPromise();
   }
+  GetChambre(x:any)
+  {
+    return  this.http.get(environment.apiUrl+"GetChambre/"+x).toPromise();
+  }
   GetGetLesPhoto(x:any)
   {
     return  this.http.get(environment.apiUrl+"GetLesPhoto/"+x).toPromise();
@@ -174,5 +183,27 @@ export class ServiceBackService {
     return  this.http.delete(environment.apiUrl+"Remove_Chambre_Mod/"+id).toPromise();
   }
 
+  AddPre(pre:any)
+  {
+    return  this.http.post(environment.apiUrl+"Add_Pres",pre).toPromise();
+  }
+  Ajouter_Chambre_(pre:any)
+  {
+    return  this.http.post(environment.apiUrl+"Ajouter_Chambre_single",pre).toPromise();
+  }
+  Add_Pres_Soustitre(pre:any)
+  {
+    return  this.http.post(environment.apiUrl+"Add_Pres_Soustitre",pre).toPromise();
+  }
 
+  Update_equipement(eq:any)
+  {
+    return  this.http.post(environment.apiUrl+"Update_equipement",eq).toPromise();
+  }
+  Update_Chambre(chambre:any)
+  {
+    return  this.http.put(environment.apiUrl+"Update_Chambre",chambre).toPromise();
+  }
+
+  
 }

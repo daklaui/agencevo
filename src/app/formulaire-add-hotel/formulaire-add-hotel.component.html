@@ -1,22 +1,29 @@
 
              
-                <form  (ngSubmit)="onSubmit(f)" #f="ngForm" >
+                <form *ngIf="HotelForm" [formGroup]="HotelForm"  (ngSubmit)="onSubmit()" >
 
                   <!---------------------------------->
               
                   <div class="row">
                               <div class="form-group col-lg-4">
                                   <strong class="text-main"> Nom de l'hôtel </strong>
-                                  <input type="hidden" class="form-control" ngModel #Id_Hotel="ngModel" name="Id_Hotel"[value]="Hotel.Id_Hotel">
-                                <input type="text" class="form-control" ngModel #Nom_Hotel="ngModel" name="Nom_Hotel" placeholder="Entrer le nom de l'hôtel"  value="{{Hotel.Nom_Hotel}}">
+                                  <input type="hidden" class="form-control"  formControlName="Id_Hotel">
+                                <input type="text" class="form-control" formControlName="Nom_Hotel" placeholder="Entrer le nom de l'hôtel" >
                               </div>
           
           
                               <div class="form-group col-lg-4">
                                 <strong class="text-main"> Type d'hôtel </strong>
                               
-                             <select class="form-control" ngModel #Type_H="ngModel" name="Type_H">
-                             <option [value]="hotel.LIB_LIST_VAL" *ngFor="let hotel of listeOfTypeHotels" >{{hotel.LIB_LIST_VAL}}</option>
+                             <select class="form-control"  formControlName="Type_H">
+                              <option value="Auberge">Auberge</option>
+                              <option value="Campement">Campement</option>
+                              <option value="Hôtel">Hôtel</option>
+                              <option value="Maison d'hôte">Maison d'hôte</option>
+                              <option value="Résidence">Résidence</option>
+                              <option value="Villa">Villa</option>
+                              <option value="Villa hôteliére">Villa hôteliére</option>
+                              <option value="Villa privative">Villa privative</option>
                              </select>
                             </div>
           
@@ -24,14 +31,21 @@
                             <div class="form-group col-lg-4">
                               <strong class="text-main"> Adresse </strong>
                             
-                              <input type="text" class="form-control"  placeholder="Adresse" ngModel #Adresse="ngModel" [value]="Hotel.Adresse"  name="Adresse">
+                              <input type="text" class="form-control"  placeholder="Adresse"   formControlName="Adresse">
                             </div>
-                             
+                            <div class="form-group col-lg-4">
+                              <strong class="text-main"> Themes </strong>
+                              <select class="selectpicker" multiple  formControlName="Themes" title="Choisissez l'une des themes suivantes ..." data-width="100%">
+                                <option value="Family">Family</option>
+                                <option value="Friend">Friend</option>
+                                <option value="Partner">Partner</option>
+                            </select>
+                            </div>
                             <div class="form-group col-lg-4">
                                   <strong class="text-main">Pays</strong>
                                
-                                 <select class="selectpicker form-control" data-live-search="true"  ngModel #Pays="ngModel" name="Pays" (change)='onOptionsSelected(Pays.value)'>
-                                  <option  [value]="paye.name" *ngFor="let paye of ListeOfPays "  >{{paye.name}}</option>
+                                 <select class="selectpicker form-control" data-live-search="true" formControlName="Pays" (change)='onOptionsSelected(Pays.value)'>
+                                  <option  [value]="paye.name" *ngFor="let paye of ListeOfPays"  >{{paye.name}}</option>
                                  </select>
                                 
                               </div>
@@ -45,30 +59,33 @@
                             <div class="form-group col-lg-4">
                               <strong class="text-main"> Site internet </strong>
                              
-                              <input type="text" class="form-control"  placeholder="Site internet" ngModel #Site_Web="ngModel" [value]="Hotel.Site_Web"   name="Site_Web">
+                              <input type="text" class="form-control"  placeholder="Site internet"  formControlName="Site_Web" >
                             </div>
           
-                              <div class="form-group col-lg-4">
-                                  <strong class="text-main"> Langue </strong>
-                            
-                               <select class="form-control selectpicker" ngModel #Langue="ngModel" name="Langue">
-                                 <option value="FR" selected >FR</option>
-                               </select>
-                              </div>
+                            <div class="form-group col-lg-4">
+                              <strong class="text-main"> Langue </strong>
+                        
+                           <select class="selectpicker form-control" data-live-search="true" ngModel #Langue="ngModel" name="Langue">
+                             <option value="FR" >Francais</option>
+                             <option value="ENG" >Anglais</option>
+                             <option value="RU" >Russian</option>
+                             <option value="IT" >italian</option>
+                           </select>
+                          </div>
                               <div class="form-group col-lg-4">
                                 <strong class="text-main"> Email </strong>
                                
-                                <input type="email" class="form-control"  placeholder="Email" ngModel #Email="ngModel"[value]="Hotel.Email" name="Email">
+                                <input type="email" class="form-control"  placeholder="Email" formControlName="Email">
                             </div> 
                             <div class="form-group col-lg-4">
                               <strong class="text-main">Téléphone</strong>
                              
-                              <input type="number" class="form-control"  placeholder="Téléphone" ngModel #Telephone="ngModel" [value]="Hotel.Telephone"  name="Telephone">
+                              <input type="number" class="form-control"  placeholder="Téléphone" formControlName="Telephone">
                             </div>
                               <div class="form-group col-lg-4">
                                   <strong class="text-main"> Devise </strong>
                               
-                               <select class="form-control" ngModel #Devise="ngModel" name="Devise">
+                               <select class="form-control" ngModel formControlName="Devise">
                                  <option [value]="Dev.code" *ngFor="let Dev of listeOfDevise" [selected]="Dev.code==Hotel.Devise">{{Dev.name}}</option>
                                </select>
                               </div>
@@ -76,7 +93,7 @@
                           <div class="form-group col-lg-4">
                             <strong class="text-main">Code postal</strong>
                           
-                           <select class="selectpicker show-tick form-control col-lg-4"  data-live-search="true" ngModel #Code_Postal="ngModel" name="Code_Postal">
+                           <select class="selectpicker show-tick form-control col-lg-4"  data-live-search="true" formControlName="Code_Postal">
                                
                 
                              <option  [value]="cp.CP" *ngFor="let cp of ListeOfCodesPostals "  [selected]="cp.CP==Hotel.Code_Postal" >{{cp.Ville}} | {{cp.CP}}</option>
@@ -86,7 +103,7 @@
                           <div class="form-group col-lg-4">
                             <strong class="text-main">Fixe</strong>
                            
-                            <input type="number" class="form-control"  placeholder="Fixe" ngModel #Fixe="ngModel" [value]="Hotel.Fixe"  name="Fixe">
+                            <input type="number" class="form-control"  placeholder="Fixe" formControlName="Fixe">
                           </div>
                          
           
@@ -99,13 +116,13 @@
               <div class="form-group col-lg-2">
                   <strong class="text-main"> Heure d'entrée </strong>
                 
-                              <input type="time" class="form-control" ngModel #H_Arr="ngModel" [value]="Hotel.H_Arr"  name="H_Arr">
+                              <input type="time" class="form-control" formControlName="H_Arr">
                             </div>
           
                             <div class="form-group col-lg-2">
                               <strong class="text-main"> Heure de départ </strong>
                            
-                                          <input type="time" class="form-control" ngModel #H_Depart="ngModel"[value]="Hotel.H_Depart"  name="H_Depart">
+                                          <input type="time" class="form-control" formControlName="H_Depart">
                                         </div>
           
           
@@ -113,21 +130,21 @@
                                           <strong class="text-main"> Distance centre ville </strong>
                                       
                                     
-                                          <input type="number" class="form-control" placeholder="" ngModel #Distance_Centre_V="ngModel"  name="Distance_Centre_V">
+                                          <input type="number" class="form-control" placeholder="" formControlName="Distance_Centre_V">
                                          
                                       </div>
                                       <div class="form-group col-lg-3 ">
                                           <strong class="text-main"> Distance aeroport </strong>
                                       
                                     
-                                          <input type="number" class="form-control" id="" placeholder="" ngModel #Distance_A="ngModel"  name="Distance_A">
+                                          <input type="number" class="form-control" id="" placeholder="" formControlName="Distance_A">
                                          
                                       </div>
                                       <div class="form-group col-lg-3 ">
                                           <strong class="text-main"> longitude latitude </strong>
                                       
                                     
-                                          <input type="text" class="form-control" id="" placeholder="" ngModel #Longitude_Laitetude="ngModel" name="Longitude_Laitetude" >
+                                          <input type="text" class="form-control" id="" placeholder="" formControlName="Longitude_Laitetude" >
                                          
                                       </div>
                                           

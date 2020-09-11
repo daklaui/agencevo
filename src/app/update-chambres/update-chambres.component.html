@@ -1,5 +1,4 @@
 
-
 <div id="modalChambres" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -13,32 +12,40 @@
                     <input type="hidden" value="" name="ID_Hotel">
                     <div class="table-responsive">
                         <table class="table table-striped">
-                            <tbody>
+                            <tbody> 
                                 <tr>
-                                    
+                                    <th class="text-center">Type de chambre</th>
+                                    <td><input type="text" class="form-control"  placeholder="" ngModel name="Type_Chambre"></td>
                                     <th class="text-center">Categorie</th>
-                                    <td> <select class="form-control"  ngModel #Categorie="ngModel" name="Categorie">
+                                    <td> <select class="form-control"  ngModel name="Categorie">
                                         <option  [value]="cat.LIB_LIST_VAL" *ngFor="let cat of ListeCategorie"  >{{cat.LIB_LIST_VAL}}</option>
                                     </select></td>
                                     <th class="text-center">Vue</th>
-                                    <td> <select class="form-control" ngModel #Vue="ngModel" name="Vue">
-
+                                    <td> <select class="form-control" ngModel  name="Vue">
+                                            
                                         <option  [value]="vue.LIB_LIST_VAL" *ngFor="let vue of ListeVue"  >{{vue.LIB_LIST_VAL}}</option>
                                     </select></td>
-                                    <th class="text-center">Capacité</th>
-                                    <td><input type="number" class="form-control"  placeholder="" ngModel #Capacite_Max="ngModel" name="Capacite_Max"></td>
-                    
+                                    
+                                   
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Description</th>
+                                    <td colspan="5"><textarea class="form-control" ngModel  name="Description"></textarea></td>
+                                  
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Capacité Min</th>
+                                    <td><input type="number" class="form-control"  placeholder="" ngModel  name="Capacite_Min"></td>
+                                    <th class="text-center">Capacité Max</th>
+                                    <td><input type="number" class="form-control"  placeholder="" ngModel  name="Capacite_Max"></td>
                                     <th class="text-center">Type de vente</th>
-                                    <td><select class="form-control" ngModel #Type_Vente="ngModel" name="Type_Vente">
+                                    <td><select class="form-control" ngModel  name="Type_Vente">
 
                                         <option  [value]="Typev.LIB_LIST_VAL" *ngFor="let Typev of ListeType_Vente"  >{{Typev.LIB_LIST_VAL}}</option>
                                     </select></td>
                                 </tr>
-                                <tr>
-                                    <th class="text-center">Description</th>
-                                    <td colspan="5"><textarea class="form-control" ngModel #Description="ngModel" name="Description"></textarea></td>
-                                  
-                                </tr>
+                    
+                               
                             </tbody>
                         </table>
                     </div>
@@ -59,9 +66,6 @@
 
 
 
-
-
-
 <!---->
 
 <div id="modalChambresUpdate" class="modal fade" tabindex="-1">
@@ -73,35 +77,41 @@
       
             </div>
             <div class="modal-body">
-                <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-                    <input type="hidden" value="" name="ID_Hotel">
+                <form *ngIf="chambreForm" [formGroup]="chambreForm"  (ngSubmit)="onUpdate()">
+                    <input type="hidden" value="" formControlName="ID_Hotel">
+                    <input type="hidden" value="" formControlName="ID_Chambre">
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <tbody>
                                 <tr>
-                                    
+                                    <th class="text-center">Type de chambre</th>
+                                    <td><input type="text" class="form-control"  placeholder="" formControlName="Type_Chambre"></td>
                                     <th class="text-center">Categorie</th>
-                                    <td> <select class="form-control"  ngModel #Categorie="ngModel" name="Categorie">
+                                    <td> <select class="form-control" formControlName="Categorie">
                                         <option  [value]="cat.LIB_LIST_VAL" *ngFor="let cat of ListeCategorie"  >{{cat.LIB_LIST_VAL}}</option>
                                     </select></td>
                                     <th class="text-center">Vue</th>
-                                    <td> <select class="form-control" ngModel #Vue="ngModel" name="Vue">
+                                    <td> <select class="form-control" formControlName="Vue">
 
                                         <option  [value]="vue.LIB_LIST_VAL" *ngFor="let vue of ListeVue"  >{{vue.LIB_LIST_VAL}}</option>
                                     </select></td>
-                                    <th class="text-center">Capacité</th>
-                                    <td><input type="number" class="form-control"  placeholder="" ngModel #Capacite_Max="ngModel" name="Capacite_Max"></td>
-                    
-                                    <th class="text-center">Type de vente</th>
-                                    <td><select class="form-control" ngModel #Type_Vente="ngModel" name="Type_Vente">
-
-                                        <option  [value]="Typev.LIB_LIST_VAL" *ngFor="let Typev of ListeType_Vente"  >{{Typev.LIB_LIST_VAL}}</option>
-                                    </select></td>
+                                   
                                 </tr>
                                 <tr>
                                     <th class="text-center">Description</th>
-                                    <td colspan="5"><textarea class="form-control" ngModel #Description="ngModel" name="Description"></textarea></td>
+                                    <td colspan="5"><textarea class="form-control" formControlName="Description"></textarea></td>
                                   
+                                </tr>
+                                <tr>
+                                    <th class="text-center">Capacité Min</th>
+                                    <td><input type="number" class="form-control"  placeholder="" formControlName="Capacite_Min"></td>
+                                    <th class="text-center">Capacité Max</th>
+                                    <td><input type="number" class="form-control"  placeholder="" formControlName="Capacite_Max"></td>
+                                    <th class="text-center">Type de vente</th>
+                                    <td><select class="form-control" formControlName="Type_Vente">
+
+                                        <option  [value]="Typev.LIB_LIST_VAL" *ngFor="let Typev of ListeType_Vente"  >{{Typev.LIB_LIST_VAL}}</option>
+                                    </select></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -125,7 +135,7 @@
 <div class="panel-body">
     <div class="pad-btm form-inline">
         <div class="row">
-            <div class="col-sm-6 table-toolbar-left">
+            <div class="col-sm-12 table-toolbar-right">
                 <button id="demo-btn-addrow" class="btn btn-primary"  data-toggle="modal"  data-target="#modalChambres"><i class="demo-pli-add"></i> Ajouter</button> 
             </div>
             
@@ -149,7 +159,12 @@
                     <td>{{chambre.Vue}}</td>
                     <td>{{chambre.Type_Vente}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger" (click)="RemoveChambre(chambre.ID_Chambre)"><i class="fa fa-remove"></i></button>
+   
+                        <div class="demo-nifty-btn">
+                            <button type="button"  class="btn btn-default" (click)="Update(chambre.ID_Chambre)" ><i class="fa fa-edit"></i></button>
+                            <button type="button"  class="btn btn-primary" (click)="clone(i)"><i class="fa fa-clone"></i></button>
+                            <button type="button" class="btn btn-danger" (click)=" RemoveChambre(chambre.ID_Chambre)"><i class="fa fa-remove"></i></button>
+                        </div>
                     </td>
 
 

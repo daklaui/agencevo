@@ -16,12 +16,6 @@ ListeRating=[];
   constructor(private  serviceBack:ServiceBackService) { }
 
   ngOnInit() {
-    this.serviceBack.GetEquipement().then((data)=>{
-      this.listeEquipement=data;
-      console.log("Promise resolved with: equipement " + JSON.stringify(data));
-    }).catch((error)=>{
-      console.log("Promise rejected with equipement " + JSON.stringify(error));
-    });
     
   }
   eventCheck(){

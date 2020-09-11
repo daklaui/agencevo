@@ -45,22 +45,52 @@ export class UpdatePresentationComponent implements OnInit {
   {
 if(x.id==undefined)
 {
+  x.Id_Hotel=this.id;
+  /*this.serviceBack.AddPre(x).then((data)=>{
+    //this.liste=data;
+  });
+  
   this.liste.push(x);
-  console.log("test moataz"+this.liste);
+  console.log("test moataz"+this.liste);*/
+  console.log(x);
 }
 else
 {
-  this.liste[x.id].Titre=x.Titre;
-  this.liste[x.id].Text=x.Text;
-  console.log("test moataz update"+this.liste);
+
+  let pre=this.liste[x.id];
+  pre.Titre=x.ob.Titre;
+  pre.Text=x.ob.Text;
+  pre.Id_Hotel=this.id;
+
+  this.serviceBack.Update_Presentation(pre).then((data)=>{
+   
+  this.liste.splice(x.id,1,pre);
+  });
+  
+
+
+  console.log(x);
+  //console.log("test moataz update"+this.liste);
 }
    
   }
 
   OnAddChild(x:any)
   {
+    x.ob.Sous_Titres.Id_Hotel=this.id;
+    x.ob.Sous_Titres.Id_Grand_Titre=x.ob.Id_Presentation;
  this.liste[x.id].Sous_Titres=x.ob.Sous_Titres;
- console.log("test moataz child"+this.liste[x.id].Sous_Titres);
+    let pres = {
+      "Id_Grand_Titre" : x.ob.Id_Presentation,
+      "Id_Hotel" : this.id,
+      "Text": x.ob.Sous_Titres[x.ob.Sous_Titres.length-1].Text,
+      "Titre": x.ob.Sous_Titres[x.ob.Sous_Titres.length-1].Titre,
+    }
+
+this.serviceBack.Add_Pres_Soustitre(pres).then((data)=>{
+  //this.liste=data;
+});
+ console.log(pres);
   }
 
   Update()
@@ -87,6 +117,7 @@ else
     };
     $('#demo-lg-modal').modal('show'); 
   }
+
   Remove()
   {
     if( this.SousValActive==null)

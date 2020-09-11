@@ -9,7 +9,7 @@ declare var $: any;
 })
 export class AjouterTitrePresentationComponent implements OnInit {
 
-@Input() Pre:Object;
+@Input() Pre: any ;
 @Output() onNameSelected=new EventEmitter();
   constructor() {   }
 
@@ -33,14 +33,18 @@ console.log(this.Pre);
   }
   UpdateOb(v:number,x:string,y:string)
   {
+    this.Pre.ob.Titre=x;
+    this.Pre.ob.Text=y;
+
+
     let b={
       "id":v,
       "Titre":x,
       "Text":y,
       "Sous_Titres":[]
     }
-    console.log(b);
-    this.onNameSelected.emit(b);
+    console.log(this.Pre);
+    this.onNameSelected.emit(this.Pre);
     $('#demo-lg-modal').modal('toggle'); 
   }
 }

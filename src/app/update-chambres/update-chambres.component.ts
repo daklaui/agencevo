@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ServiceBackService } from '../service-back.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 declare var $: any;
 @Component({
@@ -12,7 +12,7 @@ export class UpdateChambresComponent implements OnInit {
  ListeOfChambres:any=[];
  @Input() id:number;
   constructor(private  serviceBack:ServiceBackService) { }
-
+  chambreForm:FormGroup;
   ngOnInit() {
 this.serviceBack.GetChambres(this.id).then((data)=>{
   this.ListeOfChambres=data;
@@ -26,15 +26,9 @@ this.serviceBack.GetChambres(this.id).then((data)=>{
   onSubmit(form:NgForm)
   {
     
-    switch(form.value["Capacite_Max"])
-    {
-     case 1 : form.value["Type_Chambre"]="Individuel"; break;
-     case 2 : form.value["Type_Chambre"]="Double"; break;
-     case 3 : form.value["Type_Chambre"]="Triple"; break;
-     case 4 : form.value["Type_Chambre"]="Quadruple"; break;
-    }
+    
     form.value["ID_Hotel"]=this.id;
-    console.log(form.value);
+
     this.serviceBack.AddChambre(form.value).then((data) =>{
     
       let x =data as any;
@@ -55,12 +49,77 @@ this.serviceBack.GetChambres(this.id).then((data)=>{
    
   }
 
+
+onUpdate()
+{
+
+  this.serviceBack.Update_Chambre(this.chambreForm.value).then((data)=>{
+    $('#modalChambresUpdate').modal('toggle');
+    this.serviceBack.GetChambres(this.id).then((data)=>{
+      this.ListeOfChambres=data;
+    });    
+    this.opensweetalert();
+      
+      console.log("Promise resolved with Pays: " + JSON.stringify(data));
+    }).catch((error)=>{
+      console.log("Promise rejected with Pays" + JSON.stringify(error));
+    });
+  
+}
+
+
   opensweetalert()
   {
     Swal.fire({
         text: 'enregistrement a été effectué avec succès.',
         icon: 'success'
       });
+    }
+
+    Update(i)
+    {
+
+      this.serviceBack.GetChambre(i).then((data)=>{
+       let x = data as any ;
+       console.log(x);
+       this.chambreForm= new FormGroup({
+        Type_Chambre : new FormControl(x.Type_Chambre),
+        Categorie : new FormControl(x.Categorie),
+        Vue : new FormControl(x.Vue),
+        Description : new FormControl(x.Description),
+        Capacite_Min : new FormControl(x.Capacite_Min),
+        Capacite_Max : new FormControl(x.Capacite_Max),
+        Type_Vente : new FormControl(x.Type_Vente),
+        ID_Chambre : new FormControl(x.ID_Chambre),
+        ID_Hotel : new FormControl(x.ID_Hotel)
+      });
+
+      });
+
+      
+
+      $('#modalChambresUpdate').modal('toggle');
+      
+      
+    
+     
+    }
+  
+
+    clone(i)
+    {
+      
+      this.ListeOfChambres[i].ID_Hotel=this.id;
+      this.ListeOfChambres[i].ID_Chambre=null;
+     // console.log( this.ListeOfChambres[i]);
+    this.serviceBack.Ajouter_Chambre_( this.ListeOfChambres[i]).then((data) =>{
+    
+
+      this.serviceBack.GetChambres(this.id).then((data)=>{
+        this.ListeOfChambres=data;
+      });
+      this.opensweetalert();
+    });
     }
 
     RemoveChambre(id:any)

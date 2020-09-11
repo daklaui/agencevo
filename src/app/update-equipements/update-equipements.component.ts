@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ServiceBackService } from '../service-back.service';
+import { RatingChangeEvent } from 'angular-star-rating';
 
 @Component({
   selector: 'app-update-equipements',
@@ -10,6 +11,7 @@ export class UpdateEquipementsComponent implements OnInit {
   @Input() id: number ;
   ListeEquipements:any=[];
   truthyValue=true;
+  ListeRating:any=[];
   constructor(private  serviceBack:ServiceBackService) { }
 
   ngOnInit() {
@@ -21,10 +23,23 @@ export class UpdateEquipementsComponent implements OnInit {
    
 
   }
+  onRatingChange = ($event: RatingChangeEvent,x) => {
+    
+    this.ListeEquipements[x].Note=$event.rating;
 
-  abc(etat)
+    this.serviceBack.Update_equipement(this.ListeEquipements[x]).then((data)=>{
+     
+    });
+   
+  }
+  abc(etat,x)
   {
-    alert(etat);
+    this.ListeEquipements[x].Etat=etat;
+
+    this.serviceBack.Update_equipement(this.ListeEquipements[x]).then((data)=>{
+     
+    });
+   
   }
 
 }

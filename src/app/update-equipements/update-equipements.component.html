@@ -18,10 +18,11 @@
                             <tr *ngFor="let equipment of ListeEquipements;let i=index">
                                 <td>{{equipment.LIB_LIST_VAL}}</td>
                                 <td>    <star-rating class="form-control" (ratingChange)="onRatingChange($event,i)" [starType]="'svg'" [rating]="equipment.Note"></star-rating></td>
-                                <td>    <ng-switchery  [(ngModel)]="equipment.Etat"  (change)="abc(equipment.Etat)" ></ng-switchery>
+                                <td>    <ng-switchery  [(ngModel)]="equipment.Etat"  (change)="abc(equipment.Etat,i)" ></ng-switchery>
 
                                 </td>
-                             
+                              
+                                
                                 <td> <input type="hidden" [value]="0"></td>
                                 
                             </tr>

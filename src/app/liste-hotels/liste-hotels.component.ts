@@ -14,8 +14,19 @@ dtOptions: DataTables.Settings = {};
 
   ngOnInit() {
     this.dtOptions = {
+      createdRow: function(row, data, dataIndex){
+        // Initialize custom control
+        $('.form-control', row).raty({
+           // ... skipped ...
+        });
+     },
       pagingType: 'full_numbers',
-      pageLength: 5
+      pageLength: 5,
+      "columnDefs": [ {
+        "targets": 2,
+        "orderable": false,
+        "searchable": false
+  } ]
     };
     this.getTable();
     /*this.serviceBack.GetListeHotels().then((data)=>{

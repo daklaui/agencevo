@@ -18,8 +18,15 @@
                     <div class="form-group col-lg-4">
                       <strong class="text-main"> Type d'hôtel </strong>
                     
-                   <select class="form-control" ngModel #Type_H="ngModel" name="Type_H">
-                   <option [value]="hotel.LIB_LIST_VAL" *ngFor="let hotel of listeOfTypeHotels" >{{hotel.LIB_LIST_VAL}}</option>
+                   <select class="selectpicker form-control" data-live-search="true" ngModel name="Type_H">
+                    <option value="Auberge">Auberge</option>
+                    <option value="Campement">Campement</option>
+                    <option value="Hôtel">Hôtel</option>
+                    <option value="Maison d'hôte">Maison d'hôte</option>
+                    <option value="Résidence">Résidence</option>
+                    <option value="Villa">Villa</option>
+                    <option value="Villa hôteliére">Villa hôteliére</option>
+                    <option value="Villa privative">Villa privative</option>
                    </select>
                   </div>
 
@@ -28,6 +35,15 @@
                     <strong class="text-main"> Adresse </strong>
                   
                     <input type="text" class="form-control"  placeholder="Adresse" ngModel #Adresse="ngModel"  name="Adresse">
+                  </div>
+
+                  <div class="form-group col-lg-4">
+                    <strong class="text-main"> Themes </strong>
+                    <select class="selectpicker" multiple ngModel name="theme" title="Choisissez l'une des themes suivantes ..." data-width="100%">
+                      <option>Family</option>
+                      <option>Friend</option>
+                      <option>Partner</option>
+                  </select>
                   </div>
                    
                   <div class="form-group col-lg-4">
@@ -54,8 +70,11 @@
                     <div class="form-group col-lg-4">
                         <strong class="text-main"> Langue </strong>
                   
-                     <select class="form-control" ngModel #Langue="ngModel" name="Langue">
-                       <option value="FR" >FR</option>
+                     <select class="selectpicker form-control" data-live-search="true" ngModel #Langue="ngModel" name="Langue">
+                       <option value="FR" >Francais</option>
+                       <option value="ENG" >Anglais</option>
+                       <option value="RU" >Russian</option>
+                       <option value="IT" >italian</option>
                      </select>
                     </div>
                     <div class="form-group col-lg-4">
