@@ -45,7 +45,7 @@
                     <tr *ngFor="let x of ListeHotels;let i=index">
                         <td>{{i}}</td>
                         <td>{{x.Nom_Hotel}}</td>
-                        <td><star-rating class="form-control" readonly="true" [starType]="'svg'" [rating]="x.Categorie"></star-rating></td>
+                        <td>{{x.Categorie}}</td>
                         <td>{{x.Pays}}</td>
                         <td>{{x.Code_Postal}}</td>
                         <td>

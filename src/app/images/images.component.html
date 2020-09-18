@@ -7,15 +7,17 @@
             <div class="pad-all">
                 <div id="demo-gallery" style="display:none;">
 
-                    <a href="#" *ngFor="let i of ListePhoto">
+                   <a href="#" *ngFor="let i of ListePhoto;let x=index">
                         <img alt="The winding road"
-                        src="sanitizeImg({{i.Lien_Photo}})"
-                             data-image="/assets/img/gallery/big/tile1.jpg"
+                        [src]="i"
+                             data-image=""
                              data-description="The winding road description"
                              style="display:none">
-                    </a>
-
                     
+                 
+                            </a>
+
+                  
                 </div>
             </div>
             

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ServiceBackService } from '../service-back.service';
 declare var $: any;
 @Component({
@@ -12,6 +12,7 @@ ListeDesChambres:any=[];
 ListeCategorie:any=[];
 ListeVue:any=[];
 ListeType_Vente:any=[];
+FormChambres:FormGroup;
   constructor(private  serviceBack:ServiceBackService) { }
 
   ngOnInit() {
@@ -47,11 +48,11 @@ ListeType_Vente:any=[];
 
 }
 
-onSubmit1(form:NgForm)
+onSubmit1()
   {
 
-    this.ListeDesChambres.splice(form.value["Id_Chambre"], 1);
-    this.ListeDesChambres.push(form.value);
+    this.ListeDesChambres.splice(this.FormChambres.value["Id_Chambre"], 1);
+    this.ListeDesChambres.push(this.FormChambres.value);
     $('#modalChambresUpdate').modal('toggle'); 
   }
 
@@ -67,14 +68,19 @@ onSubmit1(form:NgForm)
   
   Update(i)
   {
-    $("#Type_Chambre").val(this.ListeDesChambres[i].Type_Chambre);
-    $("#Categorie").val(this.ListeDesChambres[i].Categorie);
-    $("#Vue").val(this.ListeDesChambres[i].Vue);
-    $("#Description").val(this.ListeDesChambres[i].Description);
-    $("#Capacite_Min").val(this.ListeDesChambres[i].Capacite_Min);
-    $("#Capacite_Max").val(this.ListeDesChambres[i].Capacite_Max);
-    $("#Type_Vente").val(this.ListeDesChambres[i].Type_Vente);
-    $("#Id_Chambre").val(i);
+    this.FormChambres=new FormGroup({
+      Id_Chambre : new FormControl(i),
+      ID_Hotel : new FormControl(),
+      Type_Chambre : new FormControl(this.ListeDesChambres[i].Type_Chambre),
+      Categorie : new FormControl(this.ListeDesChambres[i].Categorie),
+      Vue : new FormControl(this.ListeDesChambres[i].Vue),
+      Description : new FormControl(this.ListeDesChambres[i].Description),
+      Capacite_Min : new FormControl(this.ListeDesChambres[i].Capacite_Min),
+      Capacite_Max : new FormControl(this.ListeDesChambres[i].Capacite_Max),
+      Type_Vente : new FormControl(this.ListeDesChambres[i].Type_Vente)
+     
+    });
+
     $('#modalChambresUpdate').modal('toggle'); 
    
   }

@@ -1,0 +1,60 @@
+
+
+                <div class="panel">
+					
+                    <!--Panel heading-->
+                    <div class="panel-heading">
+                        <div class="panel-control pull-left">
+        
+                            <!--Nav tabs-->
+                            <ul class="nav nav-tabs">
+                                <li><a data-toggle="tab" [class.active]="viewMode == 'tab1'" (click)="viewMode ='tab1'">Appliquer une valeur +/-</a></li>
+                
+                             <!--   <li><a data-toggle="tab" [class.active]="viewMode == 'tab3'" (click)="viewMode ='tab3'">Prix commissionable </a></li>-->
+                                <li><a data-toggle="tab" [class.active]="viewMode == 'tab4'" (click)="viewMode ='tab4'">Ajuster Min séjour / Délais de retrocession  </a></li>
+                            </ul>
+        
+                        </div>
+                       
+                    </div>
+        
+                    <!--Panel body-->
+                    <div class="panel-body">
+        
+                        <!--Tabs content-->
+                        <div class="tab-content" [ngSwitch]="viewMode">
+                            <div  class="tab-pane fade in active" *ngSwitchCase="'tab1'">
+                                
+    <app-ajuster-prix-vente-p  [id]="id"></app-ajuster-prix-vente-p>
+                            </div>
+                         
+                            <div class="tab-pane fade in active" *ngSwitchCase="'tab4'">
+                                <app-ajuster-min-sejour-delai-retro  [id]="id" ></app-ajuster-min-sejour-delai-retro>
+                            </div>
+                           
+                            <div id="demo-tabs-boxb-5" class="tab-pane fade">
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

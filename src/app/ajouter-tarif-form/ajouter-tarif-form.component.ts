@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { ServiceBackService } from '../service-back.service';
 import { OccupationComponent } from '../occupation/occupation.component';
 import { SRChambreComponent } from '../s-r-chambre/s-r-chambre.component';
@@ -10,7 +10,7 @@ declare var $: any;
   templateUrl: './ajouter-tarif-form.component.html',
   styleUrls: ['./ajouter-tarif-form.component.css']
 })
-export class AjouterTarifFormComponent implements OnInit {
+export class AjouterTarifFormComponent implements OnInit,AfterViewInit {
   @Input() id:number;
   @ViewChild(OccupationComponent, {static: false}) occupationComponent: OccupationComponent ; 
   @ViewChild(SRChambreComponent, {static: false}) SRChambreComponent: SRChambreComponent ; 
@@ -98,7 +98,9 @@ async AllListes()
   this.ListeTypeChambre=await  this.serviceBack.GettypeChambre(this.id);
 }
 
-
+ngAfterViewInit(){
+  this.AllListes();
+ }
 
 Ajouter_Tarif()
 {

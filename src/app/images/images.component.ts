@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterContentChecked, AfterContentInit } from '@angular/core';
 import { ServiceBackService } from '../service-back.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
@@ -8,21 +8,23 @@ declare var $ :any;
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.css']
 })
-export class ImagesComponent implements OnInit {
+export class ImagesComponent implements OnInit  {
   files: File[] = [];
   ListePhoto:any=[];
   @Input() id: number ;
-  constructor(private  serviceBack:ServiceBackService,     private _sanitizer: DomSanitizer) { }
-
-  ngOnInit() {
-    this.serviceBack.GetGetLesPhoto(this.id).then(data=>{
-      this.ListePhoto=data;
-
-      console.log(data);
-    });
+  constructor(private  serviceBack:ServiceBackService,     private _sanitizer: DomSanitizer) {
+    
     
 
-    $("#demo-gallery").unitegallery();
+  }
+
+
+  ngOnInit() {
+   
+    this.GetImages();
+   // let  api = $("#demo-gallery").unitegallery();
+  //  console.log(	api.getNumItems()	);
+
   }
   
   onSelect(event) {
@@ -36,6 +38,13 @@ export class ImagesComponent implements OnInit {
        alert('Uploaded Successfully.');
     })*/
 }
+
+async GetImages()
+{ 
+  this.ListePhoto= await this.serviceBack.GetGetLesPhoto(this.id);
+  console.log(this.ListePhoto);
+
+}
 opensweetalert()
   {
     Swal.fire({
@@ -43,10 +52,14 @@ opensweetalert()
         icon: 'success'
       });
     }
-
+test()
+{
+  let  api = $("#demo-gallery").unitegallery();
+  console.log(	api.getNumItems()	);
+}
     sanitizeImg(x:any):SafeUrl
     {
-      return this._sanitizer.bypassSecurityTrustUrl(x);
+      return +this._sanitizer.bypassSecurityTrustUrl(x);
     }
 Upload()
 {

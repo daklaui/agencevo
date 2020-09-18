@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-
+import{AjouterTarifFormComponent} from '../ajouter-tarif-form/ajouter-tarif-form.component';
 @Component({
   selector: 'app-tarifs',
   templateUrl: './tarifs.component.html',
@@ -7,10 +7,10 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 })
 export class TarifsComponent implements OnInit {
   @Input() id:number;
-  
+  @ViewChild(AjouterTarifFormComponent, {static: false}) ajouterTarifComponent: AjouterTarifFormComponent ; 
   constructor() { }
 
   ngOnInit() {
   }
-
+  
 }

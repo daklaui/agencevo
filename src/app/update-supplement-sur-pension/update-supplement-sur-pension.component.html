@@ -1,0 +1,53 @@
+
+                                <div class="col-sm-12">
+                                    <div class="panel">
+                                       
+                            
+                                        <!--Bordered Table-->
+                                        <!--===================================================-->
+                                        <div class="panel-body">
+                                            <div class="table-responsive">
+                                              
+                                                <table class="table table-bordered" id="supp">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">Type de pension</th>
+                                                            <th>Prix d'achat</th>
+                                                            <th>Prix vente</th>
+                                                            <th>Etat</th>
+                                                         
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      
+                                                        <tr *ngFor="let x of ListeSuppTarif;let i=index " >
+                                                            <td  class="text-center" >{{x.Pension_Base}}</td>
+                                                            <td >
+                                                                <input type="number" class="form-control" id="Prix_Achat{{i}}" value="{{x.Prix_Achat}}" placeholder="">
+                                                            </td>
+                                                            <td >
+                                                                <input type="number" class="form-control" id="Prix_Vente{{i}}" value="{{x.Prix_Vente}}" placeholder="">
+                                                            </td>
+                                                            <td >
+                                                                <ng-switchery  [(ngModel)]="x.Etat_tarif"  ></ng-switchery>
+                                                            </td>
+                                                            <td >
+                                                                <button type="button"  class="btn btn-default" (click)="Update(x.Id_Tarif,i,x.Etat_tarif)" ><i class="fa fa-edit"></i></button>
+                                                            </td>
+                                                           
+                                                        </tr>
+                                                       
+                                                    
+                                                    </tbody>
+                                                </table>
+
+                                                <button type="button" (click)="onSubmit2()" id="getForm2" style="display: none;"></button>
+                                          
+                                            </div>
+                                        </div>
+                                        <!--===================================================-->
+                                        <!--End Bordered Table-->
+                            
+                                    </div>
+                                </div>
+

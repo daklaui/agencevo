@@ -51,8 +51,8 @@
                                     <div class="form-group col-lg-6">
                                         <strong class="text-main"> Pension de base </strong>
                             
-                                        <select class="form-control" ngModel name="Pension_Base" #pesionbase>
-
+                                        <select class="selectpicker form-control" data-live-search="true" ngModel name="Pension_Base" #pesionbase>
+<option selected>merci de choisir une pension</option>
 <option *ngFor="let x of ListePension" [value]="x.LIB_LIST_VAL">
     {{x.LIB_LIST_VAL}}
 </option>
@@ -65,8 +65,9 @@
                                        
                                         <strong class="text-main"> Groupe de tarif</strong>
                             
-                                        <select class="form-control" ngModel name="Groupe_Tarif">
-<option value="B2C">Standard Rate B2C</option>
+                                        <select class="selectpicker form-control" data-live-search="true" ngModel name="Groupe_Tarif">
+                                            <option selected>merci de choisir une Groupe de tarif</option>
+                                            <option value="B2C">Standard Rate B2C</option>
 <option value="B2B">Standard Rate B2B</option>
 
                                         </select>
@@ -75,7 +76,8 @@
                         
                                         <strong class="text-main"> Saison</strong>
                             
-                                        <select class="form-control"ngModel name="Id_Det_Session">
+                                        <select class="selectpicker form-control" data-live-search="true" ngModel name="Id_Det_Session">
+                                            <option selected>merci de choisir une Saison</option>
                                             <option *ngFor="let x of ListeSaisonHotel" [value]="x.id_det_saison">
                                                 {{x.titre}} |  {{x.date_debut | date: 'dd/MM/yyyy'}} 
                                             </option>
@@ -85,9 +87,9 @@
                                     <div class="form-group col-lg-6">
                                       
                                         <strong class="text-main"> Type chambre</strong>
-                            
-                                        <select class="form-control" ngModel name="Id_Chambre">
-
+                                     
+                                        <select class="selectpicker form-control" data-live-search="true" ngModel name="Id_Chambre">
+                                            <option selected>merci de choisir Type chambre</option>
                                             <option *ngFor="let x of ListeTypeChambre" [value]="x.ID_Chambre">
                                                 {{x.Type_Chambre}} |  {{x.Categorie}} |{{x.Vue}} 
                                             </option>
@@ -98,8 +100,9 @@
     
                                         <strong class="text-main"> Type de vente</strong>
                             
-                                        <select class="form-control" ngModel name="Type_Vente">
-                                            <option value="persone" >Nuit Par persone</option>
+                                        <select class="selectpicker form-control" data-live-search="true" ngModel name="Type_Vente">
+                                         
+                                            <option value="persone" selected>Nuit Par persone</option>
                                             <option value="Chambre" >Nuit Par Chambre</option>
                                         </select>
                                     </div>
@@ -156,23 +159,20 @@
                                                             <th class="text-center">Type de pension</th>
                                                             <th>Prix d'achat</th>
                                                             <th>Prix vente</th>
-                                                          
-                                                            <th>Min séjour</th>
+                                                         
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                       
-                                                        <tr *ngFor="let x of ListePension;let i=index" >
-                                                            <td class="text-center" >{{x.LIB_LIST_VAL}}</td>
-                                                            <td>
+                                                        <tr *ngFor="let x of ListePension;let i=index " >
+                                                            <td *ngIf="x.LIB_LIST_VAL!=pesionbase.value" class="text-center" >{{x.LIB_LIST_VAL}}</td>
+                                                            <td *ngIf="x.LIB_LIST_VAL!=pesionbase.value">
                                                                 <input type="number" class="form-control" ngModel name="Prix_Achat"  placeholder="">
                                                             </td>
-                                                            <td>
+                                                            <td *ngIf="x.LIB_LIST_VAL!=pesionbase.value">
                                                                 <input type="number" class="form-control" ngModel name="Prix_Vente" placeholder="">
                                                             </td>
-                                                            <td>
-                                                                <input type="number" class="form-control" ngModel name="Min_Sejour" placeholder="">
-                                                            </td>
+                                                           
                                                            
                                                         </tr>
                                                        

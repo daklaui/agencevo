@@ -62,7 +62,7 @@ export class FormAjouterHotelComponent implements OnInit {
 
  onSubmit(form: NgForm ) {
   form.value["Categorie"]=this.onRatingChangeResult.rating;
-  form.value["theme"]= form.value["theme"].toString();
+  form.value["Themes"]= form.value["theme"].toString();
   this.anyob=form.value;
 
   

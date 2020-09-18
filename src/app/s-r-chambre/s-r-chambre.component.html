@@ -15,10 +15,56 @@
         </div>
     </div>
 </div>
+<div id="UpdateChambreSR" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+              
+            </div>
+            <div class="modal-body">
+                <form *ngIf="SuppredCh" [formGroup]="SuppredCh"  (ngSubmit)="onUpdate()" >
+                    <input type="hidden" formControlName="id_red_ch"  class="form-control"  placeholder="">
+                    <div class="table-responsive">
+                        <table class="table table-striped ">
+                            <tbody>
+                                <tr class="bg-default">
+                                    <td class="col-lg-2">        <select class="form-control"  formControlName="operation" >
+                                        <option value="-1">-</option>
+                                        <option value="1">+</option>
+                                    </select></td>
+                                    <th class="text-center">Achat</th>
+                                    <td>    <input type="number" formControlName="Prix_Achat"  class="form-control"  placeholder=""></td>
+                                    <th class="text-center">Vente</th>
+                                    <td>     <input type="number" formControlName="Prix_Vente"  class="form-control"  placeholder=""></td>
+                                    <td>        <select class="form-control"  formControlName="Type_Paiement" >
+                                        <option value="%">%</option>
+                                        <option value="MntFixe">montant fixe</option>
+                                    </select></td>
+                                    <th >Note: </th>
+                                    <td>    <input type="text" class="form-control" formControlName="Note"></td>
+                                    <td>      <button type="submit" class="btn btn-primary pull-right">Modifier</button></td>
+                                </tr>
+                    
+                         
+                             
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    </form>
+            </div>
+            <div class="modal-footer">
+             
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-lg-12">
-        <button type="button" (click)="addRSChambre()" class="btn btn-success pull-right">Ajouter</button>
+        <button type="button" (click)="addRSChambre()" class="btn btn-primary pull-right">Ajouter</button>
     </div>
 </div>
 <hr class="new-section-sm bord-no"/>
@@ -34,13 +80,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of LsteDesChamb">
-                <td>{{x.Prix_Achat}} <p *ngIf="x.Type_Paiement=='MntFixe'">TND</p><p *ngIf="x.Type_Paiement=='%'">%</p></td>
-                <td>{{x.Prix_Vente}} <p *ngIf="x.Type_Paiement=='MntFixe'">TND</p><p *ngIf="x.Type_Paiement=='%'">%</p></td>
+            <tr *ngFor="let x of LsteDesChamb ;let i=index">
+                <td>{{x.Prix_Achat}} <span *ngIf="x.Type_Paiement=='MntFixe'">TND</span><span *ngIf="x.Type_Paiement=='%'">%</span></td>
+                <td>{{x.Prix_Vente}} <span *ngIf="x.Type_Paiement=='MntFixe'">TND</span><span *ngIf="x.Type_Paiement=='%'">%</span></td>
                 <td>{{x.Note}} </td>
-                <td>
-                    
-                </td>
+                <td class="col-lg-2">
+                    <div class=" demo-nifty-btn">
+                        <button type="button" class="btn btn-default"  (click)="Update(i)"><i class="fa fa-edit"></i></button>
+                       
+                        <button type="button"  class="btn btn-danger" (click)="Remove(i)"><i class="fa fa-remove"></i></button>
+                    </div>
+                </td> 
+               
                 
               
             </tr>

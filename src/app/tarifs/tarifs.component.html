@@ -13,8 +13,10 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#demo-tabs-box-1">Ajouter Saison</a></li>
                         <li><a data-toggle="tab" href="#demo-tabs-box-2">Définir Saison</a></li>
-                        <li><a data-toggle="tab" href="#demo-tabs-box-3">Tarif</a></li>
+                        <li><a data-toggle="tab" href="#demo-tabs-box-3" >Tarif</a></li>
+                        <li><a data-toggle="tab" href="#demo-tabs-box-5">Liste Tarifs</a></li>
                         <li><a data-toggle="tab" href="#demo-tabs-box-4">Simulateur</a></li>
+                        <li><a data-toggle="tab" href="#demo-tabs-box-6">Ajuster Tarif</a></li>
                     </ul>
 
                 </div>
@@ -37,6 +39,12 @@
                     </div>
                     <div id="demo-tabs-box-4" class="tab-pane fade">
                         <app-simulateur [id]="id"></app-simulateur>
+                    </div>
+                    <div id="demo-tabs-box-5" class="tab-pane fade">
+                        <app-liste-tarifs [id]="id"></app-liste-tarifs>
+                    </div>
+                    <div id="demo-tabs-box-6" class="tab-pane fade">
+                        <app-ajuster-tarifs [id]="id"></app-ajuster-tarifs>
                     </div>
                 </div>
             </div>

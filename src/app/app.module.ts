@@ -38,6 +38,15 @@ import { NgSwitcheryModule } from "angular-switchery-ios";
 import { ReactiveFormsModule } from '@angular/forms';
 import { SimulateurComponent } from './simulateur/simulateur.component';  
 import { DataTablesModule } from 'angular-datatables';
+import { ListeTarifsComponent } from './liste-tarifs/liste-tarifs.component';
+import { FormUpdateTarifBaseComponent } from './form-update-tarif-base/form-update-tarif-base.component';
+import { UpdateSupplementSurPensionComponent } from './update-supplement-sur-pension/update-supplement-sur-pension.component';
+import { SuupRedUpdateComponent } from './suup-red-update/suup-red-update.component';
+import { UpdateSuppRedChambreComponent } from './update-supp-red-chambre/update-supp-red-chambre.component';
+import { AjusterTarifsComponent } from './ajuster-tarifs/ajuster-tarifs.component';
+import { AjusterPrixVentePComponent } from './ajuster-prix-vente-p/ajuster-prix-vente-p.component';
+import { AjusterPrixVenteValeurComponent } from './ajuster-prix-vente-valeur/ajuster-prix-vente-valeur.component';
+import { AjusterMinSejourDelaiRetroComponent } from './ajuster-min-sejour-delai-retro/ajuster-min-sejour-delai-retro.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +78,16 @@ import { DataTablesModule } from 'angular-datatables';
     UpdatePresentationComponent,
     UpdateEquipementsComponent,
     UpdateChambresComponent,
-    SimulateurComponent
+    SimulateurComponent,
+    ListeTarifsComponent,
+    FormUpdateTarifBaseComponent,
+    UpdateSupplementSurPensionComponent,
+    SuupRedUpdateComponent,
+    UpdateSuppRedChambreComponent,
+    AjusterTarifsComponent,
+    AjusterPrixVentePComponent,
+    AjusterPrixVenteValeurComponent,
+    AjusterMinSejourDelaiRetroComponent
   ],
   imports: [
     BrowserModule,

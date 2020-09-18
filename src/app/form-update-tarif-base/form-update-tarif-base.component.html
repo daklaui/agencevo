@@ -1,0 +1,96 @@
+
+                                <form *ngIf="FormTarifDebase" [formGroup]="FormTarifDebase"  (ngSubmit)="onUpdate()" >
+
+                                    <div class="col-lg-2"></div>
+                                 
+                                    <div class="col-lg-8">
+    
+    
+                                        <div class="form-group col-lg-6">
+                                            <strong class="text-main"> Pension de base </strong>
+                                
+                                            <select class=" form-control" formControlName="Pension_Base" #pesionbase>
+    
+                                                <option *ngFor="let x of ListePension1" [value]="x.LIB_LIST_VAL">
+                                                    {{x.LIB_LIST_VAL}}
+                                                </option>
+    
+                                            </select>
+                                        </div>
+                                       
+        
+                                        <div class="form-group col-lg-6">
+                                           
+                                            <strong class="text-main"> Groupe de tarif</strong>
+                                
+                                            <select class= "form-control"  formControlName="Groupe_Tarif">
+    <option value="B2C">Standard Rate B2C</option>
+    <option value="B2B">Standard Rate B2B</option>
+    
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                            
+                                            <strong class="text-main"> Saison</strong>
+                                
+                                            <select class="form-control" data-live-search="true" formControlName="Id_Det_Session">
+                                                <option *ngFor="let x of ListeSaisonHotel" [value]="x.id_det_saison">
+                                                    {{x.titre}} |  {{x.date_debut | date: 'dd/MM/yyyy'}} 
+                                                </option>
+                                            </select>
+                                        </div>
+                                       
+                                        <div class="form-group col-lg-6">
+                                          
+                                            <strong class="text-main"> Type chambre</strong>
+                                
+                                            <select class="form-control" data-live-search="true" formControlName="Id_Chambre">
+    
+                                                <option *ngFor="let x of ListeTypeChambre" [value]="x.ID_Chambre">
+                                                    {{x.Type_Chambre}} |  {{x.Categorie}} |{{x.Vue}} 
+                                                </option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group col-lg-6">
+        
+                                            <strong class="text-main"> Type de vente</strong>
+                                
+                                            <select class="form-control"  formControlName="Type_Vente">
+                                                <option value="persone" >Nuit Par persone</option>
+                                                <option value="Chambre" >Nuit Par Chambre</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-lg-6">
+        
+                                            <strong class="text-main" >Min Séjour</strong>
+                                
+                                            <input type="number" class="form-control" formControlName="Min_Sejour" placeholder="">
+                                        </div>
+    
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                              <strong  class="text-main"> Prix Achat : </strong> 
+                                              
+                                                    <input type="number" class="form-control" formControlName="Prix_Achat" placeholder="">
+                                        
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <strong  class="text-main"> Prix Vente : </strong> 
+                                              
+                                                    <input type="number" class="form-control" formControlName="Prix_Vente" placeholder="">
+                                              
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2"></div>
+    
+                                   
+                                    <div class="col-lg-12">
+                                        <button type="submit" class="btn btn-primary" >Modifier</button>
+                                    </div>
+                              
+                                </form>
+

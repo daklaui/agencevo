@@ -156,6 +156,14 @@ export class ServiceBackService {
   {
     return  this.http.get(environment.apiUrl+"GetLesPhoto/"+x).toPromise();
   }
+  GetLesChambresHotel(x:any)
+  {
+    return  this.http.get(environment.apiUrl+"GetLesChambresHotel/"+x).toPromise();
+  }
+  GetLesDetSHotel(x:any)
+  {
+    return  this.http.get(environment.apiUrl+"GetLesDetSHotel/"+x).toPromise();
+  }
   getListeChambresTarif(x:any)
   {
     return  this.http.post(environment.apiUrl+"getListeChambresTarif",x).toPromise();
@@ -200,10 +208,58 @@ export class ServiceBackService {
   {
     return  this.http.post(environment.apiUrl+"Update_equipement",eq).toPromise();
   }
+  Ajouter_SuppRed(SuppRed:any)
+  {
+    return  this.http.post(environment.apiUrl+"Ajouter_SuppRed",SuppRed).toPromise();
+  }
+  AjouterSupRedChambre(SuppRed:any)
+  {
+    return  this.http.post(environment.apiUrl+"AjouterSupRedChambre",SuppRed).toPromise();
+  }
   Update_Chambre(chambre:any)
   {
     return  this.http.put(environment.apiUrl+"Update_Chambre",chambre).toPromise();
   }
+  Ajuster_Retro_MinSejour(chambre:any)
+  {
+    return  this.http.put(environment.apiUrl+"Ajuster_Retro_MinSejour",chambre).toPromise();
+  }
 
+  updateDetSaison(DetSaison:any)
+  {
+    return  this.http.put(environment.apiUrl+"updateDetSaison",DetSaison).toPromise();
+  }
+  AjusterTarif(ajusterTarif:any)
+  {
+    return  this.http.put(environment.apiUrl+"AjusterTarif",ajusterTarif).toPromise();
+  }
+  Update_Supp(tarif:any)
+  {
+    return  this.http.put(environment.apiUrl+"Update_Supp",tarif).toPromise();
+  }
+  updatePensionBase(tarif:any)
+  {
+    return  this.http.put(environment.apiUrl+"updatePensionBase",tarif).toPromise();
+  }
+  GetListeTarifs(id:any)
+  {
+    return  this.http.get(environment.apiUrl+"GetListeTarifs/"+id).toPromise();
+  }
+  GetPension_Supp(id:any)
+  {
+    return  this.http.get(environment.apiUrl+"GetPension_Supp/"+id).toPromise();
+  }
+  GetPension_Supp_red(id:any)
+  {
+    return  this.http.get(environment.apiUrl+"Get_Supp_red/"+id).toPromise();
+  }
+  Get_Supp_red_Chambre(id:any)
+  {
+    return  this.http.get(environment.apiUrl+"Get_Supp_red_Chambre/"+id).toPromise();
+  }
+  Remove_SuppRed(id:any)
+  {
+    return  this.http.delete(environment.apiUrl+"Remove_SuppRed/"+id).toPromise();
+  }
   
 }

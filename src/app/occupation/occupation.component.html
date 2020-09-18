@@ -16,9 +16,88 @@
     </div>
 </div>
 
+<div id="Update" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+              
+            </div>
+            <div class="modal-body">
+              
+<form *ngIf="Suppred" [formGroup]="Suppred"  (ngSubmit)="onUpdate()" >
+    <input type="hidden" class="form-control"  formControlName="id_re"  placeholder="">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tbody>
+                <tr class="bg-default">
+                    <td>        <select class="form-control" formControlName="operation" >
+                        <option value="-1">-</option>
+                        <option value="1">+</option>
+                    </select></td>
+                    <th class="text-center">Achat</th>
+                    <td>    <input type="number" class="form-control"  formControlName="Prix_Achat"  placeholder=""></td>
+                    <th class="text-center">Vente</th>
+                    <td>     <input type="number" class="form-control"   formControlName="Prix_Vente" placeholder=""></td>
+                    <td>        <select class="form-control"  formControlName="Type_Paiement" >
+                        <option value="%">%</option>
+                        <option value="MntFixe">montant fixe</option>
+                    </select></td>
+                </tr>
+    
+         
+                <tr class="bg-default">
+                
+                    <th >Si l'occupation est de : </th>
+                    <td>    <input type="number"   formControlName="Nb_Adulte" class="form-control"></td>
+                    <th class="text-center">Adulte(s) +</th>
+                    <td>     <input type="number"   formControlName="Nb_Enfant" class="form-control" ></td>
+                    <th class="text-center">enfant(s)</th>
+                </tr>
+               
+    
+    
+                <tr class="bg-default">
+                
+                    <th>Applicable sur les  </th>
+                    <td>     <select class="form-control"  formControlName="Applicable_Sur">
+                        <option value="Adulte">Adulte</option>
+                        <option value="enfant">enfant</option>
+                    </select></td>
+                    <th >Age entre </th>
+                    <td>     <input type="number"  formControlName="Age_Min" class="form-control"></td>
+                    <th class="text-center" >et</th>
+                    <td >     <input type="number"  formControlName="Age_Max" class="form-control"></td>
+                </tr>
+                <tr class="bg-default">
+                
+                    <th >Applicable pour  </th>
+                    <td>      <input type="radio"  formControlName="Applicable_Pour" value="AllPersone" > toute personne</td>
+      
+                    <td>     <input type="radio" formControlName="Applicable_Pour" value="Persone" > ou bien sur la  personne N° </td>
+                    <td>     <input type="number"  formControlName="N_Personne" class="form-control"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+    <div class="col-lg-12">
+        <button type="submit" class="btn btn-primary pull-right">Modifier</button>
+    </div>
+    
+    </form>
+            </div>
+            <div class="modal-footer">
+             
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-lg-12">
-        <button type="button" (click)="addOccupation()" class="btn btn-success pull-right">Ajouter</button>
+        <button type="button" (click)="addOccupation()" class="btn btn-primary pull-right">Ajouter</button>
     </div>
 </div>
 <hr class="new-section-sm bord-no"/>
@@ -42,7 +121,7 @@
                 <td><p *ngIf="x.Applicable_Pour=='AllPersone'">toute {{x.Applicable_Sur}}</p> <p *ngIf="x.Applicable_Pour=='Persone'">sur  {{x.Applicable_Sur}} n° {{x.N_Personne}}  </p> [{{x.Age_Min}} - {{x.Age_Max}}]</td>
                 <td>
                     <div class=" demo-nifty-btn">
-                        <button type="button" class="btn btn-default" ><i class="fa fa-edit"></i></button>
+                        <button type="button" class="btn btn-default"  (click)="Update(i)"><i class="fa fa-edit"></i></button>
                        
                         <button type="button"  class="btn btn-danger" (click)="Remove(i)"><i class="fa fa-remove"></i></button>
                     </div>
