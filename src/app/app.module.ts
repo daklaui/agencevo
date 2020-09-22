@@ -47,6 +47,7 @@ import { AjusterTarifsComponent } from './ajuster-tarifs/ajuster-tarifs.componen
 import { AjusterPrixVentePComponent } from './ajuster-prix-vente-p/ajuster-prix-vente-p.component';
 import { AjusterPrixVenteValeurComponent } from './ajuster-prix-vente-valeur/ajuster-prix-vente-valeur.component';
 import { AjusterMinSejourDelaiRetroComponent } from './ajuster-min-sejour-delai-retro/ajuster-min-sejour-delai-retro.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +94,7 @@ import { AjusterMinSejourDelaiRetroComponent } from './ajuster-min-sejour-delai-
     BrowserModule,
     AppRoutingModule,  StarRatingModule.forRoot(),FormsModule,HttpClientModule,NgxDropzoneModule,NgSwitcheryModule,  ReactiveFormsModule  ,DataTablesModule
   ],
-  providers: [],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

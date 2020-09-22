@@ -7,6 +7,7 @@ import{AjouterTarifFormComponent} from '../ajouter-tarif-form/ajouter-tarif-form
 })
 export class TarifsComponent implements OnInit {
   @Input() id:number;
+  viewMode="";
   @ViewChild(AjouterTarifFormComponent, {static: false}) ajouterTarifComponent: AjouterTarifFormComponent ; 
   constructor() { }
 
