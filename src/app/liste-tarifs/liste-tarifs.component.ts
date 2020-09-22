@@ -49,18 +49,18 @@ i:any;
     this.i=i;
     this.x = this.ListeTarifs[i];
     this.id_tarif=this.x.Id_Tarif;
-  /* this.FormTarifDebase= new FormGroup({
+   this.FormTarifDebase= new FormGroup({
     id_re : new FormControl(i),
     Pension_Base : new FormControl(this.x.Pension_Base),
-    Groupe_Tarif : new FormControl(x.Groupe_Tarif),
-    Id_Det_Session : new FormControl(x.Id_Det_Session),
-    Id_Chambre : new FormControl(x.Id_Chambre),
-    Type_Vente : new FormControl(x.Type_Vente),
-    Min_Sejour : new FormControl(x.Min_Sejour),
-    Prix_Achat : new FormControl(x.Prix_Achat),
-    Prix_Vente : new FormControl(x.Prix_Vente)
+    Groupe_Tarif : new FormControl(this.x.Groupe_Tarif),
+    Id_Det_Session : new FormControl(this.x.Id_Det_Session),
+    Id_Chambre : new FormControl(this.x.Id_Chambre),
+    Type_Vente : new FormControl(this.x.Type_Vente),
+    Min_Sejour : new FormControl(this.x.Min_Sejour),
+    Prix_Achat : new FormControl(this.x.Prix_Achat),
+    Prix_Vente : new FormControl(this.x.Prix_Vente)
    
-  });*/
+  });
  // $(".selectpicker").selectpicker('refresh');
   $('#UpdateTarif').modal();
 

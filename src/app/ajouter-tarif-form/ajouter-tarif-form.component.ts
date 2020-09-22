@@ -4,6 +4,7 @@ import { OccupationComponent } from '../occupation/occupation.component';
 import { SRChambreComponent } from '../s-r-chambre/s-r-chambre.component';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { TarifsComponent } from '../tarifs/tarifs.component';
 declare var $: any;
 @Component({
   selector: 'app-ajouter-tarif-form',
@@ -14,6 +15,7 @@ export class AjouterTarifFormComponent implements OnInit,AfterViewInit {
   @Input() id:number;
   @ViewChild(OccupationComponent, {static: false}) occupationComponent: OccupationComponent ; 
   @ViewChild(SRChambreComponent, {static: false}) SRChambreComponent: SRChambreComponent ; 
+
 tarif:any={};
   ListePension:any=[];
   ListeSupptarif:any=[];
@@ -22,10 +24,12 @@ tarif:any={};
   
   constructor(private  serviceBack:ServiceBackService) { }
 
-  ngOnInit() {
+   ngOnInit() {
 
     this.WizarFn();
     this.AllListes();
+    
+
   }
   opensweetalert()
   {
@@ -96,10 +100,12 @@ async AllListes()
   this.ListePension=await  this.serviceBack.GetPension();
   this.ListeSaisonHotel=await  this.serviceBack.GetSaisonHotel(this.id);
   this.ListeTypeChambre=await  this.serviceBack.GettypeChambre(this.id);
+  this.ListeTypeChambre=await  this.serviceBack.GettypeChambre(this.id);
+  $('.selectpicker').selectpicker('refresh');
 }
 
 ngAfterViewInit(){
-  this.AllListes();
+
  }
 
 Ajouter_Tarif()
@@ -117,7 +123,9 @@ Ajouter_Tarif()
 
  this.serviceBack.AddTarif(x).then(data=>{
 let x = data as any;
+//this.tarifs.viewMode="'tab5'";
 this.opensweetalert();
+
  });
 
 }

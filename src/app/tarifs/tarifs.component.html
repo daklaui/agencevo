@@ -12,11 +12,11 @@
                     <!--Nav tabs-->
                     <ul class="nav nav-tabs">
                         <li><a data-toggle="tab" [class.active]="viewMode == 'tab1'" (click)="viewMode ='tab1'" >Ajouter Saison</a></li>
-                        <li><a data-toggle="tab" [class.active]="viewMode == 'tab2'" (click)="viewMode ='tab1'" >Définir Saison</a></li>
-                        <li><a data-toggle="tab" [class.active]="viewMode == 'tab3'" (click)="viewMode ='tab1'"  >Tarif</a></li>
-                        <li><a data-toggle="tab" [class.active]="viewMode == 'tab4'" (click)="viewMode ='tab1'" >Liste Tarifs</a></li>
-                        <li><a data-toggle="tab" [class.active]="viewMode == 'tab5'" (click)="viewMode ='tab1'" >Simulateur</a></li>
-                        <li><a data-toggle="tab" [class.active]="viewMode == 'tab6'" (click)="viewMode ='tab1'" >Ajuster Tarif</a></li>
+                        <li><a data-toggle="tab" [class.active]="viewMode == 'tab2'" (click)="viewMode ='tab2'" >Définir Saison</a></li>
+                        <li><a data-toggle="tab" [class.active]="viewMode == 'tab3'" (click)="viewMode ='tab3'"  >Tarif</a></li>
+                        <li><a data-toggle="tab" [class.active]="viewMode == 'tab5'" (click)="viewMode ='tab5'" >Liste Tarifs</a></li>
+                        <li><a data-toggle="tab" [class.active]="viewMode == 'tab4'" (click)="viewMode ='tab4'" >Simulateur</a></li>
+                        <li><a data-toggle="tab" [class.active]="viewMode == 'tab6'" (click)="viewMode ='tab6'" >Ajuster Tarif</a></li>
                     </ul>
 
                 </div>
@@ -31,19 +31,19 @@
                     <div  class="tab-pane fade in active" *ngSwitchCase="'tab1'">
                         <app-add-saison></app-add-saison>
                     </div>
-                    <div class="tab-pane fade" *ngSwitchCase="'tab2'">
+                    <div class="tab-pane fade in active" *ngSwitchCase="'tab2'">
                         <app-affecter-date-saison [id]="id"></app-affecter-date-saison>
                     </div>
-                    <div  class="tab-pane fade" *ngSwitchCase="'tab3'">
+                    <div  class="tab-pane fade in active" *ngSwitchCase="'tab3'">
                         <app-ajouter-tarif [id]="id"></app-ajouter-tarif>
                     </div>
-                    <div  class="tab-pane fade" *ngSwitchCase="'tab4'">
+                    <div  class="tab-pane fade in active" *ngSwitchCase="'tab4'">
                         <app-simulateur [id]="id"></app-simulateur>
                     </div>
-                    <div  class="tab-pane fade" *ngSwitchCase="'tab5'">
+                    <div  class="tab-pane fade in active" *ngSwitchCase="'tab5'">
                         <app-liste-tarifs [id]="id"></app-liste-tarifs>
                     </div>
-                    <div  class="tab-pane fade" *ngSwitchCase="'tab6'">
+                    <div  class="tab-pane fade in active" *ngSwitchCase="'tab6'">
                         <app-ajuster-tarifs [id]="id"></app-ajuster-tarifs>
                     </div>
                 </div>

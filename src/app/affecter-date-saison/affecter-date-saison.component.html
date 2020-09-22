@@ -1,4 +1,56 @@
 
+
+
+<div id="UpdateDetS" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+              
+            </div>
+            <div class="modal-body">
+            
+                <form *ngIf="FormUpdateDetSa" [formGroup]="FormUpdateDetSa"  (ngSubmit)="onUpdate()" >
+                    <div class="col-lg-3">
+                
+                        <div class="form-group">
+                            <strong class="text-main"> Date début </strong>
+                          <input type="date" class=" form-control"   formControlName="Date_Debut"  placeholder="">
+                          <input type="hidden" class=" form-control"   formControlName="Id_Det_Saison"  placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <strong class="text-main"> Date fin </strong>
+                          <input type="date" class="datepicker form-control"  formControlName="Date_Fin" placeholder="">
+                        </div>
+                
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <strong class="text-main"> Saison</strong>
+                     <select class="form-control" formControlName="Id_Saison">
+                         <option *ngFor="let x of ListeSaison" [value]="x.Id_Saison">{{x.Titre}}</option>
+                     </select>
+                        </div>
+                
+                    </div>
+                    <div class="col-lg-3">
+                        <br>
+                        <button type="submit" class="btn btn-primary pull-left">Modifier</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+             
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="row">
     <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
     <div class="col-lg-3">
@@ -11,7 +63,7 @@
     <div class="col-lg-3">
         <div class="form-group">
             <strong class="text-main"> Date fin </strong>
-          <input type="date" class=" datepicker form-control"  ngModel #Date_Fin="ngModel" name="Date_Fin" placeholder="">
+          <input type="date" class="datepicker form-control"  ngModel #Date_Fin="ngModel" name="Date_Fin" placeholder="">
         </div>
 
     </div>
@@ -47,7 +99,9 @@
                     <td>{{x.date_debut |  date: 'dd/MM/yyyy'}}</td>
                     <td>{{x.date_fin |  date: 'dd/MM/yyyy'}}</td>
                     <td>{{x.titre}}</td>
-                    <td> <ng-switchery  [(ngModel)]="x.Etat"  (change)="toggelEtat(x.Etat,i)" ></ng-switchery></td>
+                    <td>
+                        <button type="button" (click)="Update(i)">Modifier</button>
+                        <!--<ng-switchery  [(ngModel)]="x.Etat"  (change)="toggelEtat(x.Etat,i)" ></ng-switchery>--></td>
                    
                 </tr>
                 

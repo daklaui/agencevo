@@ -1,7 +1,9 @@
 
 $(document).ready( function () {
  
-
+  $('.datepicker').datepicker({
+    format: 'd-M-yyyy'
+});
 
   var rowSelection = $('#demo-dt-selection').DataTable({
     "responsive": true,

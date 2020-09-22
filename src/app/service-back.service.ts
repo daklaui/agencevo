@@ -220,6 +220,10 @@ export class ServiceBackService {
   {
     return  this.http.put(environment.apiUrl+"Update_Chambre",chambre).toPromise();
   }
+  Update_Det_S(DetS:any)
+  {
+    return  this.http.put(environment.apiUrl+"Update_Det_S",DetS).toPromise();
+  }
   Ajuster_Retro_MinSejour(chambre:any)
   {
     return  this.http.put(environment.apiUrl+"Ajuster_Retro_MinSejour",chambre).toPromise();

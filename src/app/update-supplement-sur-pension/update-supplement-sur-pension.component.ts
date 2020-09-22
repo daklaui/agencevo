@@ -11,6 +11,7 @@ export class UpdateSupplementSurPensionComponent implements OnInit {
   @Input() id: number ;
   ListeSuppTarif:any=[];
   supplements = new FormArray([]);
+  affiche=false;
   constructor(private  serviceBack:ServiceBackService ) { }
 
   ngOnInit() {
@@ -45,7 +46,7 @@ Update(a,b,etat)
 {
    var prix_achat=$("#Prix_Achat"+b).val();
    var prix_vente=$("#Prix_Vente"+b).val();
-   alert(prix_achat+" "+prix_vente+" "+etat);
+  // alert(prix_achat+" "+prix_vente+" "+etat);
 
    let x ={
      "Prix_Achat":prix_achat,
@@ -53,7 +54,9 @@ Update(a,b,etat)
      "Etat_tarif":etat,
      "Id_Tarif":a
    }
- this.serviceBack.Update_Supp(x).then(data=>{});
+ this.serviceBack.Update_Supp(x).then(data=>{
+  this.affiche=true;
+ });
 
 
 }

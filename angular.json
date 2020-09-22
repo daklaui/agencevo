@@ -23,7 +23,6 @@
               "src/favicon.ico",
               "src/assets",
               "src/assets/1.png"
-              
             ],
             "styles": [
               "TemplateN/css/bootstrap.min.css",
@@ -64,20 +63,10 @@
               "TemplateN/plugins/switchery/switchery.min.js",
               "TemplateN/plugins/bootstrap-select/bootstrap-select.min.js",
               "TemplateN/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js",
-            
               "TemplateN/plugins/noUiSlider/nouislider.min.js",
               "TemplateN/plugins/select2/js/select2.min.js",
               "TemplateN/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js",
-              
               "node_modules/datatables.net/js/jquery.dataTables.js"
-
-
-             
-
-            
-
-           
-
             ]
           },
           "configurations": {
@@ -172,6 +161,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "agencevo"
+    }
+  },
+  "defaultProject": "agencevo",
+  "cli": {
+    "analytics": false
+  }
 }

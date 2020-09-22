@@ -34,7 +34,7 @@
                         <div class="tab-content" [ngSwitch]="viewMode">
                             <div  class="tab-pane fade in active" *ngSwitchCase="'tab1'">
                                 
-    <app-form-update-tarif-base [x]="x" [i]="i" [id]="id"></app-form-update-tarif-base>
+    <app-form-update-tarif-base [x]="FormTarifDebase" [i]="i" [id]="id"></app-form-update-tarif-base>
                             </div>
                             <div  class="tab-pane fade in active" *ngSwitchCase="'tab2'">
                                 <app-update-supplement-sur-pension  [id]="id_tarif"></app-update-supplement-sur-pension>

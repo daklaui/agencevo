@@ -10,18 +10,19 @@ declare var $ :any;
 export class FormUpdateTarifBaseComponent implements OnInit {
   FormTarifDebase:FormGroup;
   
-  @Input() x : any;
+  @Input() x : FormGroup;
   @Input() i : any;
   @Input() id: number ;
   ListeTarifs:any=[];
 ListePension1:any=[];
 ListeSaisonHotel:any=[];
 ListeTypeChambre:any=[];
+affiche=false;
   constructor(private  serviceBack:ServiceBackService) { }
 
   ngOnInit() {
     this.AllListes();
-    this.FormTarifDebase= new FormGroup({
+  /*  this.FormTarifDebase= new FormGroup({
       id_re : new FormControl(this.i),
       Pension_Base : new FormControl(this.x.Pension_Base),
       Id_Tarif : new FormControl(this.x.Id_Tarif),
@@ -33,7 +34,8 @@ ListeTypeChambre:any=[];
       Prix_Achat : new FormControl(this.x.Prix_Achat),
       Prix_Vente : new FormControl(this.x.Prix_Vente)
      
-    });
+    });*/
+    this.FormTarifDebase= this.x;
     $('.selectpicker').selectpicker('refresh');
   }
   async AllListes()
@@ -48,6 +50,8 @@ ListeTypeChambre:any=[];
 
   onUpdate()
   {
-    this.serviceBack.updatePensionBase( this.FormTarifDebase.value).then(data=>{});
+    this.serviceBack.updatePensionBase( this.FormTarifDebase.value).then(data=>{
+      this.affiche=true;
+    });
   }
 }

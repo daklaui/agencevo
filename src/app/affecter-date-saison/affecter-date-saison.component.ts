@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { ServiceBackService } from '../service-back.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
+import { TarifsComponent } from '../tarifs/tarifs.component';
 declare var $: any;
 @Component({
   selector: 'app-affecter-date-saison',
@@ -14,6 +15,8 @@ export class AffecterDateSaisonComponent implements OnInit {
   @Input() id:number;
   ListeSaison:any=[];
   ListeDetSaison:any=[];
+  FormUpdateDetSa:FormGroup;
+
   @ViewChild(DataTableDirective, {static: false})
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
@@ -21,6 +24,7 @@ export class AffecterDateSaisonComponent implements OnInit {
   constructor(private  serviceBack:ServiceBackService) { }
 
   ngOnInit() {
+
 
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -34,9 +38,7 @@ export class AffecterDateSaisonComponent implements OnInit {
     this.getSaison();
     this.getDetSaison();
     
-    $('.datepicker').datepicker({
-      format: 'd-M-yyyy'
-  });
+
 
   }
   ngOnDestroy(): void {
@@ -56,7 +58,13 @@ opensweetalert()
       icon: 'success'
     });
   }
-
+  rerender(): void {
+    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      // Destroy the table first
+      dtInstance.destroy();
+    
+    });
+  }
 
  getDetSaison()
 {
@@ -74,6 +82,7 @@ opensweetalert()
       this.opensweetalert();
       this.getSaison();
       this.getDetSaison();
+
     }).catch((error)=>{
       console.log("Promise rejected with " + JSON.stringify(error));
     });
@@ -93,6 +102,34 @@ opensweetalert()
           }).catch((error)=>{
             console.log("Promise rejected with " + JSON.stringify(error));
           });
+  }
+
+
+  Update(i)
+  {
+  let x=  this.ListeDetSaison[i];
+console.log(x);
+const bDate: Date = new Date(new Date(x.date_debut).setDate(new Date(x.date_debut).getDate()+1));
+const dDate: Date = new Date(new Date(x.date_fin).setDate(new Date(x.date_fin).getDate()+1));
+console.log(bDate.toISOString().substring(0, 10));
+    this.FormUpdateDetSa= new FormGroup({
+      Date_Debut : new FormControl(bDate.toISOString().substring(0, 10)),
+      Date_Fin : new FormControl(dDate.toISOString().substring(0, 10)),
+      Id_Saison : new FormControl(x.Id_Saison),
+      Id_Det_Saison : new FormControl(x.id_det_saison)
+  
+    });
+    $('#UpdateDetS').modal('toggle'); 
+  }
+  onUpdate()
+  {
+    console.log(this.FormUpdateDetSa);
+    this.serviceBack.Update_Det_S(this.FormUpdateDetSa.value).then(data=>{
+      $('#UpdateDetS').modal('toggle'); 
+      this.rerender();
+      this.getDetSaison();
+      this.opensweetalert();
+    });
   }
   
 }
