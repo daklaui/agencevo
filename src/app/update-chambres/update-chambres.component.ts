@@ -10,14 +10,33 @@ declare var $: any;
 })
 export class UpdateChambresComponent implements OnInit {
  ListeOfChambres:any=[];
+ ListeCategorie:any=[];
+ListeVue:any=[];
+ListeType_Vente:any=[];
  @Input() id:number;
   constructor(private  serviceBack:ServiceBackService) { }
   chambreForm:FormGroup;
   ngOnInit() {
-this.serviceBack.GetChambres(this.id).then((data)=>{
-  this.ListeOfChambres=data;
-  console.log(this.ListeOfChambres);
-});
+    this.serviceBack.GetTypeVente().then((data)=>{
+      this.ListeType_Vente=data;
+      console.log("Promise resolved with: " + JSON.stringify(data));
+    }).catch((error)=>{
+      console.log("Promise rejected with " + JSON.stringify(error));
+    });
+    this.serviceBack.GetCategorie().then((data)=>{
+      this.ListeCategorie=data;
+      console.log("Promise resolved with: " + JSON.stringify(data));
+    }).catch((error)=>{
+      console.log("Promise rejected with " + JSON.stringify(error));
+    });
+    this.serviceBack.GetVue().then((data)=>{
+      this.ListeVue=data;
+      console.log("Promise resolved with: " + JSON.stringify(data));
+    }).catch((error)=>{
+      console.log("Promise rejected with " + JSON.stringify(error));
+    });
+
+
 
 
   }

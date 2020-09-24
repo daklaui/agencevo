@@ -55,7 +55,7 @@
                             <div class="form-group col-lg-4">
                                   <strong class="text-main">Pays</strong>
                                
-                                 <select class="selectpicker form-control" data-live-search="true" formControlName="Pays" (change)='onOptionsSelected(Pays.value)'>
+                                 <select class="selectpicker form-control" data-live-search="true" formControlName="Pays" >
                                   <option  [value]="paye.name" *ngFor="let paye of ListeOfPays"  >{{paye.name}}</option>
                                  </select>
                                 
