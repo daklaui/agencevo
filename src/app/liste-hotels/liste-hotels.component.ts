@@ -8,7 +8,7 @@ declare var $: any;
   templateUrl: './liste-hotels.component.html',
   styleUrls: ['./liste-hotels.component.css']
 })
-export class ListeHotelsComponent implements AfterViewInit, OnDestroy, OnInit {
+export class ListeHotelsComponent implements AfterViewInit, OnInit {
   @ViewChild(DataTableDirective, {static: false})
   dtElement: DataTableDirective;
 
@@ -16,9 +16,7 @@ ListeHotels:any=[];
 dtOptions: DataTables.Settings = {};
 dtTrigger: Subject<any> = new Subject();
   constructor(private  serviceBack:ServiceBackService) { }
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
+
   ngAfterViewInit() {
     this.dtTrigger.next();
   }
