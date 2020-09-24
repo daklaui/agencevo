@@ -265,5 +265,9 @@ export class ServiceBackService {
   {
     return  this.http.delete(environment.apiUrl+"Remove_SuppRed/"+id).toPromise();
   }
+  RemoveTarif(id:any)
+  {
+    return  this.http.delete(environment.apiUrl+"RemoveTarif/"+id).toPromise();
+  }
   
 }

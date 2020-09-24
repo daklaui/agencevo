@@ -56,7 +56,10 @@
         <div class="panel-collapse collapse" id="demo-acd-info-outline-2">
             <div class="panel-body">
              
-
+                <div class="alert alert-success" *ngIf="affiche"> 
+                    <button class="close" data-dismiss="alert"><i class="pci-cross pci-circle"></i></button>
+                    <strong>Well done!</strong> Enregistrement a été effectué avec succès.
+                </div>
 
                 <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
 

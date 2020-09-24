@@ -7,11 +7,15 @@ import{AjouterTarifFormComponent} from '../ajouter-tarif-form/ajouter-tarif-form
 })
 export class TarifsComponent implements OnInit {
   @Input() id:number;
-  public viewMode="";
+  public viewMode="tab1";
   @ViewChild(AjouterTarifFormComponent, {static: false}) ajouterTarifComponent: AjouterTarifFormComponent ; 
   constructor() { }
 
   ngOnInit() {
   }
-  
+  RouterMethode(event)
+  {
+
+    this.viewMode="tab5";
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ServiceBackService } from '../service-back.service';
-
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-ajuster-prix-vente-p',
   templateUrl: './ajuster-prix-vente-p.component.html',
@@ -21,6 +21,13 @@ export class AjusterPrixVentePComponent implements OnInit {
       this.ListeDesSaison=data;
     });
   }
+  opensweetalert()
+  {
+    Swal.fire({
+        text: 'enregistrement a été effectué avec succès.',
+        icon: 'success'
+      });
+    }
   onSubmit(form: NgForm ) {
     if(form.value["Appliquer"]=="")
     {
@@ -29,7 +36,8 @@ export class AjusterPrixVentePComponent implements OnInit {
     form.value["Id_Hotel"]=this.id;
    // id
    this.serviceBack.AjusterTarif(form.value).then(data=>{
-alert("c bon");
+    this.opensweetalert();
+    form.reset();
    });
 
 

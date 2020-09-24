@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit, Output,EventEmitter } from '@angular/core';
 import { ServiceBackService } from '../service-back.service';
 import { OccupationComponent } from '../occupation/occupation.component';
 import { SRChambreComponent } from '../s-r-chambre/s-r-chambre.component';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TarifsComponent } from '../tarifs/tarifs.component';
+
 declare var $: any;
 @Component({
   selector: 'app-ajouter-tarif-form',
@@ -15,7 +16,7 @@ export class AjouterTarifFormComponent implements OnInit,AfterViewInit {
   @Input() id:number;
   @ViewChild(OccupationComponent, {static: false}) occupationComponent: OccupationComponent ; 
   @ViewChild(SRChambreComponent, {static: false}) SRChambreComponent: SRChambreComponent ; 
-
+  @Output()uploaded = new EventEmitter();
 tarif:any={};
   ListePension:any=[];
   ListeSupptarif:any=[];
@@ -77,6 +78,7 @@ WizarFn()
 onSubmit(form: NgForm ) {
   form.value["Id_Hotel"]=this.id;
   this.tarif=form.value;
+ // form.reset();
   }
 onSubmit2() {
 let v=[];
@@ -89,9 +91,13 @@ let ob={
 };
 
 v.push(ob);
+/*$(this).find("td:eq(1) input").val("");
+$(this).find("td:eq(2) input").val("");
+$(this).find("td:eq(3) input").val("");*/
 });
 //console.log(v);
 this.ListeSupptarif=v;
+
   //his.ListeSupptarif=form.value;
   }
 async AllListes()
@@ -125,7 +131,7 @@ Ajouter_Tarif()
 let x = data as any;
 //this.tarifs.viewMode="'tab5'";
 this.opensweetalert();
-
+this.uploaded.emit('complete');
  });
 
 }

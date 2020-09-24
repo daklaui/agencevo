@@ -2,6 +2,7 @@ import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ServiceBackService } from '../service-back.service';
 declare var $ :any;
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-liste-tarifs',
   templateUrl: './liste-tarifs.component.html',
@@ -19,7 +20,13 @@ viewMode="";
 x:any;
 i:any;
   constructor(private  serviceBack:ServiceBackService) { }
-
+  opensweetalert()
+  {
+    Swal.fire({
+        text: 'enregistrement a été effectué avec succès.',
+        icon: 'success'
+      });
+    }
   ngOnInit() {
    // this.viewMode = 'tab1';
     this.AllListes();
@@ -65,6 +72,12 @@ i:any;
   $('#UpdateTarif').modal();
 
   }
-
+  RemoveT(i)
+  {
+    this.serviceBack.RemoveTarif(i).then(data=>{
+      this.opensweetalert();
+      this.getListeTarifs();
+    });
+  }
 
 }

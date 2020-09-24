@@ -11,6 +11,7 @@ export class UpdateSuppRedChambreComponent implements OnInit {
   LsteDesChamb:any=[];
   @Input() id : Number;
   @Input() tarif : Number;
+  affiche=false;
   constructor(private  serviceBack:ServiceBackService) { }
 
   ngOnInit() {
@@ -18,7 +19,12 @@ export class UpdateSuppRedChambreComponent implements OnInit {
   }
   onSubmit(form: NgForm) {
     form.value["Id_Tarif"]=this.tarif;
-    this.serviceBack.AjouterSupRedChambre(form.value).then(data=>{});
+    this.serviceBack.AjouterSupRedChambre(form.value).then(data=>{
+      this.affiche=true;
+      this.serviceBack.Get_Supp_red_Chambre(this.id).then(data=>{this.LsteDesChamb=data});
+      form.reset();
+      $('.panel-title a').trigger('click');
+    });
     
   }
 }

@@ -35,13 +35,13 @@
                         <app-affecter-date-saison [id]="id"></app-affecter-date-saison>
                     </div>
                     <div  class="tab-pane fade in active" *ngSwitchCase="'tab3'">
-                        <app-ajouter-tarif [id]="id"></app-ajouter-tarif>
+                        <app-ajouter-tarif-form [id]="id" (uploaded)="RouterMethode($event)"></app-ajouter-tarif-form>
                     </div>
                     <div  class="tab-pane fade in active" *ngSwitchCase="'tab4'">
                         <app-simulateur [id]="id"></app-simulateur>
                     </div>
                     <div  class="tab-pane fade in active" *ngSwitchCase="'tab5'">
-                        <app-liste-tarifs [id]="id"></app-liste-tarifs>
+                        <app-liste-tarifs [id]="id" ></app-liste-tarifs>
                     </div>
                     <div  class="tab-pane fade in active" *ngSwitchCase="'tab6'">
                         <app-ajuster-tarifs [id]="id"></app-ajuster-tarifs>

@@ -10,6 +10,7 @@ import { ServiceBackService } from '../service-back.service';
 export class SuupRedUpdateComponent implements OnInit {
   @Input() id: number ;
   @Input() tarif: number ;
+  affiche=false;
   constructor(private  serviceBack:ServiceBackService) { }
   LsteDesSuppRed:any=[];
   ngOnInit() {
@@ -21,9 +22,16 @@ export class SuupRedUpdateComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     form.value["Id_Tarif"]=this.tarif;
- form.value
+ 
  this.serviceBack.Ajouter_SuppRed(form.value).then(data=>{});
 
+ this.affiche=true;
+ form.reset();
+ 
+ this.serviceBack.GetPension_Supp_red(this.id).then(data=>{
+  this.LsteDesSuppRed=data;
+  $('.panel-title a').trigger('click');
+});
   }
   Remove(i)
   {
